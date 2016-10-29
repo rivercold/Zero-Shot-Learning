@@ -32,3 +32,9 @@ def vgg_preprocess(vgg_root, feature_root):
         mdict = {'fc7': features}
 
         savemat(os.path.join(feature_root, fn) + '.mat', mdict)
+
+
+if __name__ == '__main__':
+    vgg_root = '/usr0/home/hongliay/zsl/data/CUB_200_2011/vgg'
+    feature_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features'
+    vgg_preprocess(vgg_root, feature_root)
