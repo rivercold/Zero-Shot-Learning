@@ -2,14 +2,16 @@ from lxml import etree
 from collections import defaultdict
 import urllib2
 import time, random
-
+import re, os
+from readability import Document
+from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
 
 class parser:
     def __init__(self):
         self.name = defaultdict(list)
         self.url_list = self.get_url_list()
         self.wiki_path = "../wiki_url"
-
 
 
     def get_url_list(self):
@@ -35,17 +37,55 @@ class parser:
                 random_time_s = random.randint(40, 90)
                 time.sleep(random_time_s)
 
+    @staticmethod
+    def strip (script):
+        rc_tag = re.compile(r'(?<=<).*?(?=>)')
+        tags = rc_tag.findall(script)
+        for tag in tags:
+            script = script.replace('<'+tag+'>', '')
+        script = script.replace('\n','')
+        script = script.replace('\t','')
+        return script
+
     def parse(self,file_path):
         with open(file_path) as fin:
             content = fin.read()
-        #print file_path
-        text = ""
-        page_tree = etree.HTML(content)
-        nodes = page_tree.xpath("//a/text()")
-        text  = " ".join( [ node for node in nodes ] )
+        doc = Document(content)
+        title = doc.title()
+        article = doc.summary()
+        readable_article=self.strip(article)
+        readable_title=self.strip(title)
+        #print readable_article
+        #print readable_title
+        return readable_title + " " + readable_article
+
+    def get_corpus(self):
+        folder = "../wiki_url/html/"
+        corpus = []
+        index = 0
+        for file in os.listdir(folder):
+            file_path = folder + file
+            text = self.parse(file_path)
+            corpus.append(text)
+            index += 1
+            if index > 200:
+                break
+        print corpus[1]
+        print len(corpus)
+        self.corpus = corpus
+
+    def extract_features(self,corpus):
+        vectorizer = TfidfVectorizer(min_df=5,token_pattern='\\b\\w+\\b')
+        features = vectorizer.fit_transform(corpus)
+        self.vectorizer = vectorizer
+        return features
 
 
 if __name__ == "__main__":
-    url = "https://en.wikipedia.org/wiki/Hooded_warbler"
+    #path = "../wiki_url/html/http:__en.wikipedia.org_wiki_Hooded_warbler"
     p = parser()
-    p.crawl()
+    p.get_corpus()
+    feat = p.extract_features(p.corpus)
+    print type(feat)
+    print feat.shape
+    np.save("./wiki_features",feat)
