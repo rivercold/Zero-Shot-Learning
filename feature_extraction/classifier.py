@@ -39,7 +39,6 @@ def vgg_preprocess(vgg_root, feature_root):
 
 
 def resnet_preprocess(resnet_root, feature_root):
-
     files = os.listdir(resnet_root)
     files.sort()
     for fn in files:
@@ -146,5 +145,10 @@ def test1():
     optimize(X_train, Y_train, X_test, Y_test)
 
 
+def test2():
+    resnet_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
+    feature_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet_ppd'
+    resnet_preprocess(resnet_root, feature_root)
+
 if __name__ == '__main__':
-    test1()
+    test2()
