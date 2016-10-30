@@ -8,6 +8,7 @@ import numpy
 
 num_class = 200
 
+
 def vgg_preprocess(vgg_root, feature_root):
 
     files = os.listdir(vgg_root)
@@ -31,6 +32,35 @@ def vgg_preprocess(vgg_root, feature_root):
                 features = fc7
             else:
                 features = numpy.concatenate((features, fc7), axis=0)
+
+        mdict = {'fc7': features}
+
+        savemat(os.path.join(feature_root, fn) + '.mat', mdict)
+
+
+def resnet_preprocess(resnet_root, feature_root):
+
+    files = os.listdir(resnet_root)
+    files.sort()
+    for fn in files:
+        dirpath = os.path.join(resnet_root, fn)
+        if not os.path.isdir(dirpath):
+            continue
+        features = None
+        mats = os.listdir(dirpath)
+        for mat in mats:
+            matpath = os.path.join(dirpath, mat)
+            if not mat.endswith('.mat'):
+                continue
+            data = loadmat(matpath)
+            data = data['feats']
+            fc1000 = data[0][0][0]
+            fc1000 = numpy.mean(fc1000, axis=1)
+            fc1000 = numpy.reshape(fc1000, (1, 1000))
+            if features is None:
+                features = fc1000
+            else:
+                features = numpy.concatenate((features, fc1000), axis=0)
 
         mdict = {'fc7': features}
 
