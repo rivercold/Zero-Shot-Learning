@@ -45,7 +45,7 @@ def prepare_data(matroot, split_file):
         if not fn.endswith('.mat'):
             continue
         data = loadmat(os.path.join(matroot, fn))
-        features = data['feats']
+        features = data['fc7']
         label = int(fn[:3]) - 1
         y = numpy.zeros((features.shape[0], num_class))
         y[:, label] = 1
@@ -74,8 +74,8 @@ def test(model, X_test, Y_test, batch_size=16):
     for batch_index in xrange(batch_num):
         start = batch_index * batch_size
         end = min((batch_index + 1) * batch_size, X_test.shape[0] - 1)
-        X_batch = X_test[start, end + 1]
-        Y_batch = Y_test[start, end + 1]
+        X_batch = X_test[start: end + 1]
+        Y_batch = Y_test[start: end + 1]
         pred = model.predict_on_batch(X_batch)
         pred = numpy.argmax(pred, axis=1)
         y = numpy.argmax(Y_batch, axis=1)
@@ -100,12 +100,12 @@ def optimize(X_train, Y_train, X_test, Y_test, batch_size=16):
         for batch_index in xrange(batch_num):
             start = batch_index * batch_size
             end = min((batch_index + 1) * batch_size, X_train.shape[0] - 1)
-            X_batch = X_train[start, end + 1]
-            Y_batch = Y_train[start, end + 1]
-
+            X_batch = X_train[start: end + 1]
+            Y_batch = Y_train[start: end + 1]
             loss += model.train_on_batch(X_batch, Y_batch)
             total += end - start + 1
         loss /= total
+        print 'Epoch = %d' % (epoch_index + 1)
         test(model, X_test, Y_test)
 
 
