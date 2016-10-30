@@ -150,5 +150,11 @@ def test2():
     feature_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet_ppd'
     resnet_preprocess(resnet_root, feature_root)
 
+def test3():
+    matroot = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
+    split_file = '/usr0/home/hongliay/zsl/data/CUB_200_2011/train_test_split.txt'
+    X_train, Y_train, X_test, Y_test = prepare_data(matroot, split_file)
+    optimize(X_train, Y_train, X_test, Y_test)
+
 if __name__ == '__main__':
     test2()
