@@ -1,11 +1,14 @@
 from lxml import etree
 from collections import defaultdict
 import urllib2
-import time, random
-import re, os
+import time, random,sys
+import re, os, string
 from readability import Document
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
+
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 class parser:
     def __init__(self):
@@ -66,19 +69,34 @@ class parser:
         for file in os.listdir(folder):
             file_path = folder + file
             text = self.parse(file_path)
+            text = self.preprocess(text)
             corpus.append(text)
             index += 1
             if index > 200:
                 break
-        print corpus[1]
+        print corpus[0]
         print len(corpus)
+        raw_text_file = open("raw_wiki.txt","w")
+        for text in corpus:
+            text = text.encode('utf8')
+            raw_text_file.write(text+"\n")
         self.corpus = corpus
 
     def extract_features(self,corpus):
-        vectorizer = TfidfVectorizer(min_df=5,token_pattern='\\b\\w+\\b')
+        vectorizer = TfidfVectorizer(min_df=3,token_pattern='\\b\\w+\\b')
         features = vectorizer.fit_transform(corpus)
         self.vectorizer = vectorizer
         return features
+
+
+    def preprocess(self,text):
+        t = text.lower()
+        exclude = set(string.punctuation)
+        t = t.replace("["," ")
+        t = t.replace("]"," ")
+        t = t.replace("-"," ")
+        s = ''.join(ch for ch in t if ch not in exclude)
+        return s
 
 
 if __name__ == "__main__":
