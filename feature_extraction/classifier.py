@@ -8,6 +8,7 @@ import numpy
 
 num_class = 200
 
+
 def vgg_preprocess(vgg_root, feature_root):
 
     files = os.listdir(vgg_root)
@@ -37,6 +38,34 @@ def vgg_preprocess(vgg_root, feature_root):
         savemat(os.path.join(feature_root, fn) + '.mat', mdict)
 
 
+def resnet_preprocess(resnet_root, feature_root):
+    files = os.listdir(resnet_root)
+    files.sort()
+    for fn in files:
+        dirpath = os.path.join(resnet_root, fn)
+        if not os.path.isdir(dirpath):
+            continue
+        features = None
+        mats = os.listdir(dirpath)
+        for mat in mats:
+            matpath = os.path.join(dirpath, mat)
+            if not mat.endswith('.mat'):
+                continue
+            data = loadmat(matpath)
+            data = data['feats']
+            fc1000 = data[0][0][0]
+            fc1000 = numpy.mean(fc1000, axis=1)
+            fc1000 = numpy.reshape(fc1000, (1, 1000))
+            if features is None:
+                features = fc1000
+            else:
+                features = numpy.concatenate((features, fc1000), axis=0)
+
+        mdict = {'fc7': features}
+
+        savemat(os.path.join(feature_root, fn) + '.mat', mdict)
+
+
 def prepare_data(matroot, split_file):
     X, Y = None, None
     files = os.listdir(matroot)
@@ -45,7 +74,7 @@ def prepare_data(matroot, split_file):
         if not fn.endswith('.mat'):
             continue
         data = loadmat(os.path.join(matroot, fn))
-        features = data['feats']
+        features = data['fc7']
         label = int(fn[:3]) - 1
         y = numpy.zeros((features.shape[0], num_class))
         y[:, label] = 1
@@ -74,8 +103,8 @@ def test(model, X_test, Y_test, batch_size=16):
     for batch_index in xrange(batch_num):
         start = batch_index * batch_size
         end = min((batch_index + 1) * batch_size, X_test.shape[0] - 1)
-        X_batch = X_test[start, end + 1]
-        Y_batch = Y_test[start, end + 1]
+        X_batch = X_test[start: end + 1]
+        Y_batch = Y_test[start: end + 1]
         pred = model.predict_on_batch(X_batch)
         pred = numpy.argmax(pred, axis=1)
         y = numpy.argmax(Y_batch, axis=1)
@@ -100,12 +129,12 @@ def optimize(X_train, Y_train, X_test, Y_test, batch_size=16):
         for batch_index in xrange(batch_num):
             start = batch_index * batch_size
             end = min((batch_index + 1) * batch_size, X_train.shape[0] - 1)
-            X_batch = X_train[start, end + 1]
-            Y_batch = Y_train[start, end + 1]
-
+            X_batch = X_train[start: end + 1]
+            Y_batch = Y_train[start: end + 1]
             loss += model.train_on_batch(X_batch, Y_batch)
             total += end - start + 1
         loss /= total
+        print 'Epoch = %d' % (epoch_index + 1)
         test(model, X_test, Y_test)
 
 
@@ -116,5 +145,16 @@ def test1():
     optimize(X_train, Y_train, X_test, Y_test)
 
 
+def test2():
+    resnet_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
+    feature_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet_ppd'
+    resnet_preprocess(resnet_root, feature_root)
+
+def test3():
+    matroot = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
+    split_file = '/usr0/home/hongliay/zsl/data/CUB_200_2011/train_test_split.txt'
+    X_train, Y_train, X_test, Y_test = prepare_data(matroot, split_file)
+    optimize(X_train, Y_train, X_test, Y_test)
+
 if __name__ == '__main__':
-    test1()
+    test2()
