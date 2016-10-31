@@ -2,7 +2,7 @@ from lxml import etree
 from collections import defaultdict
 import urllib2
 import time, random,sys
-import re, os, string
+import re, os, string, pickle
 from readability import Document
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
@@ -76,10 +76,10 @@ class parser:
                 break
         print corpus[0]
         print len(corpus)
-        raw_text_file = open("raw_wiki.txt","w")
-        for text in corpus:
-            text = text.encode('utf8')
-            raw_text_file.write(text+"\n")
+        #raw_text_file = open("raw_wiki.txt","w")
+        #for text in corpus:
+        #    text = text.encode('utf8')
+        #    raw_text_file.write(text+"\n")
         self.corpus = corpus
 
     def extract_features(self,corpus):
@@ -98,12 +98,21 @@ class parser:
         s = ''.join(ch for ch in t if ch not in exclude)
         return s
 
+    def corpus_stat(self):
+        num = []
+        for text in self.corpus:
+            print len(text.split())
+            num.append(float(len(text.split())))
+        return np.mean(np.array(num))
 
 if __name__ == "__main__":
     #path = "../wiki_url/html/http:__en.wikipedia.org_wiki_Hooded_warbler"
     p = parser()
     p.get_corpus()
+    #print p.corpus_stat()
     feat = p.extract_features(p.corpus)
     print type(feat)
     print feat.shape
-    np.save("./wiki_features",feat)
+    with open("../features/wiki/wiki_features","wb") as fin:
+        pickle.dump(feat,fin)
+    #np.save("./wiki_features",feat)
