@@ -40,5 +40,5 @@ def prepare_vision_data(matroot, split_file):
 
 def prepare_wiki_data(npy_file):
     wiki = pickle.load(open(npy_file, 'rb'))
-    return numpy.asarray(wiki.todense(), dtype=theano.config.floatX)
+    return numpy.asarray(wiki.todense(), dtype=numpy.float32)
 

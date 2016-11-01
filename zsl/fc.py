@@ -42,7 +42,7 @@ class FC(object):
                 self.lr = 0.01
             self.grad_histories = [
                 theano.shared(
-                    value=numpy.zeros(param_shape, dtype=theano.config.floatX),
+                    value=numpy.zeros(param_shape, dtype=numpy.float32),
                     borrow=True,
                     name="grad_hist:" + param.name
                 )
@@ -55,7 +55,7 @@ class FC(object):
                 self.lr = 0.01
             self.velocity = [
                 theano.shared(
-                    value=numpy.zeros(param_shape, dtype=theano.config.floatX),
+                    value=numpy.zeros(param_shape, dtype=numpy.float32),
                     borrow=True,
                     name="momentum:" + param.name
                 )
@@ -70,7 +70,7 @@ class FC(object):
                 self.lr = 0.001
             self.weights = [
                 theano.shared(
-                    value=numpy.zeros(param_shape, dtype=theano.config.floatX),
+                    value=numpy.zeros(param_shape, dtype=numpy.float32),
                     borrow=True,
                     name="weights:" + param.name
                 )
@@ -90,9 +90,9 @@ class FC(object):
             d1, d2 = mlp_layers[i], mlp_layers[i + 1]
             W_values = numpy.asarray(self.rng.uniform(
                        low=-numpy.sqrt(6. / float(d1 + d2)), high=numpy.sqrt(6. / float(d1 + d2)), size=(d1, d2)),
-                       dtype=theano.config.floatX)
+                       dtype=numpy.float32)
             W = theano.shared(value=W_values, borrow=True)
-            b_values = numpy.zeros((d2,), dtype=theano.config.floatX)
+            b_values = numpy.zeros((d2,), dtype=numpy.float32)
             b = theano.shared(value=b_values, borrow=True)
             Ws.append(W)
             bs.append(b)
@@ -109,8 +109,8 @@ class FC(object):
         return l2
 
     def dropout(self, layer, is_train):
-        mask = self.theano_rng.binomial(p=self.drop, size=layer.shape, dtype=theano.config.floatX)
-        return T.cast(T.switch(T.neq(is_train, 0), layer * mask, layer * self.drop), dtype=theano.config.floatX)
+        mask = self.theano_rng.binomial(p=self.drop, size=layer.shape, dtype=numpy.float32)
+        return T.cast(T.switch(T.neq(is_train, 0), layer * mask, layer * self.drop), dtype=numpy.float32)
 
     # For BCE, Y is 0-1 encoded; for hinge loss, Y is {-1, 1} encoded
     # Use minibatch classes instead of all classes
@@ -160,19 +160,19 @@ class FC(object):
         # adagrad
         if self.update == 'adagrad':
             new_grad_histories = [
-                T.cast(g_hist + g ** 2, dtype=theano.config.floatX)
+                T.cast(g_hist + g ** 2, dtype=numpy.float32)
                 for g_hist, g in zip(self.grad_histories, gradients)
                 ]
             grad_hist_update = zip(self.grad_histories, new_grad_histories)
 
-            param_updates = [(param, T.cast(param - self.lr / (T.sqrt(g_hist) + self.epsilon) * param_grad, dtype=theano.config.floatX))
+            param_updates = [(param, T.cast(param - self.lr / (T.sqrt(g_hist) + self.epsilon) * param_grad, dtype=numpy.float32))
                              for param, param_grad, g_hist in zip(self.theta, gradients, new_grad_histories)]
             updates = grad_hist_update + param_updates
         # SGD with momentum
         elif self.update == 'sgdm':
             velocity_t = [self.momentum * v + self.lr * g for v, g in zip(self.velocity, gradients)]
-            velocity_updates = [(v, T.cast(v_t, theano.config.floatX)) for v, v_t in zip(self.velocity, velocity_t)]
-            param_updates = [(param, T.cast(param - v_t, theano.config.floatX)) for param, v_t in zip(self.theta, velocity_t)]
+            velocity_updates = [(v, T.cast(v_t, numpy.float32)) for v, v_t in zip(self.velocity, velocity_t)]
+            param_updates = [(param, T.cast(param - v_t, numpy.float32)) for param, v_t in zip(self.theta, velocity_t)]
             updates = velocity_updates + param_updates
         elif self.update == 'rmsprop' or self.update == 'RMSprop':
             updates = []
@@ -184,7 +184,7 @@ class FC(object):
                 updates.append((p, new_p))
         # basic SGD
         else:
-            updates = OrderedDict((p, T.cast(p - self.lr * g, dtype=theano.config.floatX)) for p, g in zip(self.theta, gradients))
+            updates = OrderedDict((p, T.cast(p - self.lr * g, dtype=numpy.float32)) for p, g in zip(self.theta, gradients))
 
         return {'V_batch': V_batch, 'T_batch': T_batch, 'Y': Y,
                 'updates': updates, 'is_train': is_train, 'cost': cost,
