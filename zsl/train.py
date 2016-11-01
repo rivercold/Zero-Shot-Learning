@@ -8,7 +8,7 @@ import load_data
 import numpy
 
 
-def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100):
+def train(V_matrix, T_matrix, Y_matrix, obj='Hinge', batch_size=100, max_epoch=100):
     mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 300, 50], [V_matrix.shape[1], 300, 50]
     model = FC(mlp_t_layers, mlp_v_layers)
     symbols = model.define_functions(obj=obj)

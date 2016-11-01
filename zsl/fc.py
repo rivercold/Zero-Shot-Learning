@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0., update='sgd',
+    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.5, update='rmsprop',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
@@ -81,7 +81,7 @@ class FC(object):
             if lr:
                 self.lr = lr
             else:
-                self.lr = 1
+                self.lr = 0.01
 
     def initialize_mlp_layers(self, mlp_layers, Ws, bs):
         num_layers = len(mlp_layers)
@@ -146,8 +146,8 @@ class FC(object):
         else:
             V_norm = T.sum(V_rep * V_rep, axis=1)  # (batch_size,)
             w_norm = T.sum(w * w, axis=1)  # (num_class,)
-            sim -= w_norm
-            sim = (sim.T - V_norm).T
+            sim -= w_norm / 2.
+            sim = (sim.T - V_norm / 2.).T
             loss = T.sum(T.maximum(0, 1. - Y * sim))
 
         pred = T.argmax(sim, axis=1)
