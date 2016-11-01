@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.5, update='sgd',
+    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0., update='sgd',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
