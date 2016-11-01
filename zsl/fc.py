@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0., drop=0., update='rmsprop',
+    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.5, update='rmsprop',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
@@ -187,6 +187,6 @@ class FC(object):
             updates = OrderedDict((p, T.cast(p - self.lr * g, dtype=theano.config.floatX)) for p, g in zip(self.theta, gradients))
 
         return {'V_batch': V_batch, 'T_batch': T_batch, 'Y': Y,
-                'updates': updates, 'is_train': is_train, 'cost': cost,
+                'updates': updates, 'is_train': is_train, 'cost': cost, 'loss': loss,
                 'acc': acc, 'pred': pred, 'lr': self.lr}
 
