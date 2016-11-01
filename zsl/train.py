@@ -47,6 +47,7 @@ def train(V_matrix, T_matrix, Y_matrix, obj='Hinge', batch_size=100, max_epoch=1
             batch_index += 1
 
             pred, cost, acc = train_model(start, end, 1)
+            print pred
             cost_epoch += cost * (end - start)
             acc_epoch += acc * (end - start)
 
