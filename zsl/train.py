@@ -5,6 +5,7 @@ import theano.tensor as T
 from fc import FC
 import timeit
 import load_data
+import numpy
 
 
 def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100):
@@ -48,6 +49,8 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100
             pred, cost, acc = train_model(start, end, 1)
             cost_epoch += cost * (end - start)
             acc_epoch += acc * (end - start)
+
+            print numpy.sum(model.W_t_mlp[0].get_value())
 
             print '\tAccuracy = %.4f\tTraining cost = %f' % (acc, cost)
 
