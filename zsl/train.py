@@ -4,6 +4,7 @@ import theano
 import theano.tensor as T
 from fc import FC
 import timeit
+import load_data
 
 
 def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100):
@@ -56,3 +57,15 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
 
         end_time = timeit.default_timer()
         print 'Ran %.3f seconds for this epoch\n' % (end_time - start_time)
+
+
+def test1():
+    matroot = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
+    split_file = '/usr0/home/hongliay/zsl/data/CUB_200_2011/train_test_split.txt'
+    npy_file = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/wiki/wiki_features'
+    V_matrix_train, Y_matrix_train, V_matrix_test, V_matrix_test = load_data.prepare_vision_data(matroot, split_file)
+    T_matrix = load_data.prepare_wiki_data(npy_file)
+
+    train(V_matrix_train, Y_matrix_train, T_matrix)
+
+
