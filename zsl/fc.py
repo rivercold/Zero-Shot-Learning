@@ -35,9 +35,6 @@ class FC(object):
 
         self.add_param_shapes()
 
-        print self.theta
-        print self.param_shapes
-
         if self.update == 'adagrad':
             if lr:
                 self.lr = lr
@@ -75,7 +72,6 @@ class FC(object):
                 theano.shared(
                     value=numpy.zeros(param_shape, dtype=numpy.float32),
                     borrow=True,
-                    name="weights:" + param.name
                 )
                 for param_shape, param in zip(self.param_shapes, self.theta)
                 ]
