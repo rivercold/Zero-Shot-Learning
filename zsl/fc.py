@@ -129,7 +129,7 @@ class FC(object):
 
         w = T_batch
         for i in xrange(len(self.W_t_mlp)):
-            W, b = self.W_t_mlp[i], self.W_t_mlp[i]
+            W, b = self.W_t_mlp[i], self.b_t_mlp[i]
             w = T.tanh(T.dot(w, W) + b)
             w = self.dropout(w, is_train)
 
