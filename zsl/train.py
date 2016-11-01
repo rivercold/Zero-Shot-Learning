@@ -9,6 +9,7 @@ import load_data
 
 def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100):
     mlp_t_layers, mlp_v_layers = [V_matrix.shape[1], 300, 50], [T_matrix.shape[1], 300, 50]
+    print mlp_t_layers, mlp_v_layers
     model = FC(mlp_t_layers, mlp_v_layers)
     symbols = model.define_functions(obj=obj)
 
@@ -25,8 +26,8 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train],
                             outputs=[pred, cost, acc], updates=updates,
                             givens={
-                                V_batch: V_matrix_shared[start_symbol: end_symbol + 1],
-                                Y: Y_matrix_shared[start_symbol: end_symbol + 1],
+                                V_batch: V_matrix_shared[start_symbol: end_symbol],
+                                Y: Y_matrix_shared[start_symbol: end_symbol],
                                 T_batch: T_matrix_shared
                             },
                             on_unused_input='ignore')
@@ -42,12 +43,12 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100
         batch_index = 0
         cost_epoch, acc_epoch = 0., 0.
         while True:
-            start, end = batch_index * batch_size, min((batch_index + 1) * batch_size, num_samples - 1)
+            start, end = batch_index * batch_size, min((batch_index + 1) * batch_size, num_samples)
             batch_index += 1
 
             pred, cost, acc = train_model(start, end, 1)
-            cost_epoch += cost * (end - start + 1)
-            acc_epoch += acc * (end - start + 1)
+            cost_epoch += cost * (end - start)
+            acc_epoch += acc * (end - start)
 
             print '\tAccuracy = %.4f\tTraining cost = %f' % (cost, acc)
 
