@@ -113,11 +113,6 @@ class FC(object):
 
     # For BCE, Y is 0-1 encoded; for hinge loss, Y is {-1, 1} encoded
     # Use minibatch classes instead of all classes
-    def define_functions(self, obj='BCE'):
-        for i in xrange(len(self.W_v_mlp)):
-            print self.W_v_mlp[i].get_value().shape,
-        for i in xrange(len(self.W_t_mlp)):
-            print self.W_t_mlp[i].get_value().shape,
 
         V_batch = T.matrix()  # (batch_size, d)
         T_batch = T.matrix()  # (num_class, p)
