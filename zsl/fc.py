@@ -117,7 +117,7 @@ class FC(object):
     def define_functions(self, obj='BCE'):
         V_batch = T.matrix()  # (batch_size, d)
         T_batch = T.matrix()  # (num_class, p)
-        Y = T.ivector()  # (batch_size, num_class)
+        Y = T.matrix()  # (batch_size, num_class)
 
         is_train = T.iscalar()
 
@@ -141,9 +141,7 @@ class FC(object):
         if obj == 'BCE' or obj == 'bce':
             sim = T.nnet.sigmoid(sim)
             loss = T.sum(Y * T.log(sim) + (1. - Y) * T.log(1. - sim))
-            pred = T.argmax(sim, axis=1)
         elif obj == 'Hinge' or obj == 'hinge':
-            pred = T.argmax(sim, axis=1)
             loss = T.sum(T.maximum(0, 1. - Y * sim))
         else:
             V_norm = T.sum(V_rep * V_rep, axis=1)  # (batch_size,)
@@ -152,12 +150,14 @@ class FC(object):
             sim = (sim.T - V_norm).T
             loss = T.sum(T.maximum(0, 1. - Y * sim))
 
+        pred = T.argmax(sim, axis=1)
+        labels = T.argmax(Y, axis=1)
+        acc = T.mean(T.eq(pred, labels))
 
         cost = loss + self.l2()
         gradients = [T.grad(cost, param) for param in self.theta]
 
         # adagrad
-        lr = T.scalar('lr', dtype=theano.config.floatX)
         if self.update == 'adagrad':
             new_grad_histories = [
                 T.cast(g_hist + g ** 2, dtype=theano.config.floatX)
@@ -165,12 +165,12 @@ class FC(object):
                 ]
             grad_hist_update = zip(self.grad_histories, new_grad_histories)
 
-            param_updates = [(param, T.cast(param - lr / (T.sqrt(g_hist) + self.epsilon) * param_grad, dtype=theano.config.floatX))
+            param_updates = [(param, T.cast(param - self.lr / (T.sqrt(g_hist) + self.epsilon) * param_grad, dtype=theano.config.floatX))
                              for param, param_grad, g_hist in zip(self.theta, gradients, new_grad_histories)]
             updates = grad_hist_update + param_updates
         # SGD with momentum
         elif self.update == 'sgdm':
-            velocity_t = [self.momentum * v + lr * g for v, g in zip(self.velocity, gradients)]
+            velocity_t = [self.momentum * v + self.lr * g for v, g in zip(self.velocity, gradients)]
             velocity_updates = [(v, T.cast(v_t, theano.config.floatX)) for v, v_t in zip(self.velocity, velocity_t)]
             param_updates = [(param, T.cast(param - v_t, theano.config.floatX)) for param, v_t in zip(self.theta, velocity_t)]
             updates = velocity_updates + param_updates
@@ -180,11 +180,13 @@ class FC(object):
                 # update accumulator
                 new_a = self.rho * a + (1. - self.rho) * T.square(g)
                 updates.append((a, new_a))
-                new_p = p - lr * g / T.sqrt(new_a + self.epsilon)
+                new_p = p - self.lr * g / T.sqrt(new_a + self.epsilon)
                 updates.append((p, new_p))
         # basic SGD
         else:
-            updates = OrderedDict((p, T.cast(p - lr * g, dtype=theano.config.floatX)) for p, g in zip(self.theta, gradients))
+            updates = OrderedDict((p, T.cast(p - self.lr * g, dtype=theano.config.floatX)) for p, g in zip(self.theta, gradients))
 
-        return {'V_batch': V_batch, 'T_batch': T_batch, 'updates': updates, 'is_train': is_train, 'cost': cost}
+        return {'V_batch': V_batch, 'T_batch': T_batch, 'Y': Y,
+                'updates': updates, 'is_train': is_train, 'cost': cost,
+                'acc': acc, 'pred': pred, 'lr': self.lr}
 
