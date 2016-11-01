@@ -68,4 +68,7 @@ def test1():
 
     train(V_matrix_train, Y_matrix_train, T_matrix)
 
+if __name__ == '__main__':
+    test1()
+
 
