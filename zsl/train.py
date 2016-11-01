@@ -18,6 +18,9 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
 
     start_symbol, end_symbol = T.lscalar(), T.lscalar()
 
+    V_matrix_shared = theano.shared(V_matrix, borrow=True)
+    Y_matrix_shared = T.cast(theano.shared(Y_matrix, borrow=True), 'int32')
+
     print 'Compiling functions ... '
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train, T_batch],
                             outputs=[pred, cost, acc], updates=updates,
