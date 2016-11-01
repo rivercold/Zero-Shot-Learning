@@ -25,8 +25,8 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train, T_batch],
                             outputs=[pred, cost, acc], updates=updates,
                             givens={
-                                V_batch: V_matrix[start_symbol: end_symbol + 1],
-                                Y: Y_matrix[start_symbol: end_symbol + 1],
+                                V_batch: V_matrix_shared[start_symbol: end_symbol + 1],
+                                Y: Y_matrix_shared[start_symbol: end_symbol + 1],
                             },
                             on_unused_input='ignore')
     print 'Compilation done'
