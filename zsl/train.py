@@ -20,6 +20,7 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
 
     V_matrix_shared = theano.shared(V_matrix, borrow=True)
     Y_matrix_shared = theano.shared(Y_matrix, borrow=True)
+    T_matrix_shared = theano.shared(T_matrix, borrow=True)
 
     print 'Compiling functions ... '
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train],
@@ -27,7 +28,7 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
                             givens={
                                 V_batch: V_matrix_shared[start_symbol: end_symbol + 1],
                                 Y: Y_matrix_shared[start_symbol: end_symbol + 1],
-                                T_batch: T_matrix
+                                T_batch: T_matrix_shared
                             },
                             on_unused_input='ignore')
     print 'Compilation done'
