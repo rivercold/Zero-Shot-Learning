@@ -49,7 +49,7 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=100, max_epoch=100
             cost_epoch += cost * (end - start)
             acc_epoch += acc * (end - start)
 
-            print '\tAccuracy = %.4f\tTraining cost = %f' % (cost, acc)
+            print '\tAccuracy = %.4f\tTraining cost = %f' % (acc, cost)
 
             if end >= num_samples - 1:
                 break

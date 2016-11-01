@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.5, update='rmsprop',
+    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.5, update='sgd',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
@@ -140,7 +140,7 @@ class FC(object):
 
         if obj == 'BCE' or obj == 'bce':
             sim = T.nnet.sigmoid(sim)
-            loss = T.sum(Y * T.log(sim) + (1. - Y) * T.log(1. - sim))
+            loss = - T.sum(Y * T.log(sim) + (1. - Y) * T.log(1. - sim))
         elif obj == 'Hinge' or obj == 'hinge':
             loss = T.sum(T.maximum(0, 1. - Y * sim))
         else:
