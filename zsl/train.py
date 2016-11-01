@@ -19,7 +19,8 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
     start_symbol, end_symbol = T.lscalar(), T.lscalar()
 
     V_matrix_shared = theano.shared(V_matrix, borrow=True)
-    Y_matrix_shared = T.cast(theano.shared(Y_matrix, borrow=True), 'int32')
+    Y_matrix_shared = theano.shared(Y_matrix, borrow=True)
+    T_matrix_shared = theano.shared(T_matrix, borrow=True)
 
     print 'Compiling functions ... '
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train, T_batch],
@@ -44,7 +45,7 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
             start, end = batch_index * batch_size, min((batch_index + 1) * batch_size, num_samples - 1)
             batch_index += 1
 
-            pred, cost, acc = train_model(start, end, 1, T_matrix)
+            pred, cost, acc = train_model(start, end, 1, T_matrix_shared)
             cost_epoch += cost * (end - start + 1)
             acc_epoch += acc * (end - start + 1)
 
