@@ -3,7 +3,6 @@ import os
 from scipy.io import loadmat
 import numpy
 import pickle
-import theano
 
 num_class = 200
 
