@@ -81,7 +81,7 @@ class FC(object):
             if lr:
                 self.lr = lr
             else:
-                self.lr = 0.01
+                self.lr = 0.1
 
     def initialize_mlp_layers(self, mlp_layers, Ws, bs):
         num_layers = len(mlp_layers)
