@@ -11,7 +11,7 @@ def train(V_matrix, T_matrix, Y_matrix, obj='BCE', batch_size=200, max_epoch=100
     print type(V_matrix[0, 0])
     print type(T_matrix[0, 0])
     print type(Y_matrix[0, 0])
-    mlp_t_layers, mlp_v_layers = [], []
+    mlp_t_layers, mlp_v_layers = [V_matrix.shape[1], 300, 50], [T_matrix.shape[1], 300, 50]
     model = FC(mlp_t_layers, mlp_v_layers)
     symbols = model.define_functions(obj=obj)
 
