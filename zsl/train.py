@@ -72,9 +72,8 @@ def test1():
     npy_file = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/wiki/wiki_features'
     V_matrix_train, Y_matrix_train, V_matrix_test, V_matrix_test = load_data.prepare_vision_data(matroot, split_file)
     T_matrix = load_data.prepare_wiki_data(npy_file)
-    print type(T_matrix[0, 0])
 
-    train(V_matrix_train, Y_matrix_train, T_matrix)
+    train(V_matrix_train, T_matrix, Y_matrix_train)
 
 if __name__ == '__main__':
     test1()

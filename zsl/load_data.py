@@ -27,6 +27,7 @@ def prepare_vision_data(matroot, split_file):
             Y = numpy.concatenate((Y, y), axis=0)
     sp = numpy.loadtxt(split_file, delimiter=' ')
     sp = sp[:, 1]
+    Y.astype(dtype=numpy.float32)
     X_train, Y_train = X[sp == 1], Y[sp == 1]
     X_test, Y_test = X[sp == 0], Y[sp == 0]
     indices = numpy.arange(X_train.shape[0])
