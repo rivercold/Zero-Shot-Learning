@@ -115,9 +115,9 @@ class FC(object):
     # Use minibatch classes instead of all classes
     def define_functions(self, obj='BCE'):
         for i in xrange(len(self.W_v_mlp)):
-            print self.W_v_mlp[i].shape
+            print self.W_v_mlp[i].get_value().shape,
         for i in xrange(len(self.W_t_mlp)):
-            print self.W_t_mlp[i].shape
+            print self.W_t_mlp[i].get_value().shape,
 
         V_batch = T.matrix()  # (batch_size, d)
         T_batch = T.matrix()  # (num_class, p)
