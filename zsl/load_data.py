@@ -3,6 +3,7 @@ import os
 from scipy.io import loadmat
 import numpy
 import pickle
+import theano
 
 num_class = 200
 
@@ -39,5 +40,5 @@ def prepare_vision_data(matroot, split_file):
 
 def prepare_wiki_data(npy_file):
     wiki = pickle.load(open(npy_file, 'rb'))
-    return wiki.todense()
+    return numpy.asarray(wiki.todense(), dtype=theano.config.floatX)
 
