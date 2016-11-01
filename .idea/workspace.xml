@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4583003f-552e-400c-a4a2-80eb8365d975" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zsl/fc.py" afterPath="$PROJECT_DIR$/zsl/fc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zsl/train.py" afterPath="$PROJECT_DIR$/zsl/train.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Zero-Shot-Learning.iws" />
@@ -38,11 +37,9 @@
       <file leaf-file-name="fc.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zsl/fc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4373178">
-              <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
-              <folding>
-                <marker date="1478030210000" expanded="true" signature="3868:4080" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.48104957">
+              <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -494,11 +491,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zsl/fc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4373178">
-          <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
-          <folding>
-            <marker date="1478030210000" expanded="true" signature="3868:4080" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.48104957">
+          <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
