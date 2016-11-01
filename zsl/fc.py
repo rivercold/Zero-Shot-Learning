@@ -35,7 +35,8 @@ class FC(object):
 
         self.add_param_shapes()
 
-        print len(self.theta), len(self.param_shapes)
+        print self.theta
+        print self.param_shapes
 
         if self.update == 'adagrad':
             if lr:
