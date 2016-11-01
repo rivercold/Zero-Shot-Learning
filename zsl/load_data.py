@@ -3,6 +3,7 @@ import os
 from scipy.io import loadmat
 import numpy
 import pickle
+import theano
 
 num_class = 200
 
@@ -27,7 +28,7 @@ def prepare_vision_data(matroot, split_file):
             Y = numpy.concatenate((Y, y), axis=0)
     sp = numpy.loadtxt(split_file, delimiter=' ')
     sp = sp[:, 1]
-    Y = numpy.asarray(Y, dtype=numpy.float32)
+    Y = numpy.asarray(Y, dtype=theano.config.floatX)
     X_train, Y_train = X[sp == 1], Y[sp == 1]
     X_test, Y_test = X[sp == 0], Y[sp == 0]
     indices = numpy.arange(X_train.shape[0])
@@ -40,5 +41,5 @@ def prepare_vision_data(matroot, split_file):
 
 def prepare_wiki_data(npy_file):
     wiki = pickle.load(open(npy_file, 'rb'))
-    return numpy.asarray(wiki.todense(), dtype=numpy.float32)
+    return numpy.asarray(wiki.todense(), dtype=theano.config.floatX)
 
