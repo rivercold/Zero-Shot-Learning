@@ -71,8 +71,8 @@ def test1():
     split_file = '/usr0/home/hongliay/zsl/data/CUB_200_2011/train_test_split.txt'
     npy_file = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/wiki/wiki_features'
     V_matrix_train, Y_matrix_train, V_matrix_test, V_matrix_test = load_data.prepare_vision_data(matroot, split_file)
-    T_matrix = load_data.prepare_wiki_data(npy_file)
-
+    # T_matrix = load_data.prepare_wiki_data(npy_file)
+    T_matrix = numpy.eye(200, dtype=theano.config.floatX)
     train(V_matrix_train, T_matrix, Y_matrix_train)
 
 if __name__ == '__main__':
