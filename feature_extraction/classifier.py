@@ -5,6 +5,7 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
 import os
 import numpy
+from zsl.load_data import prepare_vision_data
 
 num_class = 200
 
@@ -118,6 +119,7 @@ def test(model, X_test, Y_test, batch_size=16):
 def optimize(X_train, Y_train, X_test, Y_test, batch_size=16):
     model = Sequential()
     model.add(Dense(num_class, input_dim=X_train.shape[1], init='glorot_uniform'))
+    # model.add(Dropout(0.5))
     model.add(Activation('softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam')
 
@@ -146,15 +148,16 @@ def test1():
 
 
 def test2():
-    resnet_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
-    feature_root = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet_ppd'
+    resnet_root = '../features/resnet'
+    feature_root = '../features/resnet_ppd'
     resnet_preprocess(resnet_root, feature_root)
 
+
 def test3():
-    matroot = '/usr0/home/hongliay/code/Zero-Shot-Learning/features/resnet'
-    split_file = '/usr0/home/hongliay/zsl/data/CUB_200_2011/train_test_split.txt'
-    X_train, Y_train, X_test, Y_test = prepare_data(matroot, split_file)
+    matroot = '../features/resnet'
+    split_file = '../features/train_test_split.txt'
+    X_train, Y_train, X_test, Y_test = prepare_vision_data(matroot, split_file)
     optimize(X_train, Y_train, X_test, Y_test)
 
 if __name__ == '__main__':
-    test2()
+    test3()

@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.5, update='rmsprop',
+    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.00001, drop=0.25, update='rmsprop',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
@@ -117,7 +117,7 @@ class FC(object):
 
         V_batch = T.matrix()  # (batch_size, d)
         T_batch = T.matrix()  # (num_class, p)
-        Y = T.matrix()  # (batch_size, num_class)
+        Y_batch = T.matrix()  # (batch_size, num_class)
 
         is_train = T.iscalar()
 
@@ -125,13 +125,13 @@ class FC(object):
         for i in xrange(len(self.W_v_mlp)):
             W, b = self.W_v_mlp[i], self.b_v_mlp[i]
             V_rep = T.tanh(T.dot(V_rep, W) + b)
-            V_rep = self.dropout(V_rep, is_train)
+            # V_rep = self.dropout(V_rep, is_train)
 
         w = T_batch
         for i in xrange(len(self.W_t_mlp)):
             W, b = self.W_t_mlp[i], self.b_t_mlp[i]
             w = T.tanh(T.dot(w, W) + b)
-            w = self.dropout(w, is_train)
+            # w = self.dropout(w, is_train)
 
         # V_rep: (batch_size, k)
         # w: (num_class, k)
@@ -140,18 +140,18 @@ class FC(object):
 
         if obj == 'BCE' or obj == 'bce':
             sim = T.nnet.sigmoid(sim)
-            loss = - T.sum(Y * T.log(sim) + (1. - Y) * T.log(1. - sim))
+            loss = - T.mean(T.sum(Y_batch * T.log(sim) + (1. - Y_batch) * T.log(1. - sim), axis=1))
         elif obj == 'Hinge' or obj == 'hinge':
-            loss = T.sum(T.maximum(0, 1. - Y * sim))
+            loss = T.mean(T.sum(T.maximum(0, 1. - Y_batch * sim), axis=1))
         else:
             V_norm = T.sum(V_rep * V_rep, axis=1)  # (batch_size,)
             w_norm = T.sum(w * w, axis=1)  # (num_class,)
             sim -= w_norm / 2.
             sim = (sim.T - V_norm / 2.).T
-            loss = T.sum(T.maximum(0, 1. - Y * sim))
+            loss = T.mean(T.sum(T.maximum(0, 1. - Y_batch * sim), axis=1))
 
         pred = T.argmax(sim, axis=1)
-        labels = T.argmax(Y, axis=1)
+        labels = T.argmax(Y_batch, axis=1)
         acc = T.mean(T.eq(pred, labels))
 
         cost = loss + self.l2()
@@ -186,7 +186,7 @@ class FC(object):
         else:
             updates = OrderedDict((p, T.cast(p - self.lr * g, dtype=theano.config.floatX)) for p, g in zip(self.theta, gradients))
 
-        return {'V_batch': V_batch, 'T_batch': T_batch, 'Y': Y,
+        return {'V_batch': V_batch, 'T_batch': T_batch, 'Y_batch': Y_batch,
                 'updates': updates, 'is_train': is_train, 'cost': cost, 'loss': loss,
                 'acc': acc, 'pred': pred, 'lr': self.lr}
 
