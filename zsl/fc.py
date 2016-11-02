@@ -116,8 +116,8 @@ class FC(object):
     def define_functions(self, obj='BCE'):
 
         V_batch = T.matrix()  # (batch_size, d)
-        T_batch = T.matrix()  # (num_class, p)
-        Y_batch = T.matrix()  # (batch_size, num_class)
+        T_batch = T.matrix()  # (num_train_class, p)
+        Y_batch = T.matrix()  # (batch_size, num_train_class)
 
         is_train = T.iscalar()
 
@@ -134,9 +134,9 @@ class FC(object):
             # w = self.dropout(w, is_train)
 
         # V_rep: (batch_size, k)
-        # w: (num_class, k)
+        # w: (num_train_class, k)
 
-        sim = T.dot(V_rep, w.T)  # (batch_size, num_class)
+        sim = T.dot(V_rep, w.T)  # (batch_size, num_train_class)
 
         if obj == 'BCE' or obj == 'bce':
             sim = T.nnet.sigmoid(sim)
@@ -145,7 +145,7 @@ class FC(object):
             loss = T.mean(T.sum(T.maximum(0, 1. - Y_batch * sim), axis=1))
         else:
             V_norm = T.sum(V_rep * V_rep, axis=1)  # (batch_size,)
-            w_norm = T.sum(w * w, axis=1)  # (num_class,)
+            w_norm = T.sum(w * w, axis=1)  # (num_train_class,)
             sim -= w_norm / 2.
             sim = (sim.T - V_norm / 2.).T
             loss = T.mean(T.sum(T.maximum(0, 1. - Y_batch * sim), axis=1))
