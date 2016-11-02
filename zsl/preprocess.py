@@ -48,4 +48,6 @@ def split(matroot, split_file, unseen_file):
     writer.close()
 
 
-split('../features/resnet', '../features/zsl_split.txt', '../features/unseen_classes.txt')
+if __name__ == '__main__':
+    split('../features/bird-2010/resnet', '../features/bird-2010/zsl_split.txt',
+          '../features/bird-2010/unseen_classes.txt')

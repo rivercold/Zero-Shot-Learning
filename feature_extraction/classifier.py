@@ -160,4 +160,4 @@ def test3():
     optimize(X_train, Y_train, X_test, Y_test)
 
 if __name__ == '__main__':
-    test3()
+    test2()
