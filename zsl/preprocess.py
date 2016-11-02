@@ -6,7 +6,7 @@ import random
 
 # return: split result:
 # 1 - training, 0 - seen test, -1 - unseen test
-def split(matroot, split_file):
+def split(matroot, split_file, unseen_file):
     Y = None
     files = os.listdir(matroot)
     files.sort()
@@ -27,6 +27,7 @@ def split(matroot, split_file):
     remain = []
 
     test_classes = random.sample(range(num_class), 40)
+    test_classes.sort()
     for i in xrange(Y.shape[0]):
         if Y[i] in test_classes:
             sp[i] = -1
@@ -39,8 +40,12 @@ def split(matroot, split_file):
     writer = open(split_file, 'w')
     for i in xrange(sp.shape[0]):
         writer.write(str(int(sp[i])) + '\n')
+    writer.close()
 
-    return
+    writer = open(unseen_file, 'w')
+    for tc in test_classes:
+        writer.write(str(tc) + '\n')
+    writer.close()
 
 
-split('../features/resnet', '../features/zsl_split.txt')
+split('../features/resnet', '../features/zsl_split.txt', '../features/unseen_classes.txt')
