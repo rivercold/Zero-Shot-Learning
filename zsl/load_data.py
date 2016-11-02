@@ -30,7 +30,7 @@ def prepare_vision_data(matroot, split_file):
     sp = sp[:, 1]
     Y = numpy.asarray(Y, dtype=theano.config.floatX)
     X_train, Y_train = X[sp == 1], Y[sp == 1]
-    X_test, Y_test = X[sp == 0], Y[sp == 0]
+    X_test, Y_test = X[sp != 1], Y[sp != 1]
     indices = numpy.arange(X_train.shape[0])
     numpy.random.shuffle(indices)
     X_train = X_train[indices]

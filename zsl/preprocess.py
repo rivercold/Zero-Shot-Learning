@@ -4,7 +4,9 @@ from load_data import *
 import random
 
 
-def split(matroot):
+# return: split result:
+# 1 - training, 0 - seen test, -1 - unseen test
+def split(matroot, split_file):
     Y = None
     files = os.listdir(matroot)
     files.sort()
@@ -19,7 +21,26 @@ def split(matroot):
             Y = y
         else:
             Y = numpy.concatenate((Y, y))
-    test_classes = numpy.asarray(random.sample(range(num_class), 40))
+
+    sp = numpy.ones_like(Y)
+
+    remain = []
+
+    test_classes = random.sample(range(num_class), 40)
+    for i in xrange(Y.shape[0]):
+        if Y[i] in test_classes:
+            sp[i] = -1
+        else:
+            remain.append(i)
+    test_index = random.sample(remain, int(len(remain) * 0.2))
+    for ti in test_index:
+        sp[ti] = 0
+
+    writer = open(split_file, 'w')
+    for i in xrange(sp.shape[0]):
+        writer.write(str(int(sp[i])) + '\n')
+
+    return
 
 
-split('../features/resnet')
+split('../features/resnet', '../features/zsl_split.txt')
