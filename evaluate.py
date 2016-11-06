@@ -25,7 +25,7 @@ def get_metrics(predictions, labels):
     top1 = np.argmax(predictions, axis=1)
     top1_accu = np.sum(top1 == labels) / float(test_size)
 
-    top5 = np.argsort(predictions, axis=1)[-5:]
+    top5 = np.argsort(predictions, axis=1)[:, -5:]
     top5_accu = np.sum(top5 == label) / float(test_size)
 
     return (roc_auc, ap, top1_accu, top5_accu)
