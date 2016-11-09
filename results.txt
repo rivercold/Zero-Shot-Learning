@@ -18,14 +18,6 @@ Epoch = 100
 
 Hinge
 
-bird-2011
-
-Epoch = 100
-	Training	Accuracy = 0.8114	Cost = 0.092386	Loss = 0.051622
-	seen	ROC-AUC = 0.8981	PR-AUC = 0.4837	Top-1 Acc = 0.5160	Top-5 Acc = 0.6868
-	unseen	ROC-AUC = 0.8605	PR-AUC = 0.3555	Top-1 Acc = 0.3481	Top-5 Acc = 0.5562
-	Mean	ROC-AUC = 0.8726	PR-AUC = 0.3967	Top-1 Acc = 0.4021	Top-5 Acc = 0.5981
-
 bird-2010
 
 Epoch = 100
@@ -34,6 +26,13 @@ Epoch = 100
 	unseen	ROC-AUC = 0.8621	PR-AUC = 0.2769	Top-1 Acc = 0.2643	Top-5 Acc = 0.4669
 	Mean	ROC-AUC = 0.8631	PR-AUC = 0.3241	Top-1 Acc = 0.3248	Top-5 Acc = 0.5217
 
+bird-2011
+
+Epoch = 100
+	Training	Accuracy = 0.8114	Cost = 0.092386	Loss = 0.051622
+	seen	ROC-AUC = 0.8981	PR-AUC = 0.4837	Top-1 Acc = 0.5160	Top-5 Acc = 0.6868
+	unseen	ROC-AUC = 0.8605	PR-AUC = 0.3555	Top-1 Acc = 0.3481	Top-5 Acc = 0.5562
+	Mean	ROC-AUC = 0.8726	PR-AUC = 0.3967	Top-1 Acc = 0.4021	Top-5 Acc = 0.5981
 
 Euclidean
 
