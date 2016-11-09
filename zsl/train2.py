@@ -230,17 +230,16 @@ def test2():
 
 
 def test3():
-    dataset = 'bird-2011'
+    dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/zsl_split.txt'
     npy_file = '../features/wiki/wiki_features'
     V, Y = load_data.prepare_vision_data(matroot, split_file, zsl=True, no_train=True)
     T_matrix = load_data.prepare_wiki_data(npy_file)
     V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test = split_train(V, T_matrix, Y, num_unseen=40)
-    print V_train.shape, Y_train.shape, T_train.shape, V_seen.shape, Y_seen.shape, V_unseen.shape, Y_unseen.shape, T_test.shape
-    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test)
+    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='Euclidean')
 
 if __name__ == '__main__':
-    test1()
+    test3()
 
 
