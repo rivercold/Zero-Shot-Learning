@@ -9,20 +9,30 @@ import load_data
 import numpy
 import os
 import pickle
+from evaluate import get_metrics
 
 log_root = '../log/'
 model_root = '../models/'
 
 
-def validate(test_model, num_samples, writer, batch_size=100):
+def validate(test_model, num_samples, writer, Y_test, batch_size=100):
     start_time = timeit.default_timer()
     batch_index = 0
-    acc_total, cost_total, loss_total = 0., 0., 0.
+
+    cost_total, acc_total, loss_total = 0., 0., 0.
+
+    predictions = None
+
     while True:
         start, end = batch_index * batch_size, min((batch_index + 1) * batch_size, num_samples)
         batch_index += 1
 
-        pred, cost, loss, acc = test_model(start, end, 0)
+        pred, cost, loss, acc, sim = test_model(start, end, 0)
+
+        if predictions is None:
+            predictions = sim
+        else:
+            predictions = numpy.concatenate((predictions, sim), axis=0)
 
         cost_total += cost * (end - start)
         acc_total += acc * (end - start)
@@ -41,6 +51,11 @@ def validate(test_model, num_samples, writer, batch_size=100):
 
     end_time = timeit.default_timer()
     # print 'Test %.3f seconds' % (end_time - start_time)
+
+    labels = numpy.argmax(Y_test, axis=1)
+
+    roc_auc, ap, top1_accu, top5_accu = get_metrics(predictions, labels)
+    print '\tROC-AUC = %.4f\tAP = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f' % (roc_auc, ap, top1_accu, top5_accu)
 
     return acc_total
 
@@ -64,8 +79,8 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
         Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
     else:
         T_train = T_matrix
-    # mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 300, 50], [V_train.shape[1], 200, 50]
-    mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 50], [V_train.shape[1], 200, 50]
+    mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 300, 50], [V_train.shape[1], 200, 50]
+    # mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 50], [V_train.shape[1], 200, 50]
     model = FC(mlp_t_layers, mlp_v_layers)
     symbols = model.define_functions(obj=obj)
 
@@ -77,7 +92,8 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
     writer = open(log_file, 'w')
 
     V_batch, T_batch, Y_batch, updates = symbols['V_batch'], symbols['T_batch'], symbols['Y_batch'], symbols['updates']
-    is_train, cost, loss, acc, pred = symbols['is_train'], symbols['cost'], symbols['loss'], symbols['acc'], symbols['pred']
+    is_train, cost, loss, acc, pred, sim = symbols['is_train'], symbols['cost'], symbols['loss'], symbols['acc'],\
+                                           symbols['pred'], symbols['sim']
 
     start_symbol, end_symbol = T.lscalar(), T.lscalar()
 
@@ -99,7 +115,7 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
                                   },
                                   on_unused_input='ignore')
     test_model = theano.function(inputs=[start_symbol, end_symbol, is_train],
-                                  outputs=[pred, cost, loss, acc],
+                                  outputs=[pred, cost, loss, acc, sim],
                                   givens={
                                       V_batch: V_test_shared[start_symbol: end_symbol],
                                       Y_batch: Y_test_shared[start_symbol: end_symbol],
@@ -144,14 +160,14 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
 
         end_time = timeit.default_timer()
         print 'Train %.3f seconds for this epoch' % (end_time - start_time)
-        print
 
-        acc_val = validate(test_model, V_test.shape[0], writer)
-        if acc_val > best_acc:
+        acc_val = validate(test_model, V_test.shape[0], writer, Y_test)
+        if store and acc_val > best_acc:
             best_acc = acc_val
             with open(os.path.join(model_root, model_fn
                     + '_epoch_' + str(epoch_index + 1) + '_acc_' + str(acc_val) + '.pkl'), 'wb') as pickle_file:
                 pickle.dump(model, pickle_file)
+        print
 
     writer.close()
 
@@ -176,7 +192,6 @@ def test2():
     T_matrix = load_data.prepare_wiki_data(npy_file)
     unseen_file = '../features/' + dataset + '/unseen_classes.txt'
     train(V_train, T_matrix, Y_train, V_test, Y_test, unseen_file=unseen_file)
-
 
 if __name__ == '__main__':
     test2()

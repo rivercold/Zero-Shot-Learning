@@ -52,6 +52,8 @@ def split(matroot, split_file, unseen_file):
 # split for validation
 def split_train(V_train, T_train, Y_train):
 
+    y_vec = numpy.argmax(V_train, axis=1)
+
     sp = numpy.ones((V_train.shape[0],))
 
     remain = []
@@ -59,7 +61,7 @@ def split_train(V_train, T_train, Y_train):
     unseen_classes = random.sample(range(Y_train.shape[1]), 30)
     unseen_classes.sort()
     for i in xrange(Y_train.shape[0]):
-        if Y_train[i] in unseen_classes:
+        if y_vec[i] in unseen_classes:
             sp[i] = -1
         else:
             remain.append(i)
