@@ -28,7 +28,6 @@ def get_metrics(predictions, labels):
         temp = average_precision_score(true_labels[:, i], predictions[:, i])  # default macro
         pr_auc[i] = -1.0 if np.isnan(temp) else temp
 
-
     indicies = np.where(roc_auc == -1.0)[0]
     if len(indicies) > 1:
         roc_auc = np.delete(roc_auc, indicies, 0)

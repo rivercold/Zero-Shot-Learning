@@ -8,7 +8,7 @@ import theano
 num_class = 200
 
 
-def prepare_vision_data(matroot, split_file, zsl=False):
+def prepare_vision_data(matroot, split_file, zsl=False, no_train=False):
     X, Y = None, None
     files = os.listdir(matroot)
     files.sort()
@@ -30,16 +30,25 @@ def prepare_vision_data(matroot, split_file, zsl=False):
     if not zsl:
         sp = sp[:, 1]  # For train_test_split.txt only
     Y = numpy.asarray(Y, dtype=theano.config.floatX)
+
+    if no_train:
+        indices = numpy.arange(X.shape[0])
+        numpy.random.shuffle(indices)
+        X = X[indices]
+        Y = Y[indices]
+
+        return X, Y
+
     X_train, Y_train = X[sp == 1], Y[sp == 1]
 
     # unseen_classes = numpy.loadtxt(unseen_file)
     # Y_train = numpy.delete(Y_train, unseen_classes, axis=1)
-
-    X_test, Y_test = X[sp != 1], Y[sp != 1]
     indices = numpy.arange(X_train.shape[0])
     numpy.random.shuffle(indices)
     X_train = X_train[indices]
     Y_train = Y_train[indices]
+
+    X_test, Y_test = X[sp != 1], Y[sp != 1]
 
     return X_train, Y_train, X_test, Y_test
 

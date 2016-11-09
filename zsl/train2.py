@@ -48,13 +48,13 @@ def validate(test_model, writer, Y_test, batch_size=100, seen='seen'):
 
     labels = numpy.argmax(Y_test, axis=1)
 
-    roc_auc, ap, top1_accu, top5_accu = get_metrics(predictions, labels)
-    print '\t' + seen + '\tROC-AUC = %.4f\tAP = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f'\
-                        % (roc_auc, ap, top1_accu, top5_accu)
-    writer.write('\tseen\tROC-AUC = %.4f\tAP = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f\n'
-                 % (roc_auc, ap, top1_accu, top5_accu))
+    roc_auc, pr_auc, top1_accu, top5_accu = get_metrics(predictions, labels)
+    print '\t' + seen + '\tROC-AUC = %.4f\tPR-AUC = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f'\
+                        % (roc_auc, pr_auc, top1_accu, top5_accu)
+    writer.write('\t' + seen + '\tROC-AUC = %.4f\tPR-AUC = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f\n'
+                 % (roc_auc, pr_auc, top1_accu, top5_accu))
 
-    return roc_auc, ap, top1_accu, top5_accu
+    return roc_auc, pr_auc, top1_accu, top5_accu
 
 
 def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
@@ -178,15 +178,15 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test,
         n_unseen = Y_unseen.shape[0]
 
         roc_auc = (n_seen * roc_auc_seen + n_unseen * roc_auc_unseen) / (n_seen + n_unseen)
-        ap = (n_seen * ap_seen + n_unseen * ap_unseen) / (n_seen + n_unseen)
+        pr_auc = (n_seen * ap_seen + n_unseen * ap_unseen) / (n_seen + n_unseen)
 
         top1_accu = (n_seen * top1_accu_seen + n_unseen * top1_accu_unseen) / (n_seen + n_unseen)
         top5_accu = (n_seen * top5_accu_seen + n_unseen * top5_accu_unseen) / (n_seen + n_unseen)
 
-        writer.write('\tMean\tROC-AUC = %.4f\tAP = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f\n'
-                 % (roc_auc, ap, top1_accu, top5_accu))
-        print '\tMean\tROC-AUC = %.4f\tAP = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f'\
-              % (roc_auc, ap, top1_accu, top5_accu)
+        writer.write('\tMean\tROC-AUC = %.4f\tPR-AUC = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f\n'
+                 % (roc_auc, pr_auc, top1_accu, top5_accu))
+        print '\tMean\tROC-AUC = %.4f\tPR-AUC = %.4f\tTop-1 Acc = %.4f\tTop-5 Acc = %.4f'\
+              % (roc_auc, pr_auc, top1_accu, top5_accu)
 
         if store and top1_accu > best_acc:
             best_acc = top1_accu
@@ -198,7 +198,6 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test,
     writer.close()
 
 
-# zero-shot learning
 def test1():
     dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
@@ -209,8 +208,37 @@ def test1():
     unseen_file = '../features/' + dataset + '/unseen_classes.txt'
     Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
     V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test = split_train(V_train, T_train, Y_train)
+    print V_train.shape, Y_train.shape, T_train.shape, V_seen.shape, Y_seen.shape, V_unseen.shape, Y_unseen.shape, T_test.shape
     train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test)
 
+
+'''
+def test2():
+    dataset = 'bird-2011'
+    matroot = '../features/' + dataset + '/resnet'
+    split_file = '../features/' + dataset + '/zsl_split.txt'
+    npy_file = '../features/wiki/wiki_features'
+    V_train, Y_train, V_seen, Y_seen, V_unseen, Y_unseen =\
+        load_data.prepare_vision_data(matroot, split_file, zsl=True, split_unseen=True)
+    T_matrix = load_data.prepare_wiki_data(npy_file)
+    unseen_file = '../features/' + dataset + '/unseen_classes.txt'
+    Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
+    # V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test = split_train(V_train, T_train, Y_train)
+    T_test = T_matrix
+    print V_train.shape, Y_train.shape, T_train.shape, V_seen.shape, Y_seen.shape, V_unseen.shape, Y_unseen.shape, T_test.shape
+    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test)'''
+
+
+def test3():
+    dataset = 'bird-2011'
+    matroot = '../features/' + dataset + '/resnet'
+    split_file = '../features/' + dataset + '/zsl_split.txt'
+    npy_file = '../features/wiki/wiki_features'
+    V, Y = load_data.prepare_vision_data(matroot, split_file, zsl=True, no_train=True)
+    T_matrix = load_data.prepare_wiki_data(npy_file)
+    V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test = split_train(V, T_matrix, Y, num_unseen=40)
+    print V_train.shape, Y_train.shape, T_train.shape, V_seen.shape, Y_seen.shape, V_unseen.shape, Y_unseen.shape, T_test.shape
+    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test)
 
 if __name__ == '__main__':
     test1()

@@ -50,7 +50,7 @@ def split(matroot, split_file, unseen_file):
 
 
 # split for validation
-def split_train(V_train, T_train, Y_train):
+def split_train(V_train, T_train, Y_train, num_unseen=30):
 
     y_vec = numpy.argmax(V_train, axis=1)
 
@@ -58,7 +58,7 @@ def split_train(V_train, T_train, Y_train):
 
     remain = []
 
-    unseen_classes = random.sample(range(Y_train.shape[1]), 30)
+    unseen_classes = random.sample(range(Y_train.shape[1]), num_unseen)
     unseen_classes.sort()
     for i in xrange(Y_train.shape[0]):
         if y_vec[i] in unseen_classes:
@@ -76,7 +76,7 @@ def split_train(V_train, T_train, Y_train):
     T_train = numpy.delete(T_train, unseen_classes, axis=0)
 
     Y_seen, Y_unseen = Y_train[sp == 0], Y_train[sp == -1]
-    Y_train = numpy.delete(Y_train, unseen_classes, axis=1)
+    Y_train = numpy.delete(Y_train[sp == 1], unseen_classes, axis=1)
 
     return V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test
 
