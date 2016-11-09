@@ -2,6 +2,7 @@ __author__ = 'yuhongliang324'
 
 from load_data import *
 import random
+import cPickle as pickle
 
 
 # return: split result:
@@ -26,10 +27,10 @@ def split(matroot, split_file, unseen_file):
 
     remain = []
 
-    test_classes = random.sample(range(num_class), 40)
-    test_classes.sort()
+    unseen_classes = random.sample(range(num_class), 40)
+    unseen_classes.sort()
     for i in xrange(Y.shape[0]):
-        if Y[i] in test_classes:
+        if Y[i] in unseen_classes:
             sp[i] = -1
         else:
             remain.append(i)
@@ -43,11 +44,57 @@ def split(matroot, split_file, unseen_file):
     writer.close()
 
     writer = open(unseen_file, 'w')
-    for tc in test_classes:
+    for tc in unseen_classes:
         writer.write(str(tc) + '\n')
     writer.close()
 
 
-if __name__ == '__main__':
+# split for validation
+def split_train(V_train, T_train, Y_train):
+
+    sp = numpy.ones((V_train.shape[0],))
+
+    remain = []
+
+    unseen_classes = random.sample(range(Y_train.shape[1]), 30)
+    unseen_classes.sort()
+    for i in xrange(Y_train.shape[0]):
+        if Y_train[i] in unseen_classes:
+            sp[i] = -1
+        else:
+            remain.append(i)
+    test_index = random.sample(remain, int(len(remain) * 0.2))
+    for ti in test_index:
+        sp[ti] = 0
+
+    V_seen, V_unseen = V_train[sp == 0], V_train[sp == -1]
+    V_train = V_train[sp == 1]
+
+    T_test = numpy.copy(T_train)
+    T_train = numpy.delete(T_train, unseen_classes, axis=0)
+
+    Y_seen, Y_unseen = Y_train[sp == 0], Y_train[sp == -1]
+    Y_train = numpy.delete(Y_train, unseen_classes, axis=1)
+
+    return V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test
+
+
+def load_feature_map(pkl_path):
+    from fc import FC
+    model = pickle.load(open(pkl_path))
+    return model.W_t_mlp[0].get_value()
+
+
+def test1():
     split('../features/bird-2010/resnet', '../features/bird-2010/zsl_split.txt',
           '../features/bird-2010/unseen_classes.txt')
+
+
+def test2():
+    W = load_feature_map('../models/'
+                     'fc_BCE_tmlp_6366-50_vmlp_1000-200-50_bs_200_1108-19-04-35_epoch_85_acc_0.262886597938.pkl')
+    print W.shape
+
+
+if __name__ == '__main__':
+    test2()

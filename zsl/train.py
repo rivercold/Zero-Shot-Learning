@@ -4,11 +4,17 @@ import theano
 import theano.tensor as T
 from fc import FC
 import timeit
+import time
 import load_data
 import numpy
+import os
+import pickle
+
+log_root = '../log/'
+model_root = '../models/'
 
 
-def validate(test_model, num_samples, batch_size=100):
+def validate(test_model, num_samples, writer, batch_size=100):
     start_time = timeit.default_timer()
     batch_index = 0
     acc_total, cost_total, loss_total = 0., 0., 0.
@@ -29,11 +35,14 @@ def validate(test_model, num_samples, batch_size=100):
     acc_total /= num_samples
     loss_total /= num_samples
 
-    print '\tTesting\tAccuracy = %.4f\tTraining cost = %f\tTraining loss = %f'\
-              % (acc_total, cost_total, loss_total)
+    writer.write('\tTesting\tAccuracy = %.4f\tCost = %f\tLoss = %f\n'
+                 % (acc_total, cost_total, loss_total))
+    print '\tTesting\tAccuracy = %.4f\tCost = %f\tLoss = %f' % (acc_total, cost_total, loss_total)
 
     end_time = timeit.default_timer()
-    print 'Test %.3f seconds\n' % (end_time - start_time)
+    # print 'Test %.3f seconds' % (end_time - start_time)
+
+    return acc_total
 
 
 def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
@@ -45,7 +54,7 @@ def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
 
 
 def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
-          batch_size=200, max_epoch=100, unseen_file=None):
+          batch_size=200, max_epoch=100, unseen_file=None, store=False):
 
     if not obj == 'BCE':  # 0-1 coding
         Y_train = 2. * Y_train - 1.
@@ -55,9 +64,17 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
         Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
     else:
         T_train = T_matrix
-    mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 300, 50], [V_train.shape[1], 200, 50]
+    # mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 300, 50], [V_train.shape[1], 200, 50]
+    mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 50], [V_train.shape[1], 200, 50]
     model = FC(mlp_t_layers, mlp_v_layers)
     symbols = model.define_functions(obj=obj)
+
+    model_fn = model.name + '_' + obj\
+               + '_tmlp_' + '-'.join([str(x) for x in mlp_t_layers])\
+               + '_vmlp_' + '-'.join([str(x) for x in mlp_v_layers])\
+               + '_bs_' + str(batch_size) + '_' + time.strftime("%m%d-%H-%M-%S", time.localtime())
+    log_file = os.path.join(log_root, model_fn + '.log')
+    writer = open(log_file, 'w')
 
     V_batch, T_batch, Y_batch, updates = symbols['V_batch'], symbols['T_batch'], symbols['Y_batch'], symbols['updates']
     is_train, cost, loss, acc, pred = symbols['is_train'], symbols['cost'], symbols['loss'], symbols['acc'], symbols['pred']
@@ -93,8 +110,11 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
 
     num_samples = V_train.shape[0]
 
+    best_acc = 0.25
+
     for epoch_index in xrange(max_epoch):
         print 'Epoch = %d' % (epoch_index + 1)
+        writer.write('Epoch = %d\n' % (epoch_index + 1))
 
         start_time = timeit.default_timer()
 
@@ -116,13 +136,24 @@ def train(V_train, T_matrix, Y_train, V_test, Y_test, obj='BCE',
         acc_epoch /= num_samples
         loss_epoch /= num_samples
 
-        print 'Epoch = %d\tTraining Accuracy = %.4f\tTraining cost = %f\tTraining loss = %f'\
-              % (epoch_index + 1, acc_epoch, cost_epoch, loss_epoch)
+        writer.write('\tTraining\tAccuracy = %.4f\tCost = %f\tLoss = %f\n'
+                     % (acc_epoch, cost_epoch, loss_epoch))
+
+        print '\tTraining\tAccuracy = %.4f\tCost = %f\tLoss = %f'\
+              % (acc_epoch, cost_epoch, loss_epoch)
 
         end_time = timeit.default_timer()
         print 'Train %.3f seconds for this epoch' % (end_time - start_time)
+        print
 
-        validate(test_model, V_test.shape[0])
+        acc_val = validate(test_model, V_test.shape[0], writer)
+        if acc_val > best_acc:
+            best_acc = acc_val
+            with open(os.path.join(model_root, model_fn
+                    + '_epoch_' + str(epoch_index + 1) + '_acc_' + str(acc_val) + '.pkl'), 'wb') as pickle_file:
+                pickle.dump(model, pickle_file)
+
+    writer.close()
 
 
 # normal classification
@@ -137,13 +168,15 @@ def test1():
 
 # zero-shot learning
 def test2():
-    matroot = '../features/resnet'
-    split_file = '../features/zsl_split.txt'
+    dataset = 'bird-2010'
+    matroot = '../features/' + dataset + '/resnet'
+    split_file = '../features/' + dataset + '/zsl_split.txt'
     npy_file = '../features/wiki/wiki_features'
     V_train, Y_train, V_test, Y_test = load_data.prepare_vision_data(matroot, split_file, zsl=True)
     T_matrix = load_data.prepare_wiki_data(npy_file)
-    unseen_file = '../features/unseen_classes.txt'
+    unseen_file = '../features/' + dataset + '/unseen_classes.txt'
     train(V_train, T_matrix, Y_train, V_test, Y_test, unseen_file=unseen_file)
+
 
 if __name__ == '__main__':
     test2()

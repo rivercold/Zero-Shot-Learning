@@ -1,0 +1,300 @@
+Epoch = 1
+	Training	Accuracy = 0.0051	Cost = 18.784353	Loss = 18.779081
+	Testing	Accuracy = 0.0033	Cost = 7.038753	Loss = 7.033421
+Epoch = 2
+	Training	Accuracy = 0.0056	Cost = 6.401390	Loss = 6.396049
+	Testing	Accuracy = 0.0033	Cost = 6.515714	Loss = 6.510368
+Epoch = 3
+	Training	Accuracy = 0.0056	Cost = 6.166614	Loss = 6.161262
+	Testing	Accuracy = 0.0033	Cost = 6.375159	Loss = 6.369792
+Epoch = 4
+	Training	Accuracy = 0.0056	Cost = 6.083786	Loss = 6.078403
+	Testing	Accuracy = 0.0164	Cost = 6.328914	Loss = 6.323505
+Epoch = 5
+	Training	Accuracy = 0.0133	Cost = 6.022235	Loss = 6.016796
+	Testing	Accuracy = 0.0164	Cost = 6.238608	Loss = 6.233109
+Epoch = 6
+	Training	Accuracy = 0.0274	Cost = 5.881805	Loss = 5.876252
+	Testing	Accuracy = 0.0169	Cost = 6.178325	Loss = 6.172668
+Epoch = 7
+	Training	Accuracy = 0.0441	Cost = 5.711757	Loss = 5.706003
+	Testing	Accuracy = 0.0183	Cost = 6.105322	Loss = 6.099412
+Epoch = 8
+	Training	Accuracy = 0.0657	Cost = 5.485375	Loss = 5.479311
+	Testing	Accuracy = 0.0089	Cost = 6.039480	Loss = 6.033201
+Epoch = 9
+	Training	Accuracy = 0.0952	Cost = 5.243557	Loss = 5.237071
+	Testing	Accuracy = 0.0286	Cost = 5.977786	Loss = 5.971024
+Epoch = 10
+	Training	Accuracy = 0.1385	Cost = 5.004897	Loss = 4.997884
+	Testing	Accuracy = 0.0497	Cost = 5.921986	Loss = 5.914650
+Epoch = 11
+	Training	Accuracy = 0.1854	Cost = 4.770854	Loss = 4.763217
+	Testing	Accuracy = 0.0633	Cost = 5.930637	Loss = 5.922637
+Epoch = 12
+	Training	Accuracy = 0.2316	Cost = 4.537828	Loss = 4.529481
+	Testing	Accuracy = 0.0792	Cost = 5.888312	Loss = 5.879558
+Epoch = 13
+	Training	Accuracy = 0.2752	Cost = 4.307564	Loss = 4.298422
+	Testing	Accuracy = 0.0876	Cost = 5.835051	Loss = 5.825456
+Epoch = 14
+	Training	Accuracy = 0.3101	Cost = 4.104339	Loss = 4.094322
+	Testing	Accuracy = 0.1054	Cost = 5.821327	Loss = 5.810822
+Epoch = 15
+	Training	Accuracy = 0.3537	Cost = 3.889112	Loss = 3.878155
+	Testing	Accuracy = 0.1101	Cost = 5.878842	Loss = 5.867362
+Epoch = 16
+	Training	Accuracy = 0.3957	Cost = 3.690647	Loss = 3.678687
+	Testing	Accuracy = 0.1307	Cost = 5.837498	Loss = 5.824982
+Epoch = 17
+	Training	Accuracy = 0.4278	Cost = 3.524600	Loss = 3.511582
+	Testing	Accuracy = 0.1331	Cost = 5.811954	Loss = 5.798363
+Epoch = 18
+	Training	Accuracy = 0.4606	Cost = 3.349915	Loss = 3.335804
+	Testing	Accuracy = 0.1373	Cost = 5.833930	Loss = 5.819216
+Epoch = 19
+	Training	Accuracy = 0.4978	Cost = 3.190731	Loss = 3.175477
+	Testing	Accuracy = 0.1485	Cost = 5.827412	Loss = 5.811538
+Epoch = 20
+	Training	Accuracy = 0.5247	Cost = 3.050402	Loss = 3.033979
+	Testing	Accuracy = 0.1589	Cost = 5.855841	Loss = 5.838784
+Epoch = 21
+	Training	Accuracy = 0.5589	Cost = 2.905948	Loss = 2.888324
+	Testing	Accuracy = 0.1678	Cost = 5.864095	Loss = 5.845816
+Epoch = 22
+	Training	Accuracy = 0.5937	Cost = 2.788355	Loss = 2.769507
+	Testing	Accuracy = 0.1673	Cost = 5.923057	Loss = 5.903555
+Epoch = 23
+	Training	Accuracy = 0.6148	Cost = 2.668513	Loss = 2.648423
+	Testing	Accuracy = 0.1748	Cost = 5.941113	Loss = 5.920352
+Epoch = 24
+	Training	Accuracy = 0.6420	Cost = 2.549115	Loss = 2.527763
+	Testing	Accuracy = 0.1710	Cost = 5.994504	Loss = 5.972471
+Epoch = 25
+	Training	Accuracy = 0.6668	Cost = 2.444487	Loss = 2.421857
+	Testing	Accuracy = 0.1828	Cost = 6.045335	Loss = 6.022014
+Epoch = 26
+	Training	Accuracy = 0.6871	Cost = 2.347032	Loss = 2.323110
+	Testing	Accuracy = 0.1931	Cost = 6.029062	Loss = 6.004442
+Epoch = 27
+	Training	Accuracy = 0.7161	Cost = 2.249080	Loss = 2.223850
+	Testing	Accuracy = 0.2024	Cost = 6.065015	Loss = 6.039076
+Epoch = 28
+	Training	Accuracy = 0.7317	Cost = 2.160697	Loss = 2.134146
+	Testing	Accuracy = 0.1978	Cost = 6.127890	Loss = 6.100633
+Epoch = 29
+	Training	Accuracy = 0.7561	Cost = 2.069809	Loss = 2.041928
+	Testing	Accuracy = 0.1968	Cost = 6.181007	Loss = 6.152411
+Epoch = 30
+	Training	Accuracy = 0.7692	Cost = 2.000109	Loss = 1.970891
+	Testing	Accuracy = 0.2132	Cost = 6.190714	Loss = 6.160782
+Epoch = 31
+	Training	Accuracy = 0.7902	Cost = 1.908585	Loss = 1.878025
+	Testing	Accuracy = 0.2081	Cost = 6.245198	Loss = 6.213914
+Epoch = 32
+	Training	Accuracy = 0.8012	Cost = 1.844164	Loss = 1.812248
+	Testing	Accuracy = 0.2090	Cost = 6.280923	Loss = 6.248280
+Epoch = 33
+	Training	Accuracy = 0.8110	Cost = 1.785864	Loss = 1.752598
+	Testing	Accuracy = 0.2165	Cost = 6.293720	Loss = 6.259732
+Epoch = 34
+	Training	Accuracy = 0.8300	Cost = 1.698552	Loss = 1.663935
+	Testing	Accuracy = 0.2174	Cost = 6.362537	Loss = 6.327195
+Epoch = 35
+	Training	Accuracy = 0.8387	Cost = 1.650232	Loss = 1.614252
+	Testing	Accuracy = 0.2282	Cost = 6.400627	Loss = 6.363916
+Epoch = 36
+	Training	Accuracy = 0.8546	Cost = 1.569269	Loss = 1.531932
+	Testing	Accuracy = 0.2240	Cost = 6.461511	Loss = 6.423452
+Epoch = 37
+	Training	Accuracy = 0.8664	Cost = 1.516790	Loss = 1.478091
+	Testing	Accuracy = 0.2156	Cost = 6.491530	Loss = 6.452096
+Epoch = 38
+	Training	Accuracy = 0.8707	Cost = 1.469518	Loss = 1.429450
+	Testing	Accuracy = 0.2315	Cost = 6.494699	Loss = 6.453904
+Epoch = 39
+	Training	Accuracy = 0.8825	Cost = 1.411965	Loss = 1.370540
+	Testing	Accuracy = 0.2320	Cost = 6.565907	Loss = 6.523760
+Epoch = 40
+	Training	Accuracy = 0.8910	Cost = 1.347052	Loss = 1.304262
+	Testing	Accuracy = 0.2352	Cost = 6.604980	Loss = 6.561458
+Epoch = 41
+	Training	Accuracy = 0.8974	Cost = 1.312650	Loss = 1.268495
+	Testing	Accuracy = 0.2282	Cost = 6.662149	Loss = 6.617279
+Epoch = 42
+	Training	Accuracy = 0.9069	Cost = 1.244159	Loss = 1.198656
+	Testing	Accuracy = 0.2399	Cost = 6.677399	Loss = 6.631166
+Epoch = 43
+	Training	Accuracy = 0.9095	Cost = 1.215759	Loss = 1.168890
+	Testing	Accuracy = 0.2423	Cost = 6.720297	Loss = 6.672706
+Epoch = 44
+	Training	Accuracy = 0.9231	Cost = 1.171119	Loss = 1.122910
+	Testing	Accuracy = 0.2423	Cost = 6.792151	Loss = 6.743240
+Epoch = 45
+	Training	Accuracy = 0.9328	Cost = 1.113240	Loss = 1.063694
+	Testing	Accuracy = 0.2470	Cost = 6.816317	Loss = 6.766067
+Epoch = 46
+	Training	Accuracy = 0.9323	Cost = 1.080562	Loss = 1.029684
+	Testing	Accuracy = 0.2432	Cost = 6.837109	Loss = 6.785520
+Epoch = 47
+	Training	Accuracy = 0.9364	Cost = 1.040377	Loss = 0.988185
+	Testing	Accuracy = 0.2488	Cost = 6.884946	Loss = 6.832062
+Epoch = 48
+	Training	Accuracy = 0.9428	Cost = 1.013462	Loss = 0.959964
+	Testing	Accuracy = 0.2451	Cost = 6.909449	Loss = 6.855263
+Epoch = 49
+	Training	Accuracy = 0.9469	Cost = 0.976833	Loss = 0.922047
+	Testing	Accuracy = 0.2427	Cost = 6.993700	Loss = 6.938236
+Epoch = 50
+	Training	Accuracy = 0.9523	Cost = 0.928486	Loss = 0.872420
+	Testing	Accuracy = 0.2432	Cost = 7.002288	Loss = 6.945533
+Epoch = 51
+	Training	Accuracy = 0.9600	Cost = 0.907142	Loss = 0.849790
+	Testing	Accuracy = 0.2502	Cost = 7.047177	Loss = 6.989157
+Epoch = 52
+	Training	Accuracy = 0.9579	Cost = 0.869376	Loss = 0.810770
+	Testing	Accuracy = 0.2413	Cost = 7.125825	Loss = 7.066558
+Epoch = 53
+	Training	Accuracy = 0.9656	Cost = 0.834892	Loss = 0.775036
+	Testing	Accuracy = 0.2470	Cost = 7.101442	Loss = 7.040917
+Epoch = 54
+	Training	Accuracy = 0.9631	Cost = 0.830068	Loss = 0.768975
+	Testing	Accuracy = 0.2455	Cost = 7.145337	Loss = 7.083589
+Epoch = 55
+	Training	Accuracy = 0.9705	Cost = 0.769525	Loss = 0.707227
+	Testing	Accuracy = 0.2502	Cost = 7.209994	Loss = 7.147064
+Epoch = 56
+	Training	Accuracy = 0.9731	Cost = 0.756037	Loss = 0.692541
+	Testing	Accuracy = 0.2512	Cost = 7.262995	Loss = 7.198881
+Epoch = 57
+	Training	Accuracy = 0.9741	Cost = 0.741481	Loss = 0.676807
+	Testing	Accuracy = 0.2507	Cost = 7.258952	Loss = 7.193667
+Epoch = 58
+	Training	Accuracy = 0.9774	Cost = 0.701767	Loss = 0.635947
+	Testing	Accuracy = 0.2521	Cost = 7.336224	Loss = 7.269813
+Epoch = 59
+	Training	Accuracy = 0.9792	Cost = 0.696218	Loss = 0.629260
+	Testing	Accuracy = 0.2502	Cost = 7.349095	Loss = 7.281541
+Epoch = 60
+	Training	Accuracy = 0.9828	Cost = 0.660646	Loss = 0.592565
+	Testing	Accuracy = 0.2507	Cost = 7.421154	Loss = 7.352488
+Epoch = 61
+	Training	Accuracy = 0.9820	Cost = 0.659036	Loss = 0.589848
+	Testing	Accuracy = 0.2502	Cost = 7.434825	Loss = 7.365054
+Epoch = 62
+	Training	Accuracy = 0.9859	Cost = 0.613622	Loss = 0.543359
+	Testing	Accuracy = 0.2591	Cost = 7.465729	Loss = 7.394893
+Epoch = 63
+	Training	Accuracy = 0.9841	Cost = 0.610708	Loss = 0.539379
+	Testing	Accuracy = 0.2577	Cost = 7.505085	Loss = 7.433202
+Epoch = 64
+	Training	Accuracy = 0.9872	Cost = 0.576826	Loss = 0.504470
+	Testing	Accuracy = 0.2582	Cost = 7.568896	Loss = 7.496016
+Epoch = 65
+	Training	Accuracy = 0.9872	Cost = 0.568295	Loss = 0.494940
+	Testing	Accuracy = 0.2568	Cost = 7.589060	Loss = 7.515197
+Epoch = 66
+	Training	Accuracy = 0.9887	Cost = 0.558354	Loss = 0.484014
+	Testing	Accuracy = 0.2545	Cost = 7.657942	Loss = 7.583108
+Epoch = 67
+	Training	Accuracy = 0.9874	Cost = 0.538760	Loss = 0.463466
+	Testing	Accuracy = 0.2507	Cost = 7.684744	Loss = 7.608963
+Epoch = 68
+	Training	Accuracy = 0.9851	Cost = 0.549394	Loss = 0.473160
+	Testing	Accuracy = 0.2573	Cost = 7.695775	Loss = 7.619082
+Epoch = 69
+	Training	Accuracy = 0.9908	Cost = 0.508178	Loss = 0.431050
+	Testing	Accuracy = 0.2484	Cost = 7.681591	Loss = 7.603945
+Epoch = 70
+	Training	Accuracy = 0.9918	Cost = 0.495549	Loss = 0.417507
+	Testing	Accuracy = 0.2559	Cost = 7.697067	Loss = 7.618541
+Epoch = 71
+	Training	Accuracy = 0.9949	Cost = 0.471577	Loss = 0.392658
+	Testing	Accuracy = 0.2573	Cost = 7.705091	Loss = 7.625681
+Epoch = 72
+	Training	Accuracy = 0.9897	Cost = 0.482786	Loss = 0.402992
+	Testing	Accuracy = 0.2507	Cost = 7.699431	Loss = 7.619158
+Epoch = 73
+	Training	Accuracy = 0.9951	Cost = 0.441916	Loss = 0.361294
+	Testing	Accuracy = 0.2554	Cost = 7.809303	Loss = 7.728248
+Epoch = 74
+	Training	Accuracy = 0.9946	Cost = 0.444462	Loss = 0.363027
+	Testing	Accuracy = 0.2582	Cost = 7.892050	Loss = 7.810193
+Epoch = 75
+	Training	Accuracy = 0.9933	Cost = 0.442463	Loss = 0.360230
+	Testing	Accuracy = 0.2619	Cost = 7.901032	Loss = 7.818403
+Epoch = 76
+	Training	Accuracy = 0.9895	Cost = 0.437682	Loss = 0.354704
+	Testing	Accuracy = 0.2554	Cost = 7.794963	Loss = 7.711538
+Epoch = 77
+	Training	Accuracy = 0.9972	Cost = 0.376187	Loss = 0.292496
+	Testing	Accuracy = 0.2619	Cost = 7.973282	Loss = 7.889243
+Epoch = 78
+	Training	Accuracy = 0.9913	Cost = 0.428895	Loss = 0.344502
+	Testing	Accuracy = 0.2591	Cost = 8.019178	Loss = 7.934454
+Epoch = 79
+	Training	Accuracy = 0.9949	Cost = 0.405813	Loss = 0.320735
+	Testing	Accuracy = 0.2587	Cost = 8.035969	Loss = 7.950547
+Epoch = 80
+	Training	Accuracy = 0.9936	Cost = 0.396485	Loss = 0.310726
+	Testing	Accuracy = 0.2601	Cost = 8.047690	Loss = 7.961584
+Epoch = 81
+	Training	Accuracy = 0.9972	Cost = 0.366169	Loss = 0.279746
+	Testing	Accuracy = 0.2596	Cost = 8.099874	Loss = 8.013103
+Epoch = 82
+	Training	Accuracy = 0.9964	Cost = 0.378270	Loss = 0.291184
+	Testing	Accuracy = 0.2615	Cost = 8.092703	Loss = 8.005269
+Epoch = 83
+	Training	Accuracy = 0.9979	Cost = 0.358036	Loss = 0.270325
+	Testing	Accuracy = 0.2582	Cost = 8.045513	Loss = 7.957444
+Epoch = 84
+	Training	Accuracy = 0.9977	Cost = 0.349734	Loss = 0.261406
+	Testing	Accuracy = 0.2549	Cost = 7.992839	Loss = 7.904145
+Epoch = 85
+	Training	Accuracy = 0.9974	Cost = 0.328624	Loss = 0.239705
+	Testing	Accuracy = 0.2629	Cost = 8.205873	Loss = 8.116685
+Epoch = 86
+	Training	Accuracy = 0.9936	Cost = 0.383214	Loss = 0.293758
+	Testing	Accuracy = 0.2605	Cost = 8.216342	Loss = 8.126681
+Epoch = 87
+	Training	Accuracy = 0.9969	Cost = 0.343281	Loss = 0.253351
+	Testing	Accuracy = 0.2605	Cost = 8.245183	Loss = 8.155003
+Epoch = 88
+	Training	Accuracy = 0.9969	Cost = 0.347014	Loss = 0.256578
+	Testing	Accuracy = 0.2605	Cost = 8.206456	Loss = 8.115724
+Epoch = 89
+	Training	Accuracy = 0.9972	Cost = 0.318920	Loss = 0.227979
+	Testing	Accuracy = 0.2446	Cost = 8.068325	Loss = 7.977066
+Epoch = 90
+	Training	Accuracy = 0.9987	Cost = 0.298703	Loss = 0.207271
+	Testing	Accuracy = 0.2596	Cost = 8.323945	Loss = 8.232311
+Epoch = 91
+	Training	Accuracy = 0.9946	Cost = 0.345214	Loss = 0.253332
+	Testing	Accuracy = 0.2568	Cost = 8.314993	Loss = 8.222924
+Epoch = 92
+	Training	Accuracy = 0.9987	Cost = 0.299892	Loss = 0.207600
+	Testing	Accuracy = 0.2605	Cost = 8.360827	Loss = 8.268324
+Epoch = 93
+	Training	Accuracy = 0.9946	Cost = 0.340001	Loss = 0.247257
+	Testing	Accuracy = 0.2629	Cost = 8.339107	Loss = 8.246163
+Epoch = 94
+	Training	Accuracy = 0.9997	Cost = 0.264288	Loss = 0.171183
+	Testing	Accuracy = 0.2582	Cost = 8.373447	Loss = 8.280151
+Epoch = 95
+	Training	Accuracy = 0.9890	Cost = 0.350728	Loss = 0.257229
+	Testing	Accuracy = 0.2605	Cost = 8.379672	Loss = 8.286036
+Epoch = 96
+	Training	Accuracy = 0.9992	Cost = 0.271078	Loss = 0.177286
+	Testing	Accuracy = 0.2381	Cost = 8.308849	Loss = 8.214797
+Epoch = 97
+	Training	Accuracy = 0.9946	Cost = 0.302663	Loss = 0.208469
+	Testing	Accuracy = 0.2615	Cost = 8.446542	Loss = 8.352221
+Epoch = 98
+	Training	Accuracy = 0.9923	Cost = 0.339335	Loss = 0.244833
+	Testing	Accuracy = 0.2601	Cost = 8.236478	Loss = 8.141759
+Epoch = 99
+	Training	Accuracy = 0.9997	Cost = 0.249454	Loss = 0.154669
+	Testing	Accuracy = 0.2582	Cost = 8.459316	Loss = 8.364421
+Epoch = 100
+	Training	Accuracy = 0.9926	Cost = 0.336740	Loss = 0.241656
+	Testing	Accuracy = 0.2634	Cost = 8.411520	Loss = 8.316308
