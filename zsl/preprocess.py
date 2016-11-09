@@ -3,7 +3,8 @@ __author__ = 'yuhongliang324'
 from load_data import *
 import random
 import cPickle as pickle
-
+import numpy as np
+#import pickle
 
 # return: split result:
 # 1 - training, 0 - seen test, -1 - unseen test
@@ -91,12 +92,32 @@ def test1():
     split('../features/bird-2010/resnet', '../features/bird-2010/zsl_split.txt',
           '../features/bird-2010/unseen_classes.txt')
 
-
 def test2():
     W = load_feature_map('../models/'
                      'fc_BCE_tmlp_6366-50_vmlp_1000-200-50_bs_200_1108-19-04-35_epoch_85_acc_0.262886597938.pkl')
-    print W.shape
+    with open("../features/wiki/vocabulary","r") as outfile:
+        vocabulary = pickle.load(outfile)
+    vocabulary = convert_vocabulary(vocabulary)
+    for i in range(50):
+        t = W.T[i]
+        index = np.argsort(-t)[:10]
+        print index
+        for id in index:
+            print vocabulary[id],
+        print "\n"
+    print len(vocabulary)
 
+def convert_vocabulary(vocabulary):
+    new_vocab = {}
+    for word, id in vocabulary.iteritems():
+        new_vocab[id] = word
+    return new_vocab
 
 if __name__ == '__main__':
     test2()
+
+
+    #file_path = '../models/fc_BCE_tmlp_6366-50_vmlp_1000-200-50_bs_200_1108-19-04-35_epoch_85_acc_0.262886597938.pkl'
+    #with open(file_path) as outfile:
+    #    p = pickle.load(outfile)
+
