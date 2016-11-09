@@ -16,12 +16,26 @@ def get_metrics(predictions, labels):
 
     ## roc_auc and ap
     roc_auc = np.zeros(shape=(class_num))
-    ap = np.zeros(shape=(class_num))
+    pr_auc = np.zeros(shape=(class_num))
 
     for i in xrange(class_num):
         # Might cause error: ValueError: Only one class present in y_true. ROC AUC score is not defined in that case.
-        roc_auc[i] = roc_auc_score(true_labels[:, i], predictions[:, i])  # default macro
-        ap[i] = average_precision_score(true_labels[:, i], predictions[:, i])  # default macro
+        try:
+            roc_auc[i] = roc_auc_score(true_labels[:, i], predictions[:, i])  # default macro
+        except ValueError:
+            roc_auc[i] = -1.0
+
+        temp = average_precision_score(true_labels[:, i], predictions[:, i])  # default macro
+        pr_auc[i] = -1.0 if np.isnan(temp) else temp
+
+
+    indicies = np.where(roc_auc == -1.0)[0]
+    if len(indicies) > 1:
+        roc_auc = np.delete(roc_auc, indicies, 0)
+
+    indicies = np.where(pr_auc == -1.0)[0]
+    if len(indicies) > 1:
+        pr_auc = np.delete(pr_auc, indicies, 0)
 
     #  top 1 and top 5 accuracy
     top1 = np.argmax(predictions, axis=1)[np.newaxis].T
@@ -30,10 +44,10 @@ def get_metrics(predictions, labels):
     top5 = np.argsort(predictions, axis=1)[:, -5:]
     top5_accu = np.sum(top5 == labels) / float(test_size)
 
-    return roc_auc.mean(), ap.mean(), top1_accu, top5_accu
+    return roc_auc.mean(), pr_auc.mean(), top1_accu, top5_accu
     
 if __name__ == '__main__':
-    predictions = np.random.uniform(size=(1000,10))
-    labels = np.random.randint(10, size=(1000,1))
+    predictions = np.random.uniform(size=(10,10))
+    labels = np.random.randint(10, size=(10,1))
 
     get_metrics(predictions, labels)
