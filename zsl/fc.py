@@ -188,5 +188,5 @@ class FC(object):
 
         return {'V_batch': V_batch, 'T_batch': T_batch, 'Y_batch': Y_batch,
                 'updates': updates, 'is_train': is_train, 'cost': cost, 'loss': loss,
-                'acc': acc, 'pred': pred, 'lr': self.lr, 'sim': sim}
+                'acc': acc, 'pred': pred, 'sim': sim}
 

@@ -237,7 +237,11 @@ def test3():
     V, Y = load_data.prepare_vision_data(matroot, split_file, zsl=True, no_train=True)
     T_matrix = load_data.prepare_wiki_data(npy_file)
     V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test = split_train(V, T_matrix, Y, num_unseen=40)
-    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='Euclidean')
+    start_time = timeit.default_timer()
+    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='BCE')
+    end_time = timeit.default_timer()
+    print 'Test %.3f seconds' % (end_time - start_time)
+
 
 if __name__ == '__main__':
     test3()
