@@ -16,7 +16,7 @@ known
 catbird
 adult
 glacialis
-38 cm
+38
 migrates
 subarctic
 coccyzus

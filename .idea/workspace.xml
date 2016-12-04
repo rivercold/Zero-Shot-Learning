@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4583003f-552e-400c-a4a2-80eb8365d975" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feature_extraction/utils.py" afterPath="$PROJECT_DIR$/feature_extraction/utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Zero-Shot-Learning.iws" />
@@ -46,14 +45,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/feature_extraction/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3951613">
+            <state vertical-scroll-proportion="0.0">
               <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="e#30#42#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vocab.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="28.951612">
+              <caret line="718" column="6" selection-start-line="718" selection-start-column="3" selection-end-line="718" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -820,11 +829,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/feature_extraction/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3951613">
+        <state vertical-scroll-proportion="0.0">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="e#30#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="28.951612">
+          <caret line="718" column="6" selection-start-line="718" selection-start-column="3" selection-end-line="718" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
