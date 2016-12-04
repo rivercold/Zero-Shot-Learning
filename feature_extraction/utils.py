@@ -1,7 +1,7 @@
 __author__ = 'yuhongliang324'
 import numpy
 
-word_vector_file = '../../word_vectors/glove.840B.300d.txt'
+word_vector_file = '../../../word_vectors/glove.840B.300d.txt'
 
 
 def form_vectors(line):
