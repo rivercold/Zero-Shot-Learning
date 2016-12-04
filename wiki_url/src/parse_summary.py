@@ -10,7 +10,7 @@ import pickle
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-
+oov_list = []
 # match a token into words in vocabulary
 
 def transform_to_words(token,vocab,long_vocab):
@@ -18,13 +18,20 @@ def transform_to_words(token,vocab,long_vocab):
         return [token]
     else:
         token_list = []
-        flag = 0
-        for id,char in enumerate(token):
-            if token[flag:id+1] in long_vocab:
-                token_list.append(token[flag:id+1])
-                flag = id+1
-        print token, token_list
-        return token_list
+        # 04 oz like that
+        if chr(194) in token:
+            print token.split(chr(194))
+            return token.split(chr(194))
+        else:
+            flag = 0
+            for id,char in enumerate(token):
+                if token[flag:id+1] in long_vocab:
+                    token_list.append(token[flag:id+1])
+                    flag = id+1
+            print token, token_list
+            if token not in oov_list:
+                oov_list.append(token)
+            return token_list
 
 # only use word that has at least 3 chars
 def transform_vocab(vocab):
@@ -49,7 +56,6 @@ if __name__ == "__main__":
     #raise
 
     lines = file_path.readlines()
-
     for index, line in enumerate(lines):
         tokens = line.split()
         words = []
@@ -59,4 +65,8 @@ if __name__ == "__main__":
                 break
         words = words[:30]
         write_file.write(" ".join(words)+"\n")
-
+    oov_set = set(oov_list)
+    print len(oov_set)
+    print "========="
+    for token in oov_set:
+        print token

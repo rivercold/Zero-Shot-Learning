@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4583003f-552e-400c-a4a2-80eb8365d975" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wiki_url/src/parse_summary.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/summary/vocab_old.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/summary/vocab.txt" afterPath="$PROJECT_DIR$/features/summary/vocab.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_url/src/wiki_parser.py" afterPath="$PROJECT_DIR$/wiki_url/src/wiki_parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_url/src/first_sentence.py" afterPath="$PROJECT_DIR$/wiki_url/src/first_sentence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_url/src/new_summary.txt" afterPath="$PROJECT_DIR$/wiki_url/src/new_summary.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_url/src/parse_summary.py" afterPath="$PROJECT_DIR$/wiki_url/src/parse_summary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_url/src/summary.txt" afterPath="$PROJECT_DIR$/wiki_url/src/summary.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_url/src/vocab.txt" afterPath="$PROJECT_DIR$/wiki_url/src/vocab.txt" />
     </list>
     <ignored path="Zero-Shot-Learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,53 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wiki_parser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wiki_parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wiki_url/src/wiki_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7563805">
-              <caret line="119" column="36" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="url.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki_url/url.txt">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wiki_features" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/wiki/wiki_features">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vocabulary" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/wiki/vocabulary">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="first_sentence.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki_url/src/first_sentence.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+              <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -84,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/wiki_url/src/raw_wiki.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="1721" selection-start-line="0" selection-start-column="1721" selection-end-line="0" selection-end-column="1721" />
+              <caret line="0" column="2159" selection-start-line="0" selection-start-column="2159" selection-end-line="0" selection-end-column="2159" />
               <folding />
             </state>
           </provider>
@@ -94,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/wiki_url/src/parse_summary.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -102,31 +64,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vocab.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="first_sentence.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wiki_url/src/first_sentence.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vocab_old.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/features/summary/vocab_old.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="727.8148">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1331" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vocab.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.185185">
-              <caret line="1331" column="4" selection-start-line="1331" selection-start-column="4" selection-end-line="1331" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.7563805">
+              <caret line="1759" column="9" selection-start-line="1759" selection-start-column="9" selection-end-line="1759" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fc.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zsl/fc.py">
+      <file leaf-file-name="summary.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wiki_url/src/summary.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
+              <caret line="195" column="35" selection-start-line="195" selection-start-column="35" selection-end-line="195" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zsl/load_data.py">
+      <file leaf-file-name="oov_list.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wiki_url/src/oov_list.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new_summary.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wiki_url/src/new_summary.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,9 +151,12 @@
         <option value="$PROJECT_DIR$/zsl/train2.py" />
         <option value="$PROJECT_DIR$/zsl/fc.py" />
         <option value="$PROJECT_DIR$/feature_extraction/utils.py" />
-        <option value="$PROJECT_DIR$/wiki_url/src/parse_summary.py" />
-        <option value="$PROJECT_DIR$/features/summary/vocab.txt" />
         <option value="$PROJECT_DIR$/wiki_url/src/wiki_parser.py" />
+        <option value="$PROJECT_DIR$/wiki_url/src/new_summary.txt" />
+        <option value="$PROJECT_DIR$/wiki_url/src/parse_summary.py" />
+        <option value="$PROJECT_DIR$/wiki_url/src/first_sentence.py" />
+        <option value="$PROJECT_DIR$/wiki_url/src/vocab.txt" />
+        <option value="$PROJECT_DIR$/features/summary/vocab.txt" />
       </list>
     </option>
   </component>
@@ -300,10 +297,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/features/summary" />
       <recent name="$PROJECT_DIR$/wiki_url/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.wiki_parser">
+  <component name="RunManager" selected="Python.parse_summary">
     <configuration default="false" name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,23 +315,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Zero-Shot-Learning" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/zsl/train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/zsl" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Zero-Shot-Learning" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/zsl/preprocess.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -385,6 +366,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Zero-Shot-Learning" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wiki_url/src/wiki_parser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="first_sentence" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wiki_url/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Zero-Shot-Learning" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wiki_url/src/first_sentence.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -524,18 +522,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.train" />
-      <item index="1" class="java.lang.String" itemvalue="Python.preprocess" />
-      <item index="2" class="java.lang.String" itemvalue="Python.train2" />
-      <item index="3" class="java.lang.String" itemvalue="Python.parse_summary" />
-      <item index="4" class="java.lang.String" itemvalue="Python.wiki_parser" />
+      <item index="1" class="java.lang.String" itemvalue="Python.train2" />
+      <item index="2" class="java.lang.String" itemvalue="Python.parse_summary" />
+      <item index="3" class="java.lang.String" itemvalue="Python.wiki_parser" />
+      <item index="4" class="java.lang.String" itemvalue="Python.first_sentence" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.wiki_parser" />
-        <item index="1" class="java.lang.String" itemvalue="Python.parse_summary" />
-        <item index="2" class="java.lang.String" itemvalue="Python.train2" />
-        <item index="3" class="java.lang.String" itemvalue="Python.train" />
-        <item index="4" class="java.lang.String" itemvalue="Python.preprocess" />
+        <item index="0" class="java.lang.String" itemvalue="Python.parse_summary" />
+        <item index="1" class="java.lang.String" itemvalue="Python.first_sentence" />
+        <item index="2" class="java.lang.String" itemvalue="Python.wiki_parser" />
+        <item index="3" class="java.lang.String" itemvalue="Python.train2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
@@ -561,14 +559,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24146147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282572" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32796487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32796487" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32503662" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -605,58 +603,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zsl/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_url/src/wiki_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zsl/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#31#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zsl/fc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="149" column="41" selection-start-line="149" selection-start-column="41" selection-end-line="149" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zsl/load_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zsl/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zsl/train2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -692,7 +638,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#31#44#0" expanded="true" />
+            <element signature="e#31#44#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -736,7 +682,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#31#44#0" expanded="true" />
+            <element signature="e#31#44#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -780,7 +726,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="57" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="57" />
           <folding>
-            <element signature="e#31#44#0" expanded="true" />
+            <element signature="e#31#44#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -824,7 +770,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="57" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="57" />
           <folding>
-            <element signature="e#31#44#0" expanded="true" />
+            <element signature="e#31#44#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -913,7 +859,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#31#44#0" expanded="true" />
+            <element signature="e#31#44#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -970,54 +916,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_url/src/parse_summary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_url/src/first_sentence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.185185">
-          <caret line="1331" column="4" selection-start-line="1331" selection-start-column="4" selection-end-line="1331" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_url/src/raw_wiki.txt">
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/raw_wiki_old.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="1721" selection-start-line="0" selection-start-column="1721" selection-end-line="0" selection-end-column="1721" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/wiki/wiki_features">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features/wiki/vocabulary">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1030,13 +932,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/features/wiki/vocabulary">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-45.935333">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/wiki/wiki_features_old">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/oov_list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/new_summary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wiki_url/src/wiki_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7563805">
-          <caret line="119" column="36" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/summary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="35" selection-start-line="195" selection-start-column="35" selection-end-line="195" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/first_sentence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/parse_summary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/raw_wiki.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="2159" selection-start-line="0" selection-start-column="2159" selection-end-line="0" selection-end-column="2159" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wiki_url/src/vocab.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48723897">
+          <caret line="1446" column="13" selection-start-line="1446" selection-start-column="13" selection-end-line="1446" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/summary/vocab_old.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="727.8148">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1331" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7563805">
+          <caret line="1759" column="9" selection-start-line="1759" selection-start-column="9" selection-end-line="1759" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
