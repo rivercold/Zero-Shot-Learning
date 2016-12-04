@@ -39,11 +39,13 @@ def write_voc(wv_file, voc_file, out_pkl, oov_file):
     assert os.path.isfile(wv_file)
     assert os.path.isfile(voc_file)
 
-    word_vec_all = get_all_vectors(wv_file)
+    # word_vec_all = get_all_vectors(wv_file)
 
     reader = open(voc_file)
     words = reader.readlines()
+    print len(words)
     reader.close()
+    '''
     words = map(lambda x: x.strip(), words)
 
     writer_oov = open(oov_file, 'w')
@@ -58,8 +60,13 @@ def write_voc(wv_file, voc_file, out_pkl, oov_file):
     with open(out_pkl, 'wb') as fin:
         pickle.dump(word_vec, fin)
     print len(word_vec)
+    '''
 
 
 def test1():
     write_voc(word_vector_file, '../features/summary/vocab.txt',
               '../features/summary/vocab.pkl', '../features/summary/oov.txt')
+
+
+if __name__ == '__main__':
+    test1()
