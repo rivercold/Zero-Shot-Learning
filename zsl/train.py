@@ -95,7 +95,6 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen,
     Y_unseen_shared = theano.shared(Y_unseen, borrow=True)
     T_unseen_shared = theano.shared(T_unseen, borrow=True)
 
-
     print 'Compiling functions ... '
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train],
                                   outputs=[pred, cost, loss, acc], updates=updates,
@@ -200,6 +199,7 @@ def test1():
 
     V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen\
         = load_data.prepare_data(matroot, split_file, unseen_file, wiki_npy)
+    print V_train.shape, Y_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen, obj='Hinge')
     end_time = timeit.default_timer()
