@@ -61,7 +61,7 @@ def validate(test_model, num_samples, writer, Y_test, batch_size=100):
 
 
 def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
-    unseen_classes = numpy.loadtxt(unseen_file)
+    unseen_classes = numpy.loadtxt(unseen_file) - 1
     Y_train = numpy.delete(Y_train, unseen_classes, axis=1)
     T_train = numpy.delete(T_matrix, unseen_classes, axis=0)
 
@@ -186,11 +186,11 @@ def test1():
 def test2():
     dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
-    split_file = '../features/' + dataset + '/zsl_split.txt'
+    split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
     npy_file = '../features/wiki/wiki_features'
-    V_train, Y_train, V_test, Y_test = load_data.prepare_vision_data(matroot, split_file, zsl=True)
+    V_train, Y_train, V_test, Y_test = load_data.prepare_vision_data(matroot, split_file)
     T_matrix = load_data.prepare_wiki_data(npy_file)
-    unseen_file = '../features/' + dataset + '/unseen_classes.txt'
+    unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
     train(V_train, T_matrix, Y_train, V_test, Y_test, unseen_file=unseen_file)
 
 if __name__ == '__main__':
