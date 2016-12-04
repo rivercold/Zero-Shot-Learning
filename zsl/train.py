@@ -60,7 +60,7 @@ def validate(test_model, writer, Y_test, batch_size=100, seen='seen'):
 def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen, obj='BCE',
           batch_size=200, max_epoch=100, store=False):
 
-    if not obj == 'BCE':  # 0-1 coding
+    if not obj == 'BCE':  # Change to {-1, 1} coding
         Y_train = 2. * Y_train - 1.
         Y_seen = 2. * Y_seen - 1.
         Y_unseen = 2. * Y_unseen - 1.
