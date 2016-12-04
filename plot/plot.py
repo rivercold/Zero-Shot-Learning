@@ -1,7 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 
 log_file = '../log/fc_BCE_tmlp_6366-300-50_vmlp_1000-200-50_bs_200_1109-00-52-51.log'
+
+font = {
+        'size'   : 14}
+
+matplotlib.rc('font', **font)
 
 seen = [[],[],[],[]]
 mean = [[],[],[],[]]
@@ -34,7 +40,7 @@ for i, metric in enumerate(metrics):
     plt.plot(x, unseen[i], 'g', label='%s, unseen' % metric)
     plt.plot(x, mean[i], 'b', label='%s, mean' % metric)
 
-    plt.title('%s wrt epoch' % metric)# give plot a title
+    # plt.title('%s wrt epoch' % metric)# give plot a title
     plt.xlabel('Epoch')# make axis labels
     plt.ylabel(metric)
 
@@ -43,6 +49,6 @@ for i, metric in enumerate(metrics):
 
     plt.legend(loc=0)
 
-    plt.savefig('figures/%s.png' % metric)
+    plt.savefig('figures/%s.pdf' % metric, bbox_inches='tight')
 
     plt.show()# show the plot on the screen
