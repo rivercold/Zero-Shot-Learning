@@ -18,20 +18,17 @@ def transform_to_words(token,vocab,long_vocab):
         return [token]
     else:
         token_list = []
-        # 04 oz like that
-        if chr(194) in token:
-            print token.split(chr(194))
-            return token.split(chr(194))
-        else:
-            flag = 0
-            for id,char in enumerate(token):
-                if token[flag:id+1] in long_vocab:
-                    token_list.append(token[flag:id+1])
-                    flag = id+1
+        flag = 0
+        for id,char in enumerate(token):
+            if token[flag:id+1] in long_vocab:
+                token_list.append(token[flag:id+1])
+                flag = id+1
+
+        if flag == len(token):
             print token, token_list
-            if token not in oov_list:
-                oov_list.append(token)
             return token_list
+        else:
+            return ["oov"]
 
 # only use word that has at least 3 chars
 def transform_vocab(vocab):
