@@ -53,7 +53,15 @@ def prepare_vision_data_old(matroot, split_file, zsl=False, no_train=False):
     return X_train, Y_train, X_test, Y_test
 
 
-def prepare_vision_data(matroot, split_file):
+def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
+    unseen_classes = numpy.loadtxt(unseen_file) - 1
+    Y_train = numpy.delete(Y_train, unseen_classes, axis=1)
+    T_train = numpy.delete(T_matrix, unseen_classes, axis=0)
+
+    return Y_train, T_train
+
+
+def prepare_data(matroot, split_file, unseen_file, wiki_npy):
     X, Y = None, None
     files = os.listdir(matroot)
     files.sort()
@@ -84,9 +92,15 @@ def prepare_vision_data(matroot, split_file):
     X_train = X_train[indices]
     Y_train = Y_train[indices]
 
-    X_test, Y_test = X[sp != 1], Y[sp != 1]
+    X_seen, Y_seen = X[sp == 0], Y[sp == 0]
+    X_unseen, Y_unseen = X[sp == -1], Y[sp == -1]
 
-    return X_train, Y_train, X_test, Y_test
+    T_matrix = prepare_wiki_data(wiki_npy)
+    T_test = numpy.copy(T_matrix)
+
+    Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
+
+    return X_train, Y_train, T_train, X_seen, Y_seen, X_unseen, Y_unseen, T_test
 
 
 def prepare_wiki_data(npy_file):

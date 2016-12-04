@@ -92,6 +92,7 @@ def test1():
     split('../features/bird-2010/resnet', '../features/bird-2010/zsl_split.txt',
           '../features/bird-2010/unseen_classes.txt')
 
+
 def test2():
     W = load_feature_map('../models/'
                      'fc_BCE_tmlp_6366-50_vmlp_1000-200-50_bs_200_1108-19-04-35_epoch_85_acc_0.262886597938.pkl')
@@ -106,6 +107,7 @@ def test2():
             print vocabulary[id],
         print "\n"
     print len(vocabulary)
+
 
 def convert_vocabulary(vocabulary):
     new_vocab = {}
