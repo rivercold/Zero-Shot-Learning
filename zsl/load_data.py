@@ -55,6 +55,7 @@ def prepare_vision_data_old(matroot, split_file, zsl=False, no_train=False):
 
 def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
     unseen_classes = numpy.loadtxt(unseen_file) - 1
+    unseen_classes = unseen_classes.astype(numpy.int)
     Y_train = numpy.delete(Y_train, unseen_classes, axis=1)
     T_train = numpy.delete(T_matrix, unseen_classes, axis=0)
 
