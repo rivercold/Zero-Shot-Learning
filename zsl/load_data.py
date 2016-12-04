@@ -70,7 +70,7 @@ def remove_seen_in_test(Y_unseen, T_matrix, unseen_file):
     return Y_unseen, T_unseen
 
 
-def prepare_data(matroot, split_file, unseen_file, wiki_npy):
+def prepare_data(matroot, split_file, unseen_file, wiki_npy, split_T_unseen=False):
     X, Y = None, None
     files = os.listdir(matroot)
     files.sort()
@@ -108,7 +108,10 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy):
     T_seen = numpy.copy(T_matrix)
 
     Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
-    Y_unseen, T_unseen = remove_seen_in_test(Y_unseen, T_matrix, unseen_file)
+    if split_T_unseen:  # For unseen images, only focus on unseen classes
+        Y_unseen, T_unseen = remove_seen_in_test(Y_unseen, T_matrix, unseen_file)
+    else:
+        T_unseen = numpy.copy(T_matrix)
 
     return X_train, Y_train, T_train, X_seen, Y_seen, T_seen, X_unseen, Y_unseen, T_unseen
 
