@@ -28,6 +28,8 @@ def get_all_vectors(wv_file):
             line = line.strip()
             word, vec = form_vectors(line)
             word_vec[word] = vec
+            if count > 100000:
+                break
         else:
             break
     reader.close()
