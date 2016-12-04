@@ -39,31 +39,40 @@ def transform_vocab(vocab):
     return long_vocab
 
 
+def generate_average(vocab):
+    mat = [vec for key,vec in vocab.iteritems()]
+    mat = np.array(mat)
+    print mat.shape
+    return np.mean(mat,axis=0)
+
 # parse and match the summary file with the vocabulary
 # return vector matrix / tensor
 if __name__ == "__main__":
 
-    file_path = open("summary.txt","r")
-    write_file = open("new_summary.txt","w")
+    file_path = open("new_summary.txt","r")
+    write_file = open("../../features/summary/summary_feat","w")
     vocab_file = open("../../features/summary/vocab.pkl","rb")
     vocab = pickle.load(vocab_file)
-    long_vocab = transform_vocab(vocab)
-    #print vocab["summer"]
-    #print vocab["dark"]
-    #raise
+    average = generate_average(vocab)
 
     lines = file_path.readlines()
+    tensor = []
     for index, line in enumerate(lines):
+        mat = []
         tokens = line.split()
-        words = []
-        for id, token in enumerate(tokens):
-            words += transform_to_words(token,vocab,long_vocab)
-            if len(words) > 30:
-                break
-        words = words[:31]
-        write_file.write(" ".join(words)+"\n")
-    oov_set = set(oov_list)
-    print len(oov_set)
-    print "========="
-    for token in oov_set:
-        print token
+        if len(tokens) < 30:
+            tokens += [" oov" for i in range(len(tokens),30)]
+            print tokens
+        print index, len(tokens)
+        for id in range(30):
+            word = tokens[id]
+            if word in vocab:
+                vec = vocab[word]
+            else:
+                vec = average
+            mat.append(vec)
+        tensor.append(mat)
+
+    tensor = np.array(tensor)
+    print type(tensor)
+    np.save(write_file,tensor)

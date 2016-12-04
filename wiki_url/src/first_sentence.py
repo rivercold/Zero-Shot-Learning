@@ -24,7 +24,7 @@ if __name__ == "__main__":
             if word == "wikipedia":
                 wid = id
                 break
-        words =  words[wid+1:wid+30]
+        words =  words[wid+1:wid+31]
         print words
         write_file.write(" ".join(words)+"\n")
 
