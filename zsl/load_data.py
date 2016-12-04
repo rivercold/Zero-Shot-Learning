@@ -70,7 +70,7 @@ def remove_seen_in_test(Y_unseen, T_matrix, unseen_file):
     return Y_unseen, T_unseen
 
 
-def prepare_data(matroot, split_file, unseen_file, wiki_npy, split_T_unseen=False):
+def prepare_data(matroot, split_file, unseen_file, wiki_npy, boa_npy=None, split_T_unseen=False):
     X, Y = None, None
     files = os.listdir(matroot)
     files.sort()
@@ -105,6 +105,11 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy, split_T_unseen=Fals
     X_unseen, Y_unseen = X[sp == -1], Y[sp == -1]
 
     T_matrix = prepare_wiki_data(wiki_npy)
+
+    if boa_npy is not None:
+        tmp = prepare_attribute_data(boa_npy)
+        T_matrix = numpy.concatenate((T_matrix, tmp), axis=1)
+
     T_seen = numpy.copy(T_matrix)
 
     Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
@@ -119,3 +124,8 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy, split_T_unseen=Fals
 def prepare_wiki_data(npy_file):
     wiki = pickle.load(open(npy_file, 'rb'))
     return numpy.asarray(wiki.todense(), dtype=theano.config.floatX)
+
+
+def prepare_attribute_data(npy_file):
+    boa = numpy.load(npy_file)
+    return numpy.asarray(boa, dtype=theano.config.floatX)
