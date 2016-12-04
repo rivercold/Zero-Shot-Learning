@@ -200,7 +200,7 @@ def test1():
     V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test\
         = load_data.prepare_data(matroot, split_file, unseen_file, wiki_npy)
     start_time = timeit.default_timer()
-    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='BCE')
+    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='Eucl')
     end_time = timeit.default_timer()
     print 'Test %.3f seconds' % (end_time - start_time)
 
