@@ -1,5 +1,7 @@
 __author__ = 'yuhongliang324'
 import numpy
+import pickle
+import os
 
 word_vector_file = '../../../word_vectors/glove.840B.300d.txt'
 
@@ -29,5 +31,34 @@ def get_all_vectors(wv_file):
         else:
             break
     reader.close()
+    return word_vec
 
-get_all_vectors(word_vector_file)
+
+def write_voc(wv_file, voc_file, out_pkl, oov_file):
+
+    assert os.path.isfile(wv_file)
+    assert os.path.isfile(voc_file)
+
+    word_vec_all = get_all_vectors(wv_file)
+
+    reader = open(voc_file)
+    words = reader.readlines()
+    reader.close()
+    words = map(lambda x: x.strip(), words)
+
+    writer_oov = open(oov_file, 'w')
+    word_vec = {}
+    for word in words:
+        if not word in word_vec_all:
+            writer_oov.write(word + '\n')
+            continue
+        word_vec[word] = word_vec_all[word]
+    writer_oov.close()
+
+    with open(out_pkl, 'wb') as fin:
+        pickle.dump(word_vec, fin)
+    print len(word_vec)
+
+
+write_voc(word_vector_file, '../features/summary/vocab.txt',
+          '../features/summary/vocab.pkl', '../features/summary/oov.txt')
