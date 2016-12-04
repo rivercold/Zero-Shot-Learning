@@ -57,7 +57,7 @@ def validate(test_model, writer, Y_test, batch_size=100, seen='seen'):
     return roc_auc, pr_auc, top1_accu, top5_accu
 
 
-def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='BCE',
+def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen, obj='BCE',
           batch_size=200, max_epoch=100, store=False):
 
     if not obj == 'BCE':  # 0-1 coding
@@ -89,11 +89,12 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test,
 
     V_seen_shared = theano.shared(V_seen, borrow=True)
     Y_seen_shared = theano.shared(Y_seen, borrow=True)
+    T_seen_shared = theano.shared(T_seen, borrow=True)
 
     V_unseen_shared = theano.shared(V_unseen, borrow=True)
     Y_unseen_shared = theano.shared(Y_unseen, borrow=True)
+    T_unseen_shared = theano.shared(T_unseen, borrow=True)
 
-    T_test_shared = theano.shared(T_test, borrow=True)
 
     print 'Compiling functions ... '
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train],
@@ -110,7 +111,7 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test,
                                   givens={
                                       V_batch: V_seen_shared[start_symbol: end_symbol],
                                       Y_batch: Y_seen_shared[start_symbol: end_symbol],
-                                      T_batch: T_test_shared
+                                      T_batch: T_seen_shared
                                   },
                                   on_unused_input='ignore')
 
@@ -119,7 +120,7 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test,
                                   givens={
                                       V_batch: V_unseen_shared[start_symbol: end_symbol],
                                       Y_batch: Y_unseen_shared[start_symbol: end_symbol],
-                                      T_batch: T_test_shared
+                                      T_batch: T_unseen_shared
                                   },
                                   on_unused_input='ignore')
 
@@ -197,10 +198,10 @@ def test1():
     wiki_npy = '../features/wiki/wiki_features'
     unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
 
-    V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test\
+    V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen\
         = load_data.prepare_data(matroot, split_file, unseen_file, wiki_npy)
     start_time = timeit.default_timer()
-    train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test, obj='Hinge')
+    train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen, obj='Hinge')
     end_time = timeit.default_timer()
     print 'Test %.3f seconds' % (end_time - start_time)
 

@@ -61,6 +61,14 @@ def remove_unseen_in_train(Y_train, T_matrix, unseen_file):
     return Y_train, T_train
 
 
+def remove_seen_in_test(Y_unseen, T_matrix, unseen_file):
+    unseen_classes = numpy.loadtxt(unseen_file) - 1
+    Y_unseen = Y_unseen[:, unseen_classes]
+    T_unseen = T_matrix[unseen_classes, :]
+
+    return Y_unseen, T_unseen
+
+
 def prepare_data(matroot, split_file, unseen_file, wiki_npy):
     X, Y = None, None
     files = os.listdir(matroot)
@@ -96,11 +104,12 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy):
     X_unseen, Y_unseen = X[sp == -1], Y[sp == -1]
 
     T_matrix = prepare_wiki_data(wiki_npy)
-    T_test = numpy.copy(T_matrix)
+    T_seen = numpy.copy(T_matrix)
 
     Y_train, T_train = remove_unseen_in_train(Y_train, T_matrix, unseen_file)
+    Y_unseen, T_unseen = remove_seen_in_test(Y_unseen, T_matrix, unseen_file)
 
-    return X_train, Y_train, T_train, X_seen, Y_seen, X_unseen, Y_unseen, T_test
+    return X_train, Y_train, T_train, X_seen, Y_seen, T_seen, X_unseen, Y_unseen, T_unseen
 
 
 def prepare_wiki_data(npy_file):
