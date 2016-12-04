@@ -18,7 +18,7 @@ class parser:
 
 
     def get_url_list(self):
-        path = "../wiki_url/url.txt"
+        path = "../url.txt"
         url_list = []
         for line in open(path,'r').readlines():
             url_list.append(line.strip())
@@ -63,10 +63,12 @@ class parser:
         return readable_title + " " + readable_article
 
     def get_corpus(self):
-        folder = "../wiki_url/html/"
+        folder = "../html/"
+        id_lines = open("../url.txt").readlines()
+        id_list  = [line.strip().replace("/","_") for line in id_lines]
         corpus = []
         index = 0
-        for file in os.listdir(folder):
+        for id, file in enumerate(id_list):
             file_path = folder + file
             text = self.parse(file_path)
             text = self.preprocess(text)
@@ -76,10 +78,10 @@ class parser:
                 break
         print corpus[0]
         print len(corpus)
-        #raw_text_file = open("raw_wiki.txt","w")
-        #for text in corpus:
-        #    text = text.encode('utf8')
-        #    raw_text_file.write(text+"\n")
+        raw_text_file = open("raw_wiki_new.txt","w")
+        for text in corpus:
+            text = text.encode('utf8')
+            raw_text_file.write(text+"\n")
         self.corpus = corpus
 
     def extract_features(self,corpus):
@@ -113,6 +115,6 @@ if __name__ == "__main__":
     feat = p.extract_features(p.corpus)
     print type(feat)
     print feat.shape
-    with open("../features/wiki/wiki_features","wb") as fin:
+    with open("../../features/wiki/wiki_features_new","wb") as fin:
         pickle.dump(feat,fin)
     #np.save("./wiki_features",feat)

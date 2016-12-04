@@ -12,11 +12,13 @@ sys.setdefaultencoding('utf8')
 
 if __name__ == "__main__":
     path = "raw_wiki.txt"
-    results_file = "first_sentence.txt"
+    #results_file = "first_sentence.txt"
+    results_file = path
     write_file = open("summary.txt","w")
 
     lines = open(results_file,"r").readlines()
     for index, line in enumerate(lines):
+        line = line.strip().replace(chr(194)," ").replace("\xa0"," ")
         words = line.split()
         for id, word in enumerate(words):
             if word == "wikipedia":
