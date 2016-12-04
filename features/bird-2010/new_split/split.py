@@ -26,25 +26,28 @@ def main():
 
 
     # Part 2: assign each image to training set or test set. For seen classes, 0.8 for training and 0.2 for test. For unseen classes, 1 for test.
-    total_image_number = 11788
+    total_image_number = 6033
     training_proportion = 0.8
     image_class_map = dict()
-    with open('images.txt', 'r') as f:
+    line_num = 1
+    with open('files_2010.txt', 'r') as f:
         for line in f:
-            contents = line.split(' ')
-            image_idx = int(contents[0])
-            class_idx = int(contents[1].split('.')[0])
+            image_idx = line_num
+            class_idx = int(line.split('.')[0])
             image_class_map[image_idx] = class_idx
+
+            line_num += 1
 
     with open('train_test_split_temp.txt', 'w') as f:
         for j in xrange(1, total_image_number + 1):
-            if image_class_map[j] not in unseen_set:
+            if image_class_map[j] in unseen_set:
+                f.write(str(j) + ' -1\n')
+            else:
                 if np.random.random() < training_proportion:
                     f.write(str(j) + ' 1\n')
                 else:
                     f.write(str(j) + ' 0\n')
-            else:
-                f.write(str(j) + ' 0\n')
+
 
 
 
