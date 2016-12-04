@@ -51,7 +51,8 @@ very
 sage
 oceans
 swallows
-1837speciesd
+1837
+speciesd
 carolinensisbinomial
 coloured
 alcidae
@@ -60,7 +61,8 @@ every
 nesting
 heermanns
 forked
-04 oz
+04
+oz
 olivaceus
 subunit
 cool
@@ -84,7 +86,8 @@ small
 refer
 originally
 20th
-85 in
+85
+in
 frigatebirds
 merganser
 coccothraustes
@@ -341,7 +344,8 @@ chebecker
 eurasian
 ornithologists
 meadowlark
-13 cm
+13
+cm
 order
 breast
 mexican
@@ -618,7 +622,7 @@ cockaded
 and
 bridge
 iliaca
-125 g
+125
 usa
 phoebetria
 grayish
@@ -848,7 +852,8 @@ anthus
 similar
 region
 virescens
-21 cm
+21
+cm
 saltmarsh
 puffin
 piranga
@@ -999,7 +1004,7 @@ cayuga
 cayman
 mayo
 dominicensis
-83 in
+83
 early
 possibly
 frigate
@@ -1072,7 +1077,8 @@ thraupidae
 lark
 juncos
 anna
-carolinensislinnaeus
+carolinensis
+linnaeus
 be
 filmore
 headadult
@@ -1250,7 +1256,8 @@ brandts
 southeast
 ernmost
 glaucescens
-140 mm
+140
+mm
 scrub
 corvidae
 fossils

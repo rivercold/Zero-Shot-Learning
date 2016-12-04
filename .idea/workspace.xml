@@ -45,24 +45,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/feature_extraction/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.87903225">
+              <caret line="61" column="7" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
               <folding>
                 <element signature="e#30#42#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vocab.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="28.951612">
-              <caret line="718" column="6" selection-start-line="718" selection-start-column="3" selection-end-line="718" selection-end-column="6" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,6 +124,7 @@
         <option value="$PROJECT_DIR$/zsl/train2.py" />
         <option value="$PROJECT_DIR$/zsl/fc.py" />
         <option value="$PROJECT_DIR$/feature_extraction/utils.py" />
+        <option value="$PROJECT_DIR$/features/summary/vocab.txt" />
       </list>
     </option>
   </component>
@@ -827,21 +818,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_extraction/utils.py">
+    <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <element signature="e#30#42#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="28.911291">
+          <caret line="717" column="6" selection-start-line="718" selection-start-column="3" selection-end-line="718" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/features/summary/vocab.txt">
+    <entry file="file://$PROJECT_DIR$/feature_extraction/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="28.951612">
-          <caret line="718" column="6" selection-start-line="718" selection-start-column="3" selection-end-line="718" selection-end-column="6" />
-          <folding />
+        <state vertical-scroll-proportion="0.87903225">
+          <caret line="61" column="7" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
+          <folding>
+            <element signature="e#30#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
