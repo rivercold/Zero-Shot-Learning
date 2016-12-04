@@ -193,7 +193,7 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, V_unseen, Y_unseen, T_test,
 def test1():
     dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
-    split_file = '../features/' + dataset + '/new_split/zsl_split.txt'
+    split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
     wiki_npy = '../features/wiki/wiki_features'
     unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
 
