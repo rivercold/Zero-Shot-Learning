@@ -199,7 +199,7 @@ def test1():
     unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
 
     V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen\
-        = load_data.prepare_data(matroot, split_file, unseen_file, wiki_npy, boa_npy=boa_npy)
+        = load_data.prepare_data(matroot, split_file, unseen_file, wiki_npy=None, boa_npy=boa_npy)
     print V_train.shape, Y_train.shape, T_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen, obj='Hinge')

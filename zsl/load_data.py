@@ -70,7 +70,7 @@ def remove_seen_in_test(Y_unseen, T_matrix, unseen_file):
     return Y_unseen, T_unseen
 
 
-def prepare_data(matroot, split_file, unseen_file, wiki_npy, boa_npy=None, split_T_unseen=False):
+def prepare_data(matroot, split_file, unseen_file, wiki_npy=None, boa_npy=None, split_T_unseen=False):
     X, Y = None, None
     files = os.listdir(matroot)
     files.sort()
@@ -104,11 +104,19 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy, boa_npy=None, split
     X_seen, Y_seen = X[sp == 0], Y[sp == 0]
     X_unseen, Y_unseen = X[sp == -1], Y[sp == -1]
 
-    T_matrix = prepare_wiki_data(wiki_npy)
+    T1, T2 = None, None
+    if wiki_npy is not None:
+        T1 = prepare_wiki_data(wiki_npy)
 
     if boa_npy is not None:
-        tmp = prepare_attribute_data(boa_npy)
-        T_matrix = numpy.concatenate((T_matrix, tmp), axis=1)
+        T2 = prepare_attribute_data(boa_npy)
+
+    if T1 is not None and T2 is not None:
+        T_matrix = numpy.concatenate((T1, T2), axis=1)
+    elif T1 is not None:
+        T_matrix = T1
+    else:
+        T_matrix = T2
 
     T_seen = numpy.copy(T_matrix)
 
