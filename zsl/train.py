@@ -65,8 +65,8 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen,
         Y_seen = 2. * Y_seen - 1.
         Y_unseen = 2. * Y_unseen - 1.
 
-    mlp_t_layers, mlp_v_layers = [T_train.shape[1], 300, 50], [V_train.shape[1], 200, 50]
-    # mlp_t_layers, mlp_v_layers = [T_matrix.shape[1], 50], [V_train.shape[1], 200, 50]
+    # mlp_t_layers, mlp_v_layers = [T_train.shape[1], 300, 50], [V_train.shape[1], 200, 50]
+    mlp_t_layers, mlp_v_layers = [T_train.shape[1], 50], [V_train.shape[1], 200, 50]
     model = FC(mlp_t_layers, mlp_v_layers)
     symbols = model.define_functions(obj=obj)
 
