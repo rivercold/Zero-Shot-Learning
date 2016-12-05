@@ -63,7 +63,7 @@ def write_voc(wv_file, voc_file, out_pkl, oov_file):
 
 
 def test1():
-    write_voc(word_vector_file, '../features/summary/vocab.txt',
+    write_voc(word_vector_file, '../wiki/api_extracted/first50_vocab.txt',
               '../features/summary/vocab.pkl', '../features/summary/oov.txt')
 
 
