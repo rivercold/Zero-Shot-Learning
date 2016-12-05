@@ -11,10 +11,11 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, lamb=0.0001, drop=0.5, update='rmsprop',
+    def __init__(self, mlp_t_layers, mlp_v_layers, word_dim=None, hid_dim=None, lamb=0.0001, drop=0.5, update='rmsprop',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
+        self.word_dim, self.hid_dim = word_dim, hid_dim
         self.lamb = lamb
         self.drop = drop
         self.update = update
@@ -32,6 +33,15 @@ class FC(object):
 
         self.initialize_mlp_layers(self.mlp_t_layers, self.W_t_mlp, self.b_t_mlp)
         self.initialize_mlp_layers(self.mlp_v_layers, self.W_v_mlp, self.b_v_mlp)
+        if self.word_dim is not None:
+            self.W_i, self.b_i = self.init_para(self.word_dim, self.hid_dim)
+            self.U_i, _ = self.init_para(self.hid_dim, self.hid_dim)
+            self.W_f, self.b_f = self.init_para(self.word_dim, self.hid_dim)
+            self.U_f, _ = self.init_para(self.word_dim, self.hid_dim)
+            self.W_o, self.b_o = self.init_para(self.word_dim, self.hid_dim)
+            self.U_o, _ = self.init_para(self.hid_dim, self.hid_dim)
+            self.W_c, self.b_c = self.init_para(self.word_dim, self.hid_dim)
+            self.U_c, _ = self.init_para(self.hid_dim, self.hid_dim)
 
         self.add_param_shapes()
 
@@ -98,6 +108,17 @@ class FC(object):
 
             self.theta += [W, b]
 
+    def init_para(self, d1, d2):
+        W_values = numpy.asarray(self.rng.uniform(
+            low=-numpy.sqrt(6. / float(d1 + d2)), high=numpy.sqrt(6. / float(d1 + d2)), size=(d1, d2)),
+            dtype=theano.config.floatX)
+        W = theano.shared(value=W_values, borrow=True)
+        b_values = numpy.zeros((d2,), dtype=theano.config.floatX)
+        b = theano.shared(value=b_values, borrow=True)
+        self.theta += [W, b]
+
+        return W, b
+
     def add_param_shapes(self):
         self.param_shapes = []
         for param in self.theta:
@@ -110,6 +131,18 @@ class FC(object):
     def dropout(self, layer, is_train):
         mask = self.theano_rng.binomial(p=self.drop, size=layer.shape, dtype=theano.config.floatX)
         return T.cast(T.switch(T.neq(is_train, 0), layer * mask, layer * self.drop), dtype=theano.config.floatX)
+
+    # scan function parameter order: sequences, prior results, non_sequences
+    # sequences: X_t (num_train_class, word_dim)
+    # prior results: C_tm1, H_tm1 (batch_size, hid_dim)
+    def forward(self, X_t, C_tm1, H_tm1):
+        i_t = T.nnet.sigmoid(T.dot(X_t, self.W_i) + T.dot(H_tm1, self.U_i) + self.b_i)  # (num_train_class, hid_dim)
+        f_t = T.nnet.sigmoid(T.dot(X_t, self.W_f) + T.dot(H_tm1, self.U_f) + self.b_f)  # (num_train_class, hid_dim)
+        o_t = T.nnet.sigmoid(T.dot(X_t, self.W_o) + T.dot(H_tm1, self.U_o) + self.b_o)  # (num_train_class, hid_dim)
+        C_t = T.tanh(T.dot(X_t, self.W_c) + T.dot(H_tm1, self.U_c) + self.b_c)  # (num_train_class, hid_dim)
+        C_t = i_t * C_t + f_t * C_tm1  # (num_train_class, hid_dim)
+        H_t = o_t * T.tanh(C_t)  # (num_train_class, hid_dim)
+        return C_t, H_t
 
     # For BCE, Y is 0-1 encoded; for hinge loss, Y is {-1, 1} encoded
     # Use minibatch classes instead of all classes
@@ -128,6 +161,15 @@ class FC(object):
             # V_rep = self.dropout(V_rep, is_train)
 
         w = T_batch
+        if self.word_dim is not None:
+            S_batch = T.tensor3()  # (n_step, num_train_class, word_dim)
+            num_train_class = T.shape(S_batch)[1]
+            [_, H], _ = theano.scan(self.forward, sequences=S_batch,
+                                    outputs_info=[T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX),
+                                                  T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX)])
+            rep = H[-1]  # (num_train_class, hid_dim)
+            w = T.concatenate((w, rep), axis=1)
+
         for i in xrange(len(self.W_t_mlp)):
             W, b = self.W_t_mlp[i], self.b_t_mlp[i]
             w = T.tanh(T.dot(w, W) + b)
