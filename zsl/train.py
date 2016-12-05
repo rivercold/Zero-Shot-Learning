@@ -228,7 +228,7 @@ def test2():
     print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
-          V_unseen, Y_unseen, T_unseen, S_unseen, hid_dim=128, obj='Eucl')
+          V_unseen, Y_unseen, T_unseen, S_unseen, hid_dim=128, obj='BCE')
     end_time = timeit.default_timer()
     print 'Test %.3f seconds' % (end_time - start_time)
 
