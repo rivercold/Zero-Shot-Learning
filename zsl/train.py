@@ -233,14 +233,16 @@ def test2(resource):
         boa_npy1 = boa_npy
     if 's' in resource:
         summary_npy1 = summary_npy
-
+    hid_dim = 128
+    if 's' not in resource:
+        hid_dim = 0
     V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen, V_unseen, Y_unseen, T_unseen, S_unseen\
         = load_data.prepare_data(matroot, split_file, unseen_file,
                                  wiki_npy=wiki_npy1, boa_npy=boa_npy1, summary_npy=summary_npy1)
     print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
-          V_unseen, Y_unseen, T_unseen, S_unseen, dataset=dataset, resource=resource, hid_dim=128, obj='BCE')
+          V_unseen, Y_unseen, T_unseen, S_unseen, dataset=dataset, resource=resource, hid_dim=hid_dim, obj='BCE')
     end_time = timeit.default_timer()
     print 'Test %.3f seconds' % (end_time - start_time)
 
