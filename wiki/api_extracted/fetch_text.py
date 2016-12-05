@@ -1,6 +1,8 @@
 import urllib, json
 import re
 import nltk
+import pickle
+import numpy as np
 
 def fetch_text():
     with open('full.txt', 'w') as f_full:
@@ -127,7 +129,56 @@ def retokenize():
 
 
 def word2vec():
-    print 1
+    pickle_file = '../../features/summary/vocab.pkl'
+    vec_map = pickle.load(open(pickle_file))
+
+    # Find the average vector
+    avg_vec = np.zeros((300,))
+    word_num = len(vec_map)
+    for _, vec in vec_map.items():
+        avg_vec += vec
+
+    avg_vec /= word_num
+
+
+    # xxx
+    tensor = np.zeros((200, 50, 300))
+    with open('full_filtered.txt', 'r') as f:
+        for idx, line in enumerate(f):
+            vectors = np.zeros((100,300))
+
+            tokens = nltk.word_tokenize(line.rstrip().lower().decode('utf-8'))[:50]
+
+            counter = 0
+
+            for token in tokens:
+                if token in vec_map:
+                    vectors[counter] = vec_map[token]
+                    counter += 1
+                elif '-' in token or u'\u2013' in token:
+                    if '-' in token:
+                        temp = token.split('-')
+                    else:
+                        temp = token.split(u'\u2013')
+
+                    for t in temp:
+                        if t in vec_map:
+                            vectors[counter] = vec_map[t]
+                            counter += 1
+                        else:
+                            vectors[counter] = avg_vec
+                            counter += 1
+                else:
+                    vectors[counter] = avg_vec
+                    counter += 1
+
+                    # print token
+
+            vectors = vectors[:50]
+
+            tensor[idx] = vectors
+
+    # np.save('../../features/summary/tensor', tensor)
 
 
 if __name__ == '__main__':
@@ -141,6 +192,6 @@ if __name__ == '__main__':
 
     # find_oov_with_dash()
 
-    retokenize()
+    # retokenize()
 
-    # word2vec()
+    word2vec()
