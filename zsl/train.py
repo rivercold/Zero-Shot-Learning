@@ -4,13 +4,12 @@ import theano
 import theano.tensor as T
 from fc import FC
 import timeit
-import time
 import load_data
 import numpy
 import os
 import pickle
 from evaluate import get_metrics
-from preprocess import split_train
+import argparse
 
 log_root = '../log/'
 model_root = '../models/'
@@ -250,6 +249,16 @@ def test2(resource, dataset='bird-2010', obj='BCE', step=30):
 
 
 if __name__ == '__main__':
-    test2('was', dataset='bird-2010', obj='BCE', step=10)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-resource', type=str, default='was')
+    parser.add_argument('-dataset', type=int, default=2010)
+    parser.add_argument('-obj', type=str, default='BCE')
+    parser.add_argument('-step', type=int, default=10)
+    args = parser.parse_args()
+    if args.dataset == 2010:
+        dataset = 'bird-2010'
+    else:
+        dataset = 'bird-2011'
+    test2(args.resource, dataset=dataset, obj=args.obj, step=args.step)
 
 
