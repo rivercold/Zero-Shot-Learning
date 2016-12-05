@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 class FC(object):
 
-    def __init__(self, mlp_t_layers, mlp_v_layers, word_dim=None, hid_dim=None, lamb=0.0001, drop=0.5, update='rmsprop',
+    def __init__(self, mlp_t_layers, mlp_v_layers, word_dim=0, hid_dim=0, lamb=0.0001, drop=0.5, update='rmsprop',
                  lr=None, beta1=0.9, beta2=0.999, epsilon=1e-8, decay=0., momentum=0.9, rho=0.9):
 
         self.mlp_t_layers, self.mlp_v_layers = mlp_t_layers, mlp_v_layers
@@ -33,15 +33,16 @@ class FC(object):
 
         self.initialize_mlp_layers(self.mlp_t_layers, self.W_t_mlp, self.b_t_mlp)
         self.initialize_mlp_layers(self.mlp_v_layers, self.W_v_mlp, self.b_v_mlp)
-        if self.word_dim is not None:
-            self.W_i, self.b_i = self.init_para(self.word_dim, self.hid_dim)
-            self.U_i, _ = self.init_para(self.hid_dim, self.hid_dim)
-            self.W_f, self.b_f = self.init_para(self.word_dim, self.hid_dim)
-            self.U_f, _ = self.init_para(self.word_dim, self.hid_dim)
-            self.W_o, self.b_o = self.init_para(self.word_dim, self.hid_dim)
-            self.U_o, _ = self.init_para(self.hid_dim, self.hid_dim)
-            self.W_c, self.b_c = self.init_para(self.word_dim, self.hid_dim)
-            self.U_c, _ = self.init_para(self.hid_dim, self.hid_dim)
+
+        # LSTM parameters
+        self.W_i, self.b_i = self.init_para(self.word_dim, self.hid_dim)
+        self.U_i, _ = self.init_para(self.hid_dim, self.hid_dim)
+        self.W_f, self.b_f = self.init_para(self.word_dim, self.hid_dim)
+        self.U_f, _ = self.init_para(self.word_dim, self.hid_dim)
+        self.W_o, self.b_o = self.init_para(self.word_dim, self.hid_dim)
+        self.U_o, _ = self.init_para(self.hid_dim, self.hid_dim)
+        self.W_c, self.b_c = self.init_para(self.word_dim, self.hid_dim)
+        self.U_c, _ = self.init_para(self.hid_dim, self.hid_dim)
 
         self.add_param_shapes()
 
@@ -160,15 +161,13 @@ class FC(object):
             V_rep = T.tanh(T.dot(V_rep, W) + b)
             # V_rep = self.dropout(V_rep, is_train)
 
-        w = T_batch
-        if self.word_dim is not None:
-            S_batch = T.tensor3()  # (n_step, num_train_class, word_dim)
-            num_train_class = T.shape(S_batch)[1]
-            [_, H], _ = theano.scan(self.forward, sequences=S_batch,
-                                    outputs_info=[T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX),
-                                                  T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX)])
-            rep = H[-1]  # (num_train_class, hid_dim)
-            w = T.concatenate((w, rep), axis=1)
+        S_batch = T.tensor3()  # (n_step, num_train_class, word_dim)
+        num_train_class = T.shape(S_batch)[1]
+        [_, H], _ = theano.scan(self.forward, sequences=S_batch,
+                                outputs_info=[T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX),
+                                              T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX)])
+        rep = H[-1]  # (num_train_class, hid_dim)
+        w = T.concatenate((T_batch, rep), axis=1)
 
         for i in xrange(len(self.W_t_mlp)):
             W, b = self.W_t_mlp[i], self.b_t_mlp[i]
@@ -228,7 +227,7 @@ class FC(object):
         else:
             updates = OrderedDict((p, T.cast(p - self.lr * g, dtype=theano.config.floatX)) for p, g in zip(self.theta, gradients))
 
-        return {'V_batch': V_batch, 'T_batch': T_batch, 'Y_batch': Y_batch,
+        ret = {'V_batch': V_batch, 'T_batch': T_batch, 'Y_batch': Y_batch, 'S_batch': S_batch,
                 'updates': updates, 'is_train': is_train, 'cost': cost, 'loss': loss,
                 'acc': acc, 'pred': pred, 'sim': sim}
-
+        return ret

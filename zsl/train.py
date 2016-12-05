@@ -57,8 +57,10 @@ def validate(test_model, writer, Y_test, batch_size=100, seen='seen'):
     return roc_auc, pr_auc, top1_accu, top5_accu
 
 
-def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen, obj='BCE',
-          batch_size=200, max_epoch=100, store=False):
+def train(V_train, Y_train, T_train, S_train,
+          V_seen, Y_seen, T_seen, S_seen,
+          V_unseen, Y_unseen, T_unseen, S_unseen,
+          obj='BCE', batch_size=200, max_epoch=100, store=False):
 
     if not obj == 'BCE':  # Change to {-1, 1} coding
         Y_train = 2. * Y_train - 1.
@@ -80,20 +82,24 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen,
     V_batch, T_batch, Y_batch, updates = symbols['V_batch'], symbols['T_batch'], symbols['Y_batch'], symbols['updates']
     is_train, cost, loss, acc, pred, sim = symbols['is_train'], symbols['cost'], symbols['loss'], symbols['acc'],\
                                            symbols['pred'], symbols['sim']
+    S_batch = symbols['S_batch']
 
     start_symbol, end_symbol = T.lscalar(), T.lscalar()
 
     V_train_shared = theano.shared(V_train, borrow=True)
     Y_train_shared = theano.shared(Y_train, borrow=True)
     T_train_shared = theano.shared(T_train, borrow=True)
+    S_train_shared = theano.shared(S_train, borrow=True)
 
     V_seen_shared = theano.shared(V_seen, borrow=True)
     Y_seen_shared = theano.shared(Y_seen, borrow=True)
     T_seen_shared = theano.shared(T_seen, borrow=True)
+    S_seen_shared = theano.shared(S_seen, borrow=True)
 
     V_unseen_shared = theano.shared(V_unseen, borrow=True)
     Y_unseen_shared = theano.shared(Y_unseen, borrow=True)
     T_unseen_shared = theano.shared(T_unseen, borrow=True)
+    S_unseen_shared = theano.shared(S_unseen, borrow=True)
 
     print 'Compiling functions ... '
     train_model = theano.function(inputs=[start_symbol, end_symbol, is_train],
@@ -101,7 +107,8 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen,
                                   givens={
                                       V_batch: V_train_shared[start_symbol: end_symbol],
                                       Y_batch: Y_train_shared[start_symbol: end_symbol],
-                                      T_batch: T_train_shared
+                                      T_batch: T_train_shared,
+                                      S_batch: S_train_shared
                                   },
                                   on_unused_input='ignore')
 
@@ -110,7 +117,8 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen,
                                   givens={
                                       V_batch: V_seen_shared[start_symbol: end_symbol],
                                       Y_batch: Y_seen_shared[start_symbol: end_symbol],
-                                      T_batch: T_seen_shared
+                                      T_batch: T_seen_shared,
+                                      S_batch: S_seen_shared,
                                   },
                                   on_unused_input='ignore')
 
@@ -119,7 +127,8 @@ def train(V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen,
                                   givens={
                                       V_batch: V_unseen_shared[start_symbol: end_symbol],
                                       Y_batch: Y_unseen_shared[start_symbol: end_symbol],
-                                      T_batch: T_unseen_shared
+                                      T_batch: T_unseen_shared,
+                                      S_batch: S_unseen_shared
                                   },
                                   on_unused_input='ignore')
 
@@ -194,9 +203,9 @@ def test1():
     dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
+    unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
     wiki_npy = '../features/wiki/wiki.npy'
     boa_npy = '../features/Bag of attributes/data.npy'
-    unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
 
     V_train, Y_train, T_train, V_seen, Y_seen, T_seen, V_unseen, Y_unseen, T_unseen\
         = load_data.prepare_data(matroot, split_file, unseen_file, wiki_npy=wiki_npy, boa_npy=None)
@@ -207,7 +216,24 @@ def test1():
     print 'Test %.3f seconds' % (end_time - start_time)
 
 
+def test2():
+    dataset = 'bird-2010'
+    matroot = '../features/' + dataset + '/resnet'
+    split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
+    unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
+    summary_npy = '../features/summary/tensor.npy'
+
+    V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen, V_unseen, Y_unseen, T_unseen, S_unseen\
+        = load_data.prepare_data(matroot, split_file, unseen_file, summary_npy=summary_npy)
+    print V_train.shape, Y_train.shape, T_train.shape
+    start_time = timeit.default_timer()
+    train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
+          V_unseen, Y_unseen, T_unseen, S_unseen, obj='Eucl')
+    end_time = timeit.default_timer()
+    print 'Test %.3f seconds' % (end_time - start_time)
+
+
 if __name__ == '__main__':
-    test1()
+    test2()
 
 
