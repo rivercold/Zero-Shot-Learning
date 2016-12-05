@@ -35,14 +35,15 @@ class FC(object):
         self.initialize_mlp_layers(self.mlp_v_layers, self.W_v_mlp, self.b_v_mlp)
 
         # LSTM parameters
-        self.W_i, self.b_i = self.init_para(self.word_dim, self.hid_dim)
-        self.U_i, _ = self.init_para(self.hid_dim, self.hid_dim)
-        self.W_f, self.b_f = self.init_para(self.word_dim, self.hid_dim)
-        self.U_f, _ = self.init_para(self.hid_dim, self.hid_dim)
-        self.W_o, self.b_o = self.init_para(self.word_dim, self.hid_dim)
-        self.U_o, _ = self.init_para(self.hid_dim, self.hid_dim)
-        self.W_c, self.b_c = self.init_para(self.word_dim, self.hid_dim)
-        self.U_c, _ = self.init_para(self.hid_dim, self.hid_dim)
+        if self.hid_dim > 0:
+            self.W_i, self.b_i = self.init_para(self.word_dim, self.hid_dim)
+            self.U_i, _ = self.init_para(self.hid_dim, self.hid_dim)
+            self.W_f, self.b_f = self.init_para(self.word_dim, self.hid_dim)
+            self.U_f, _ = self.init_para(self.hid_dim, self.hid_dim)
+            self.W_o, self.b_o = self.init_para(self.word_dim, self.hid_dim)
+            self.U_o, _ = self.init_para(self.hid_dim, self.hid_dim)
+            self.W_c, self.b_c = self.init_para(self.word_dim, self.hid_dim)
+            self.U_c, _ = self.init_para(self.hid_dim, self.hid_dim)
 
         self.add_param_shapes()
 
@@ -158,6 +159,8 @@ class FC(object):
         T_batch = T.matrix()  # (num_train_class, p)
         Y_batch = T.matrix()  # (batch_size, num_train_class)
 
+        w = T_batch
+
         is_train = T.iscalar()
 
         V_rep = V_batch
@@ -167,12 +170,13 @@ class FC(object):
             # V_rep = self.dropout(V_rep, is_train)
 
         S_batch = T.tensor3()  # (n_step, num_train_class, word_dim)
-        num_train_class = T.shape(S_batch)[1]
-        [_, H], _ = theano.scan(self.forward, sequences=S_batch,
-                                outputs_info=[T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX),
-                                              T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX)])
-        rep = H[-1]  # (num_train_class, hid_dim)
-        w = T.concatenate((T_batch, rep), axis=1)
+        if self.hid_dim > 0:
+            num_train_class = T.shape(S_batch)[1]
+            [_, H], _ = theano.scan(self.forward, sequences=S_batch,
+                                    outputs_info=[T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX),
+                                                  T.zeros((num_train_class, self.hid_dim), dtype=theano.config.floatX)])
+            rep = H[-1]  # (num_train_class, hid_dim)
+            w = T.concatenate((w, rep), axis=1)
 
         for i in xrange(len(self.W_t_mlp)):
             W, b = self.W_t_mlp[i], self.b_t_mlp[i]
