@@ -60,6 +60,7 @@ def validate(test_model, writer, Y_test, batch_size=100, seen='seen'):
 def train(V_train, Y_train, T_train, S_train,
           V_seen, Y_seen, T_seen, S_seen,
           V_unseen, Y_unseen, T_unseen, S_unseen,
+          dataset, resource,
           obj='BCE', hid_dim=0, batch_size=200, max_epoch=100, store=False):
 
     if not obj == 'BCE':  # Change to {-1, 1} coding
@@ -75,7 +76,7 @@ def train(V_train, Y_train, T_train, S_train,
     model_fn = model.name + '_' + obj\
                + '_tmlp_' + '-'.join([str(x) for x in mlp_t_layers])\
                + '_vmlp_' + '-'.join([str(x) for x in mlp_v_layers])\
-               + '_bs_' + str(batch_size) + '_' + time.strftime("%m%d-%H-%M-%S", time.localtime())
+               + '_' + dataset + '_' + resource  # + time.strftime("%m%d-%H-%M-%S", time.localtime())
     log_file = os.path.join(log_root, model_fn + '.log')
     writer = open(log_file, 'w')
 
@@ -216,7 +217,7 @@ def test1():
     print 'Test %.3f seconds' % (end_time - start_time)
 
 
-def test2():
+def test2(resource):
     dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
@@ -225,13 +226,21 @@ def test2():
     boa_npy = '../features/Bag of attributes/data.npy'
     summary_npy = '../features/summary/tensor.npy'
 
+    wiki_npy1, boa_npy1, summary_npy1 = None, None, None
+    if 'w' in resource:
+        wiki_npy1 = wiki_npy
+    if 'a' in resource:
+        boa_npy1 = boa_npy
+    if 's' in resource:
+        summary_npy1 = summary_npy
+
     V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen, V_unseen, Y_unseen, T_unseen, S_unseen\
         = load_data.prepare_data(matroot, split_file, unseen_file,
-                                 wiki_npy=wiki_npy, boa_npy=boa_npy, summary_npy=summary_npy)
+                                 wiki_npy=wiki_npy1, boa_npy=boa_npy1, summary_npy=summary_npy1)
     print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
-          V_unseen, Y_unseen, T_unseen, S_unseen, hid_dim=128, obj='BCE')
+          V_unseen, Y_unseen, T_unseen, S_unseen, dataset=dataset, resource=resource, hid_dim=128, obj='BCE')
     end_time = timeit.default_timer()
     print 'Test %.3f seconds' % (end_time - start_time)
 
