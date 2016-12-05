@@ -220,7 +220,7 @@ def test1():
     print 'Test %.3f seconds' % (end_time - start_time)
 
 
-def test2(resource, dataset='bird-2010', step=30):
+def test2(resource, dataset='bird-2010', obj='BCE', step=30):
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
     unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
@@ -244,12 +244,12 @@ def test2(resource, dataset='bird-2010', step=30):
     print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
-          V_unseen, Y_unseen, T_unseen, S_unseen, dataset=dataset, resource=resource, hid_dim=hid_dim, obj='BCE')
+          V_unseen, Y_unseen, T_unseen, S_unseen, dataset=dataset, resource=resource, hid_dim=hid_dim, obj=obj)
     end_time = timeit.default_timer()
     print 'Test %.3f seconds' % (end_time - start_time)
 
 
 if __name__ == '__main__':
-    test2('was', dataset='bird-2010', step=10)
+    test2('was', dataset='bird-2010', obj='BCE', step=10)
 
 
