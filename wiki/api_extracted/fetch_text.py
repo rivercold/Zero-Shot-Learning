@@ -87,6 +87,48 @@ def tokenize():
         for v in first50_vocab:
             f.write(v.encode('utf-8') + '\n')
 
+def find_oov_with_dash():
+    oov_file = '../../features/summary/oov.txt'
+
+    oov_with_dash = []
+
+    with open(oov_file, 'r') as f:
+        for line in f:
+            cur = line.rstrip().decode('utf-8')
+            if '-' in cur or u'\u2013' in cur:
+                oov_with_dash.append(cur)
+
+    with open('oov_with_dash.txt', 'w') as f:
+        for oov in oov_with_dash:
+            f.write(oov.encode('utf-8') + '\n')
+
+
+def retokenize():
+    oov_with_dash = set()
+    with open('oov_with_dash.txt', 'r') as f:
+        for line in f:
+            oov_with_dash.add(line.rstrip().decode('utf-8').replace(u'\u2013', '-'))
+
+    first50_vocab_without_oov_with_dash = set()
+    with open('first50_vocab.txt', 'r') as f:
+        for line in f:
+            cur = line.rstrip().decode('utf-8').replace(u'\u2013', '-')
+            if cur in oov_with_dash:
+                contents = cur.split('-')
+                for c in contents:
+                    first50_vocab_without_oov_with_dash.add(c)
+            else:
+                first50_vocab_without_oov_with_dash.add(cur)
+
+    # removed oov with dash in our old first50_vocab.txt file
+    with open('first50_vocab_new.txt', 'w') as f:
+        for v in first50_vocab_without_oov_with_dash:
+            f.write(v.encode('utf-8') + '\n')
+
+
+def word2vec():
+    print 1
+
 
 if __name__ == '__main__':
     # fetch_text()
@@ -95,4 +137,10 @@ if __name__ == '__main__':
 
     # filter_text()
 
-    tokenize()
+    # tokenize()
+
+    # find_oov_with_dash()
+
+    retokenize()
+
+    # word2vec()
