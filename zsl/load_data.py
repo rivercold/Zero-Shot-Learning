@@ -72,7 +72,7 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy=None, boa_npy=None,
         T2 = prepare_attribute_data(boa_npy)
         T_matrix = numpy.concatenate((T_matrix, T2), axis=1)
 
-    S_tensor = numpy.zeros((num_class, 0, 0), dtype=theano.config.floatX)
+    S_tensor = numpy.zeros((num_class, step, 0), dtype=theano.config.floatX)
     if summary_npy is not None:
         S_tensor = prepare_summary_data(summary_npy, step=step)
 
