@@ -1,0 +1,500 @@
+Epoch = 1
+	Training	Accuracy = 0.0102	Cost = 15.984687	Loss = 15.934641
+	seen	ROC-AUC = 0.6400	PR-AUC = 0.0227	Top-1 Acc = 0.0168	Top-5 Acc = 0.0681
+	unseen	ROC-AUC = 0.6370	PR-AUC = 0.0606	Top-1 Acc = 0.0048	Top-5 Acc = 0.0193
+	Mean	ROC-AUC = 0.6383	PR-AUC = 0.0441	Top-1 Acc = 0.0100	Top-5 Acc = 0.0405
+Epoch = 2
+	Training	Accuracy = 0.0245	Cost = 3.664218	Loss = 3.614140
+	seen	ROC-AUC = 0.7363	PR-AUC = 0.0332	Top-1 Acc = 0.0189	Top-5 Acc = 0.1017
+	unseen	ROC-AUC = 0.7023	PR-AUC = 0.0753	Top-1 Acc = 0.0233	Top-5 Acc = 0.0684
+	Mean	ROC-AUC = 0.7170	PR-AUC = 0.0570	Top-1 Acc = 0.0214	Top-5 Acc = 0.0828
+Epoch = 3
+	Training	Accuracy = 0.0284	Cost = 3.769146	Loss = 3.719045
+	seen	ROC-AUC = 0.7700	PR-AUC = 0.0371	Top-1 Acc = 0.0262	Top-5 Acc = 0.0985
+	unseen	ROC-AUC = 0.7443	PR-AUC = 0.0862	Top-1 Acc = 0.0113	Top-5 Acc = 0.0611
+	Mean	ROC-AUC = 0.7555	PR-AUC = 0.0649	Top-1 Acc = 0.0178	Top-5 Acc = 0.0774
+Epoch = 4
+	Training	Accuracy = 0.0375	Cost = 3.641912	Loss = 3.591776
+	seen	ROC-AUC = 0.8431	PR-AUC = 0.0522	Top-1 Acc = 0.0398	Top-5 Acc = 0.1457
+	unseen	ROC-AUC = 0.8224	PR-AUC = 0.1279	Top-1 Acc = 0.0185	Top-5 Acc = 0.1158
+	Mean	ROC-AUC = 0.8314	PR-AUC = 0.0950	Top-1 Acc = 0.0278	Top-5 Acc = 0.1288
+Epoch = 5
+	Training	Accuracy = 0.0574	Cost = 3.729549	Loss = 3.679291
+	seen	ROC-AUC = 0.8356	PR-AUC = 0.0474	Top-1 Acc = 0.0294	Top-5 Acc = 0.1677
+	unseen	ROC-AUC = 0.7924	PR-AUC = 0.1149	Top-1 Acc = 0.0274	Top-5 Acc = 0.1263
+	Mean	ROC-AUC = 0.8112	PR-AUC = 0.0856	Top-1 Acc = 0.0282	Top-5 Acc = 0.1443
+Epoch = 6
+	Training	Accuracy = 0.0748	Cost = 3.420501	Loss = 3.370102
+	seen	ROC-AUC = 0.8971	PR-AUC = 0.0988	Top-1 Acc = 0.0587	Top-5 Acc = 0.2170
+	unseen	ROC-AUC = 0.8595	PR-AUC = 0.1754	Top-1 Acc = 0.0354	Top-5 Acc = 0.1424
+	Mean	ROC-AUC = 0.8758	PR-AUC = 0.1421	Top-1 Acc = 0.0455	Top-5 Acc = 0.1748
+Epoch = 7
+	Training	Accuracy = 0.0905	Cost = 3.524639	Loss = 3.474055
+	seen	ROC-AUC = 0.8820	PR-AUC = 0.0835	Top-1 Acc = 0.0597	Top-5 Acc = 0.1992
+	unseen	ROC-AUC = 0.8611	PR-AUC = 0.1677	Top-1 Acc = 0.0451	Top-5 Acc = 0.1850
+	Mean	ROC-AUC = 0.8702	PR-AUC = 0.1312	Top-1 Acc = 0.0514	Top-5 Acc = 0.1912
+Epoch = 8
+	Training	Accuracy = 0.1113	Cost = 3.557750	Loss = 3.506993
+	seen	ROC-AUC = 0.8934	PR-AUC = 0.0941	Top-1 Acc = 0.0797	Top-5 Acc = 0.2264
+	unseen	ROC-AUC = 0.8663	PR-AUC = 0.1883	Top-1 Acc = 0.0418	Top-5 Acc = 0.1480
+	Mean	ROC-AUC = 0.8781	PR-AUC = 0.1474	Top-1 Acc = 0.0583	Top-5 Acc = 0.1821
+Epoch = 9
+	Training	Accuracy = 0.1718	Cost = 3.163953	Loss = 3.113000
+	seen	ROC-AUC = 0.9161	PR-AUC = 0.1166	Top-1 Acc = 0.1153	Top-5 Acc = 0.2977
+	unseen	ROC-AUC = 0.8802	PR-AUC = 0.2243	Top-1 Acc = 0.0467	Top-5 Acc = 0.2156
+	Mean	ROC-AUC = 0.8958	PR-AUC = 0.1775	Top-1 Acc = 0.0765	Top-5 Acc = 0.2513
+Epoch = 10
+	Training	Accuracy = 0.1661	Cost = 3.479979	Loss = 3.428828
+	seen	ROC-AUC = 0.9199	PR-AUC = 0.1340	Top-1 Acc = 0.1300	Top-5 Acc = 0.3218
+	unseen	ROC-AUC = 0.8825	PR-AUC = 0.2112	Top-1 Acc = 0.0724	Top-5 Acc = 0.2124
+	Mean	ROC-AUC = 0.8988	PR-AUC = 0.1777	Top-1 Acc = 0.0974	Top-5 Acc = 0.2599
+Epoch = 11
+	Training	Accuracy = 0.2059	Cost = 3.203145	Loss = 3.151797
+	seen	ROC-AUC = 0.9297	PR-AUC = 0.1327	Top-1 Acc = 0.1415	Top-5 Acc = 0.3826
+	unseen	ROC-AUC = 0.8943	PR-AUC = 0.2567	Top-1 Acc = 0.0475	Top-5 Acc = 0.2003
+	Mean	ROC-AUC = 0.9097	PR-AUC = 0.2029	Top-1 Acc = 0.0883	Top-5 Acc = 0.2795
+Epoch = 12
+	Training	Accuracy = 0.2002	Cost = 3.258047	Loss = 3.206489
+	seen	ROC-AUC = 0.9413	PR-AUC = 0.1850	Top-1 Acc = 0.1992	Top-5 Acc = 0.4549
+	unseen	ROC-AUC = 0.9057	PR-AUC = 0.2600	Top-1 Acc = 0.0965	Top-5 Acc = 0.3242
+	Mean	ROC-AUC = 0.9212	PR-AUC = 0.2275	Top-1 Acc = 0.1411	Top-5 Acc = 0.3810
+Epoch = 13
+	Training	Accuracy = 0.2682	Cost = 2.874509	Loss = 2.822850
+	seen	ROC-AUC = 0.9520	PR-AUC = 0.2285	Top-1 Acc = 0.2222	Top-5 Acc = 0.4927
+	unseen	ROC-AUC = 0.9151	PR-AUC = 0.2740	Top-1 Acc = 0.1175	Top-5 Acc = 0.3371
+	Mean	ROC-AUC = 0.9311	PR-AUC = 0.2542	Top-1 Acc = 0.1629	Top-5 Acc = 0.4046
+Epoch = 14
+	Training	Accuracy = 0.2719	Cost = 3.026489	Loss = 2.974605
+	seen	ROC-AUC = 0.9548	PR-AUC = 0.2261	Top-1 Acc = 0.2233	Top-5 Acc = 0.5294
+	unseen	ROC-AUC = 0.9117	PR-AUC = 0.2879	Top-1 Acc = 0.1400	Top-5 Acc = 0.3829
+	Mean	ROC-AUC = 0.9304	PR-AUC = 0.2611	Top-1 Acc = 0.1761	Top-5 Acc = 0.4465
+Epoch = 15
+	Training	Accuracy = 0.3110	Cost = 3.018635	Loss = 2.966495
+	seen	ROC-AUC = 0.9477	PR-AUC = 0.2222	Top-1 Acc = 0.2264	Top-5 Acc = 0.5220
+	unseen	ROC-AUC = 0.9238	PR-AUC = 0.2903	Top-1 Acc = 0.1022	Top-5 Acc = 0.3411
+	Mean	ROC-AUC = 0.9342	PR-AUC = 0.2607	Top-1 Acc = 0.1561	Top-5 Acc = 0.4197
+Epoch = 16
+	Training	Accuracy = 0.3467	Cost = 2.701307	Loss = 2.648924
+	seen	ROC-AUC = 0.9488	PR-AUC = 0.2331	Top-1 Acc = 0.2327	Top-5 Acc = 0.4969
+	unseen	ROC-AUC = 0.9198	PR-AUC = 0.2977	Top-1 Acc = 0.1167	Top-5 Acc = 0.3419
+	Mean	ROC-AUC = 0.9324	PR-AUC = 0.2697	Top-1 Acc = 0.1670	Top-5 Acc = 0.4092
+Epoch = 17
+	Training	Accuracy = 0.3652	Cost = 2.755377	Loss = 2.702791
+	seen	ROC-AUC = 0.9460	PR-AUC = 0.1893	Top-1 Acc = 0.2338	Top-5 Acc = 0.4675
+	unseen	ROC-AUC = 0.9088	PR-AUC = 0.2649	Top-1 Acc = 0.0644	Top-5 Acc = 0.2784
+	Mean	ROC-AUC = 0.9250	PR-AUC = 0.2321	Top-1 Acc = 0.1379	Top-5 Acc = 0.3605
+Epoch = 18
+	Training	Accuracy = 0.3955	Cost = 2.619919	Loss = 2.567050
+	seen	ROC-AUC = 0.9649	PR-AUC = 0.2663	Top-1 Acc = 0.2872	Top-5 Acc = 0.6069
+	unseen	ROC-AUC = 0.9213	PR-AUC = 0.3112	Top-1 Acc = 0.1392	Top-5 Acc = 0.4014
+	Mean	ROC-AUC = 0.9402	PR-AUC = 0.2917	Top-1 Acc = 0.2035	Top-5 Acc = 0.4907
+Epoch = 19
+	Training	Accuracy = 0.4343	Cost = 2.538918	Loss = 2.485799
+	seen	ROC-AUC = 0.9643	PR-AUC = 0.2706	Top-1 Acc = 0.3082	Top-5 Acc = 0.6164
+	unseen	ROC-AUC = 0.9254	PR-AUC = 0.2991	Top-1 Acc = 0.1183	Top-5 Acc = 0.3781
+	Mean	ROC-AUC = 0.9423	PR-AUC = 0.2867	Top-1 Acc = 0.2007	Top-5 Acc = 0.4816
+Epoch = 20
+	Training	Accuracy = 0.4531	Cost = 2.502232	Loss = 2.448828
+	seen	ROC-AUC = 0.9665	PR-AUC = 0.3369	Top-1 Acc = 0.3040	Top-5 Acc = 0.6122
+	unseen	ROC-AUC = 0.9309	PR-AUC = 0.3448	Top-1 Acc = 0.1496	Top-5 Acc = 0.3789
+	Mean	ROC-AUC = 0.9463	PR-AUC = 0.3414	Top-1 Acc = 0.2167	Top-5 Acc = 0.4802
+Epoch = 21
+	Training	Accuracy = 0.4656	Cost = 2.510000	Loss = 2.456266
+	seen	ROC-AUC = 0.9687	PR-AUC = 0.2867	Top-1 Acc = 0.3386	Top-5 Acc = 0.6593
+	unseen	ROC-AUC = 0.9368	PR-AUC = 0.3505	Top-1 Acc = 0.1529	Top-5 Acc = 0.4457
+	Mean	ROC-AUC = 0.9506	PR-AUC = 0.3228	Top-1 Acc = 0.2335	Top-5 Acc = 0.5385
+Epoch = 22
+	Training	Accuracy = 0.5154	Cost = 2.349370	Loss = 2.295292
+	seen	ROC-AUC = 0.9610	PR-AUC = 0.2321	Top-1 Acc = 0.3229	Top-5 Acc = 0.6331
+	unseen	ROC-AUC = 0.9221	PR-AUC = 0.3052	Top-1 Acc = 0.1368	Top-5 Acc = 0.3805
+	Mean	ROC-AUC = 0.9390	PR-AUC = 0.2734	Top-1 Acc = 0.2176	Top-5 Acc = 0.4902
+Epoch = 23
+	Training	Accuracy = 0.5266	Cost = 2.342005	Loss = 2.287585
+	seen	ROC-AUC = 0.9658	PR-AUC = 0.2998	Top-1 Acc = 0.3050	Top-5 Acc = 0.6258
+	unseen	ROC-AUC = 0.9345	PR-AUC = 0.3511	Top-1 Acc = 0.0998	Top-5 Acc = 0.3628
+	Mean	ROC-AUC = 0.9481	PR-AUC = 0.3288	Top-1 Acc = 0.1889	Top-5 Acc = 0.4770
+Epoch = 24
+	Training	Accuracy = 0.5511	Cost = 2.288136	Loss = 2.233359
+	seen	ROC-AUC = 0.9699	PR-AUC = 0.2955	Top-1 Acc = 0.3302	Top-5 Acc = 0.6635
+	unseen	ROC-AUC = 0.9322	PR-AUC = 0.3535	Top-1 Acc = 0.1191	Top-5 Acc = 0.4288
+	Mean	ROC-AUC = 0.9485	PR-AUC = 0.3283	Top-1 Acc = 0.2107	Top-5 Acc = 0.5307
+Epoch = 25
+	Training	Accuracy = 0.5748	Cost = 2.164619	Loss = 2.109465
+	seen	ROC-AUC = 0.9732	PR-AUC = 0.3589	Top-1 Acc = 0.4025	Top-5 Acc = 0.7222
+	unseen	ROC-AUC = 0.9404	PR-AUC = 0.3731	Top-1 Acc = 0.1537	Top-5 Acc = 0.4698
+	Mean	ROC-AUC = 0.9546	PR-AUC = 0.3670	Top-1 Acc = 0.2617	Top-5 Acc = 0.5794
+Epoch = 26
+	Training	Accuracy = 0.5746	Cost = 2.169159	Loss = 2.113646
+	seen	ROC-AUC = 0.9724	PR-AUC = 0.3521	Top-1 Acc = 0.3836	Top-5 Acc = 0.7055
+	unseen	ROC-AUC = 0.9397	PR-AUC = 0.3698	Top-1 Acc = 0.1384	Top-5 Acc = 0.4248
+	Mean	ROC-AUC = 0.9539	PR-AUC = 0.3621	Top-1 Acc = 0.2449	Top-5 Acc = 0.5467
+Epoch = 27
+	Training	Accuracy = 0.6147	Cost = 2.099887	Loss = 2.043963
+	seen	ROC-AUC = 0.9736	PR-AUC = 0.3464	Top-1 Acc = 0.3941	Top-5 Acc = 0.7233
+	unseen	ROC-AUC = 0.9423	PR-AUC = 0.3762	Top-1 Acc = 0.1561	Top-5 Acc = 0.4385
+	Mean	ROC-AUC = 0.9559	PR-AUC = 0.3633	Top-1 Acc = 0.2594	Top-5 Acc = 0.5621
+Epoch = 28
+	Training	Accuracy = 0.6246	Cost = 2.093211	Loss = 2.036872
+	seen	ROC-AUC = 0.9746	PR-AUC = 0.3894	Top-1 Acc = 0.3826	Top-5 Acc = 0.7044
+	unseen	ROC-AUC = 0.9355	PR-AUC = 0.3608	Top-1 Acc = 0.1287	Top-5 Acc = 0.4264
+	Mean	ROC-AUC = 0.9525	PR-AUC = 0.3732	Top-1 Acc = 0.2390	Top-5 Acc = 0.5471
+Epoch = 29
+	Training	Accuracy = 0.6293	Cost = 1.978316	Loss = 1.921549
+	seen	ROC-AUC = 0.9761	PR-AUC = 0.4574	Top-1 Acc = 0.4119	Top-5 Acc = 0.7296
+	unseen	ROC-AUC = 0.9397	PR-AUC = 0.3665	Top-1 Acc = 0.1625	Top-5 Acc = 0.4553
+	Mean	ROC-AUC = 0.9555	PR-AUC = 0.4059	Top-1 Acc = 0.2708	Top-5 Acc = 0.5744
+Epoch = 30
+	Training	Accuracy = 0.6371	Cost = 2.005059	Loss = 1.947873
+	seen	ROC-AUC = 0.9698	PR-AUC = 0.3898	Top-1 Acc = 0.3711	Top-5 Acc = 0.6792
+	unseen	ROC-AUC = 0.9310	PR-AUC = 0.3414	Top-1 Acc = 0.1102	Top-5 Acc = 0.4336
+	Mean	ROC-AUC = 0.9478	PR-AUC = 0.3624	Top-1 Acc = 0.2235	Top-5 Acc = 0.5403
+Epoch = 31
+	Training	Accuracy = 0.6736	Cost = 1.895655	Loss = 1.838002
+	seen	ROC-AUC = 0.9766	PR-AUC = 0.4575	Top-1 Acc = 0.4245	Top-5 Acc = 0.7222
+	unseen	ROC-AUC = 0.9387	PR-AUC = 0.3601	Top-1 Acc = 0.1464	Top-5 Acc = 0.4698
+	Mean	ROC-AUC = 0.9552	PR-AUC = 0.4024	Top-1 Acc = 0.2672	Top-5 Acc = 0.5794
+Epoch = 32
+	Training	Accuracy = 0.6708	Cost = 1.909160	Loss = 1.851034
+	seen	ROC-AUC = 0.9777	PR-AUC = 0.4596	Top-1 Acc = 0.4392	Top-5 Acc = 0.7495
+	unseen	ROC-AUC = 0.9439	PR-AUC = 0.3670	Top-1 Acc = 0.1311	Top-5 Acc = 0.4393
+	Mean	ROC-AUC = 0.9585	PR-AUC = 0.4072	Top-1 Acc = 0.2649	Top-5 Acc = 0.5740
+Epoch = 33
+	Training	Accuracy = 0.7099	Cost = 1.780469	Loss = 1.721879
+	seen	ROC-AUC = 0.9772	PR-AUC = 0.4813	Top-1 Acc = 0.4528	Top-5 Acc = 0.7537
+	unseen	ROC-AUC = 0.9474	PR-AUC = 0.3805	Top-1 Acc = 0.1480	Top-5 Acc = 0.4634
+	Mean	ROC-AUC = 0.9603	PR-AUC = 0.4243	Top-1 Acc = 0.2804	Top-5 Acc = 0.5894
+Epoch = 34
+	Training	Accuracy = 0.6906	Cost = 1.829926	Loss = 1.770830
+	seen	ROC-AUC = 0.9772	PR-AUC = 0.4248	Top-1 Acc = 0.4539	Top-5 Acc = 0.7736
+	unseen	ROC-AUC = 0.9443	PR-AUC = 0.3790	Top-1 Acc = 0.1633	Top-5 Acc = 0.4706
+	Mean	ROC-AUC = 0.9586	PR-AUC = 0.3989	Top-1 Acc = 0.2895	Top-5 Acc = 0.6022
+Epoch = 35
+	Training	Accuracy = 0.7388	Cost = 1.659262	Loss = 1.599675
+	seen	ROC-AUC = 0.9764	PR-AUC = 0.3996	Top-1 Acc = 0.4518	Top-5 Acc = 0.7631
+	unseen	ROC-AUC = 0.9430	PR-AUC = 0.3730	Top-1 Acc = 0.1400	Top-5 Acc = 0.4674
+	Mean	ROC-AUC = 0.9575	PR-AUC = 0.3845	Top-1 Acc = 0.2754	Top-5 Acc = 0.5958
+Epoch = 36
+	Training	Accuracy = 0.7057	Cost = 1.886008	Loss = 1.825883
+	seen	ROC-AUC = 0.9768	PR-AUC = 0.4052	Top-1 Acc = 0.4203	Top-5 Acc = 0.7600
+	unseen	ROC-AUC = 0.9444	PR-AUC = 0.3804	Top-1 Acc = 0.1223	Top-5 Acc = 0.4594
+	Mean	ROC-AUC = 0.9584	PR-AUC = 0.3912	Top-1 Acc = 0.2517	Top-5 Acc = 0.5899
+Epoch = 37
+	Training	Accuracy = 0.7328	Cost = 1.711366	Loss = 1.650750
+	seen	ROC-AUC = 0.9774	PR-AUC = 0.4590	Top-1 Acc = 0.4633	Top-5 Acc = 0.7683
+	unseen	ROC-AUC = 0.9459	PR-AUC = 0.3940	Top-1 Acc = 0.1400	Top-5 Acc = 0.4489
+	Mean	ROC-AUC = 0.9596	PR-AUC = 0.4222	Top-1 Acc = 0.2804	Top-5 Acc = 0.5876
+Epoch = 38
+	Training	Accuracy = 0.7539	Cost = 1.614439	Loss = 1.553308
+	seen	ROC-AUC = 0.9784	PR-AUC = 0.4361	Top-1 Acc = 0.4727	Top-5 Acc = 0.7788
+	unseen	ROC-AUC = 0.9467	PR-AUC = 0.3920	Top-1 Acc = 0.1496	Top-5 Acc = 0.4779
+	Mean	ROC-AUC = 0.9604	PR-AUC = 0.4111	Top-1 Acc = 0.2899	Top-5 Acc = 0.6086
+Epoch = 39
+	Training	Accuracy = 0.7508	Cost = 1.711356	Loss = 1.649676
+	seen	ROC-AUC = 0.9784	PR-AUC = 0.4230	Top-1 Acc = 0.4350	Top-5 Acc = 0.7621
+	unseen	ROC-AUC = 0.9437	PR-AUC = 0.3640	Top-1 Acc = 0.1521	Top-5 Acc = 0.4586
+	Mean	ROC-AUC = 0.9588	PR-AUC = 0.3896	Top-1 Acc = 0.2749	Top-5 Acc = 0.5904
+Epoch = 40
+	Training	Accuracy = 0.7849	Cost = 1.498932	Loss = 1.436699
+	seen	ROC-AUC = 0.9778	PR-AUC = 0.4552	Top-1 Acc = 0.4675	Top-5 Acc = 0.7757
+	unseen	ROC-AUC = 0.9493	PR-AUC = 0.4048	Top-1 Acc = 0.1480	Top-5 Acc = 0.4690
+	Mean	ROC-AUC = 0.9617	PR-AUC = 0.4267	Top-1 Acc = 0.2868	Top-5 Acc = 0.6022
+Epoch = 41
+	Training	Accuracy = 0.7826	Cost = 1.534497	Loss = 1.471724
+	seen	ROC-AUC = 0.9779	PR-AUC = 0.4632	Top-1 Acc = 0.4665	Top-5 Acc = 0.7579
+	unseen	ROC-AUC = 0.9447	PR-AUC = 0.3892	Top-1 Acc = 0.1448	Top-5 Acc = 0.4698
+	Mean	ROC-AUC = 0.9591	PR-AUC = 0.4214	Top-1 Acc = 0.2845	Top-5 Acc = 0.5949
+Epoch = 42
+	Training	Accuracy = 0.8001	Cost = 1.490180	Loss = 1.426812
+	seen	ROC-AUC = 0.9775	PR-AUC = 0.4713	Top-1 Acc = 0.4790	Top-5 Acc = 0.7662
+	unseen	ROC-AUC = 0.9445	PR-AUC = 0.3900	Top-1 Acc = 0.1263	Top-5 Acc = 0.4553
+	Mean	ROC-AUC = 0.9588	PR-AUC = 0.4253	Top-1 Acc = 0.2795	Top-5 Acc = 0.5904
+Epoch = 43
+	Training	Accuracy = 0.7967	Cost = 1.517229	Loss = 1.453270
+	seen	ROC-AUC = 0.9789	PR-AUC = 0.4467	Top-1 Acc = 0.5010	Top-5 Acc = 0.7966
+	unseen	ROC-AUC = 0.9481	PR-AUC = 0.4060	Top-1 Acc = 0.1448	Top-5 Acc = 0.4690
+	Mean	ROC-AUC = 0.9615	PR-AUC = 0.4237	Top-1 Acc = 0.2995	Top-5 Acc = 0.6113
+Epoch = 44
+	Training	Accuracy = 0.8040	Cost = 1.461288	Loss = 1.396761
+	seen	ROC-AUC = 0.9778	PR-AUC = 0.4088	Top-1 Acc = 0.4864	Top-5 Acc = 0.7757
+	unseen	ROC-AUC = 0.9448	PR-AUC = 0.3946	Top-1 Acc = 0.1263	Top-5 Acc = 0.4562
+	Mean	ROC-AUC = 0.9591	PR-AUC = 0.4008	Top-1 Acc = 0.2827	Top-5 Acc = 0.5949
+Epoch = 45
+	Training	Accuracy = 0.8100	Cost = 1.401321	Loss = 1.336206
+	seen	ROC-AUC = 0.9791	PR-AUC = 0.4157	Top-1 Acc = 0.5000	Top-5 Acc = 0.7820
+	unseen	ROC-AUC = 0.9490	PR-AUC = 0.4099	Top-1 Acc = 0.1537	Top-5 Acc = 0.4883
+	Mean	ROC-AUC = 0.9621	PR-AUC = 0.4124	Top-1 Acc = 0.3041	Top-5 Acc = 0.6158
+Epoch = 46
+	Training	Accuracy = 0.8199	Cost = 1.409404	Loss = 1.343682
+	seen	ROC-AUC = 0.9785	PR-AUC = 0.4248	Top-1 Acc = 0.4969	Top-5 Acc = 0.7893
+	unseen	ROC-AUC = 0.9472	PR-AUC = 0.3964	Top-1 Acc = 0.1344	Top-5 Acc = 0.4409
+	Mean	ROC-AUC = 0.9608	PR-AUC = 0.4088	Top-1 Acc = 0.2918	Top-5 Acc = 0.5922
+Epoch = 47
+	Training	Accuracy = 0.8329	Cost = 1.315383	Loss = 1.249054
+	seen	ROC-AUC = 0.9780	PR-AUC = 0.4293	Top-1 Acc = 0.4801	Top-5 Acc = 0.7715
+	unseen	ROC-AUC = 0.9446	PR-AUC = 0.3929	Top-1 Acc = 0.1247	Top-5 Acc = 0.4433
+	Mean	ROC-AUC = 0.9591	PR-AUC = 0.4087	Top-1 Acc = 0.2790	Top-5 Acc = 0.5858
+Epoch = 48
+	Training	Accuracy = 0.8384	Cost = 1.311570	Loss = 1.244627
+	seen	ROC-AUC = 0.9799	PR-AUC = 0.4440	Top-1 Acc = 0.4780	Top-5 Acc = 0.7862
+	unseen	ROC-AUC = 0.9487	PR-AUC = 0.3983	Top-1 Acc = 0.1472	Top-5 Acc = 0.4682
+	Mean	ROC-AUC = 0.9623	PR-AUC = 0.4181	Top-1 Acc = 0.2909	Top-5 Acc = 0.6063
+Epoch = 49
+	Training	Accuracy = 0.8423	Cost = 1.276950	Loss = 1.209389
+	seen	ROC-AUC = 0.9796	PR-AUC = 0.4427	Top-1 Acc = 0.4969	Top-5 Acc = 0.7778
+	unseen	ROC-AUC = 0.9482	PR-AUC = 0.3964	Top-1 Acc = 0.1585	Top-5 Acc = 0.4682
+	Mean	ROC-AUC = 0.9618	PR-AUC = 0.4165	Top-1 Acc = 0.3054	Top-5 Acc = 0.6026
+Epoch = 50
+	Training	Accuracy = 0.8459	Cost = 1.277093	Loss = 1.208870
+	seen	ROC-AUC = 0.9801	PR-AUC = 0.4649	Top-1 Acc = 0.5042	Top-5 Acc = 0.7830
+	unseen	ROC-AUC = 0.9519	PR-AUC = 0.4222	Top-1 Acc = 0.1456	Top-5 Acc = 0.4690
+	Mean	ROC-AUC = 0.9641	PR-AUC = 0.4407	Top-1 Acc = 0.3013	Top-5 Acc = 0.6054
+Epoch = 51
+	Training	Accuracy = 0.8535	Cost = 1.242632	Loss = 1.173774
+	seen	ROC-AUC = 0.9799	PR-AUC = 0.4423	Top-1 Acc = 0.5042	Top-5 Acc = 0.7851
+	unseen	ROC-AUC = 0.9458	PR-AUC = 0.3943	Top-1 Acc = 0.1344	Top-5 Acc = 0.4505
+	Mean	ROC-AUC = 0.9606	PR-AUC = 0.4151	Top-1 Acc = 0.2949	Top-5 Acc = 0.5958
+Epoch = 52
+	Training	Accuracy = 0.8519	Cost = 1.186530	Loss = 1.117011
+	seen	ROC-AUC = 0.9801	PR-AUC = 0.4612	Top-1 Acc = 0.5115	Top-5 Acc = 0.7998
+	unseen	ROC-AUC = 0.9469	PR-AUC = 0.4042	Top-1 Acc = 0.1496	Top-5 Acc = 0.4545
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4290	Top-1 Acc = 0.3068	Top-5 Acc = 0.6045
+Epoch = 53
+	Training	Accuracy = 0.8757	Cost = 1.108318	Loss = 1.038141
+	seen	ROC-AUC = 0.9799	PR-AUC = 0.4632	Top-1 Acc = 0.5136	Top-5 Acc = 0.8124
+	unseen	ROC-AUC = 0.9477	PR-AUC = 0.3941	Top-1 Acc = 0.1400	Top-5 Acc = 0.4827
+	Mean	ROC-AUC = 0.9617	PR-AUC = 0.4241	Top-1 Acc = 0.3022	Top-5 Acc = 0.6259
+Epoch = 54
+	Training	Accuracy = 0.8608	Cost = 1.204305	Loss = 1.133435
+	seen	ROC-AUC = 0.9805	PR-AUC = 0.4234	Top-1 Acc = 0.5199	Top-5 Acc = 0.7945
+	unseen	ROC-AUC = 0.9461	PR-AUC = 0.3955	Top-1 Acc = 0.1496	Top-5 Acc = 0.4602
+	Mean	ROC-AUC = 0.9611	PR-AUC = 0.4076	Top-1 Acc = 0.3104	Top-5 Acc = 0.6054
+Epoch = 55
+	Training	Accuracy = 0.8746	Cost = 1.101143	Loss = 1.029630
+	seen	ROC-AUC = 0.9791	PR-AUC = 0.4849	Top-1 Acc = 0.5094	Top-5 Acc = 0.7977
+	unseen	ROC-AUC = 0.9451	PR-AUC = 0.3931	Top-1 Acc = 0.1287	Top-5 Acc = 0.4739
+	Mean	ROC-AUC = 0.9599	PR-AUC = 0.4330	Top-1 Acc = 0.2940	Top-5 Acc = 0.6145
+Epoch = 56
+	Training	Accuracy = 0.8738	Cost = 1.128262	Loss = 1.056081
+	seen	ROC-AUC = 0.9809	PR-AUC = 0.4850	Top-1 Acc = 0.5199	Top-5 Acc = 0.8040
+	unseen	ROC-AUC = 0.9467	PR-AUC = 0.3929	Top-1 Acc = 0.1504	Top-5 Acc = 0.4827
+	Mean	ROC-AUC = 0.9616	PR-AUC = 0.4329	Top-1 Acc = 0.3109	Top-5 Acc = 0.6222
+Epoch = 57
+	Training	Accuracy = 0.8858	Cost = 1.045400	Loss = 0.972523
+	seen	ROC-AUC = 0.9805	PR-AUC = 0.4659	Top-1 Acc = 0.5461	Top-5 Acc = 0.8092
+	unseen	ROC-AUC = 0.9483	PR-AUC = 0.4023	Top-1 Acc = 0.1512	Top-5 Acc = 0.4851
+	Mean	ROC-AUC = 0.9623	PR-AUC = 0.4299	Top-1 Acc = 0.3227	Top-5 Acc = 0.6259
+Epoch = 58
+	Training	Accuracy = 0.8957	Cost = 1.016748	Loss = 0.943220
+	seen	ROC-AUC = 0.9812	PR-AUC = 0.5019	Top-1 Acc = 0.5419	Top-5 Acc = 0.8134
+	unseen	ROC-AUC = 0.9457	PR-AUC = 0.4052	Top-1 Acc = 0.1360	Top-5 Acc = 0.4706
+	Mean	ROC-AUC = 0.9611	PR-AUC = 0.4472	Top-1 Acc = 0.3122	Top-5 Acc = 0.6195
+Epoch = 59
+	Training	Accuracy = 0.8913	Cost = 1.031731	Loss = 0.957526
+	seen	ROC-AUC = 0.9797	PR-AUC = 0.4768	Top-1 Acc = 0.5094	Top-5 Acc = 0.8145
+	unseen	ROC-AUC = 0.9454	PR-AUC = 0.3912	Top-1 Acc = 0.1368	Top-5 Acc = 0.4586
+	Mean	ROC-AUC = 0.9603	PR-AUC = 0.4283	Top-1 Acc = 0.2986	Top-5 Acc = 0.6131
+Epoch = 60
+	Training	Accuracy = 0.8952	Cost = 0.981259	Loss = 0.906356
+	seen	ROC-AUC = 0.9806	PR-AUC = 0.4812	Top-1 Acc = 0.5367	Top-5 Acc = 0.8061
+	unseen	ROC-AUC = 0.9464	PR-AUC = 0.3946	Top-1 Acc = 0.1327	Top-5 Acc = 0.4787
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4322	Top-1 Acc = 0.3081	Top-5 Acc = 0.6208
+Epoch = 61
+	Training	Accuracy = 0.8981	Cost = 0.961754	Loss = 0.886191
+	seen	ROC-AUC = 0.9810	PR-AUC = 0.4656	Top-1 Acc = 0.5451	Top-5 Acc = 0.8103
+	unseen	ROC-AUC = 0.9457	PR-AUC = 0.3943	Top-1 Acc = 0.1545	Top-5 Acc = 0.4964
+	Mean	ROC-AUC = 0.9610	PR-AUC = 0.4253	Top-1 Acc = 0.3241	Top-5 Acc = 0.6327
+Epoch = 62
+	Training	Accuracy = 0.8999	Cost = 0.975928	Loss = 0.899664
+	seen	ROC-AUC = 0.9812	PR-AUC = 0.5137	Top-1 Acc = 0.5482	Top-5 Acc = 0.8176
+	unseen	ROC-AUC = 0.9480	PR-AUC = 0.3994	Top-1 Acc = 0.1392	Top-5 Acc = 0.4690
+	Mean	ROC-AUC = 0.9624	PR-AUC = 0.4490	Top-1 Acc = 0.3168	Top-5 Acc = 0.6204
+Epoch = 63
+	Training	Accuracy = 0.9161	Cost = 0.865194	Loss = 0.788252
+	seen	ROC-AUC = 0.9805	PR-AUC = 0.4772	Top-1 Acc = 0.5241	Top-5 Acc = 0.8071
+	unseen	ROC-AUC = 0.9407	PR-AUC = 0.3956	Top-1 Acc = 0.1368	Top-5 Acc = 0.4433
+	Mean	ROC-AUC = 0.9580	PR-AUC = 0.4310	Top-1 Acc = 0.3050	Top-5 Acc = 0.6013
+Epoch = 64
+	Training	Accuracy = 0.9135	Cost = 0.916312	Loss = 0.838686
+	seen	ROC-AUC = 0.9803	PR-AUC = 0.5015	Top-1 Acc = 0.5283	Top-5 Acc = 0.8103
+	unseen	ROC-AUC = 0.9478	PR-AUC = 0.3973	Top-1 Acc = 0.1352	Top-5 Acc = 0.4674
+	Mean	ROC-AUC = 0.9619	PR-AUC = 0.4425	Top-1 Acc = 0.3059	Top-5 Acc = 0.6163
+Epoch = 65
+	Training	Accuracy = 0.9197	Cost = 0.884923	Loss = 0.806615
+	seen	ROC-AUC = 0.9813	PR-AUC = 0.5327	Top-1 Acc = 0.5430	Top-5 Acc = 0.8396
+	unseen	ROC-AUC = 0.9464	PR-AUC = 0.3935	Top-1 Acc = 0.1456	Top-5 Acc = 0.4658
+	Mean	ROC-AUC = 0.9615	PR-AUC = 0.4539	Top-1 Acc = 0.3182	Top-5 Acc = 0.6281
+Epoch = 66
+	Training	Accuracy = 0.9221	Cost = 0.840773	Loss = 0.761778
+	seen	ROC-AUC = 0.9807	PR-AUC = 0.4948	Top-1 Acc = 0.5294	Top-5 Acc = 0.8113
+	unseen	ROC-AUC = 0.9448	PR-AUC = 0.3868	Top-1 Acc = 0.1416	Top-5 Acc = 0.4706
+	Mean	ROC-AUC = 0.9604	PR-AUC = 0.4337	Top-1 Acc = 0.3100	Top-5 Acc = 0.6186
+Epoch = 67
+	Training	Accuracy = 0.9286	Cost = 0.819612	Loss = 0.739934
+	seen	ROC-AUC = 0.9812	PR-AUC = 0.4821	Top-1 Acc = 0.5157	Top-5 Acc = 0.7977
+	unseen	ROC-AUC = 0.9457	PR-AUC = 0.3914	Top-1 Acc = 0.1191	Top-5 Acc = 0.4465
+	Mean	ROC-AUC = 0.9611	PR-AUC = 0.4308	Top-1 Acc = 0.2913	Top-5 Acc = 0.5990
+Epoch = 68
+	Training	Accuracy = 0.9265	Cost = 0.810541	Loss = 0.730158
+	seen	ROC-AUC = 0.9807	PR-AUC = 0.5001	Top-1 Acc = 0.5440	Top-5 Acc = 0.8029
+	unseen	ROC-AUC = 0.9431	PR-AUC = 0.4002	Top-1 Acc = 0.1191	Top-5 Acc = 0.4642
+	Mean	ROC-AUC = 0.9595	PR-AUC = 0.4436	Top-1 Acc = 0.3036	Top-5 Acc = 0.6113
+Epoch = 69
+	Training	Accuracy = 0.9286	Cost = 0.804226	Loss = 0.723140
+	seen	ROC-AUC = 0.9822	PR-AUC = 0.4814	Top-1 Acc = 0.5503	Top-5 Acc = 0.8229
+	unseen	ROC-AUC = 0.9464	PR-AUC = 0.4010	Top-1 Acc = 0.1311	Top-5 Acc = 0.4771
+	Mean	ROC-AUC = 0.9619	PR-AUC = 0.4359	Top-1 Acc = 0.3132	Top-5 Acc = 0.6272
+Epoch = 70
+	Training	Accuracy = 0.9273	Cost = 0.795375	Loss = 0.713620
+	seen	ROC-AUC = 0.9817	PR-AUC = 0.4938	Top-1 Acc = 0.5430	Top-5 Acc = 0.8249
+	unseen	ROC-AUC = 0.9475	PR-AUC = 0.4063	Top-1 Acc = 0.1545	Top-5 Acc = 0.4698
+	Mean	ROC-AUC = 0.9623	PR-AUC = 0.4443	Top-1 Acc = 0.3232	Top-5 Acc = 0.6240
+Epoch = 71
+	Training	Accuracy = 0.9343	Cost = 0.757382	Loss = 0.674957
+	seen	ROC-AUC = 0.9810	PR-AUC = 0.5228	Top-1 Acc = 0.5398	Top-5 Acc = 0.8155
+	unseen	ROC-AUC = 0.9464	PR-AUC = 0.4116	Top-1 Acc = 0.1376	Top-5 Acc = 0.5020
+	Mean	ROC-AUC = 0.9614	PR-AUC = 0.4598	Top-1 Acc = 0.3122	Top-5 Acc = 0.6381
+Epoch = 72
+	Training	Accuracy = 0.9442	Cost = 0.733012	Loss = 0.649881
+	seen	ROC-AUC = 0.9819	PR-AUC = 0.5192	Top-1 Acc = 0.5524	Top-5 Acc = 0.8239
+	unseen	ROC-AUC = 0.9456	PR-AUC = 0.3995	Top-1 Acc = 0.1440	Top-5 Acc = 0.4618
+	Mean	ROC-AUC = 0.9614	PR-AUC = 0.4515	Top-1 Acc = 0.3213	Top-5 Acc = 0.6190
+Epoch = 73
+	Training	Accuracy = 0.9424	Cost = 0.719251	Loss = 0.635479
+	seen	ROC-AUC = 0.9816	PR-AUC = 0.5259	Top-1 Acc = 0.5608	Top-5 Acc = 0.8155
+	unseen	ROC-AUC = 0.9458	PR-AUC = 0.3988	Top-1 Acc = 0.1456	Top-5 Acc = 0.4811
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4540	Top-1 Acc = 0.3259	Top-5 Acc = 0.6263
+Epoch = 74
+	Training	Accuracy = 0.9481	Cost = 0.714238	Loss = 0.629752
+	seen	ROC-AUC = 0.9818	PR-AUC = 0.5533	Top-1 Acc = 0.5451	Top-5 Acc = 0.8134
+	unseen	ROC-AUC = 0.9440	PR-AUC = 0.3931	Top-1 Acc = 0.1287	Top-5 Acc = 0.4682
+	Mean	ROC-AUC = 0.9604	PR-AUC = 0.4627	Top-1 Acc = 0.3095	Top-5 Acc = 0.6181
+Epoch = 75
+	Training	Accuracy = 0.9492	Cost = 0.694072	Loss = 0.608888
+	seen	ROC-AUC = 0.9823	PR-AUC = 0.5313	Top-1 Acc = 0.5524	Top-5 Acc = 0.8281
+	unseen	ROC-AUC = 0.9444	PR-AUC = 0.3989	Top-1 Acc = 0.1440	Top-5 Acc = 0.4819
+	Mean	ROC-AUC = 0.9608	PR-AUC = 0.4564	Top-1 Acc = 0.3213	Top-5 Acc = 0.6322
+Epoch = 76
+	Training	Accuracy = 0.9473	Cost = 0.680931	Loss = 0.595066
+	seen	ROC-AUC = 0.9813	PR-AUC = 0.5299	Top-1 Acc = 0.5409	Top-5 Acc = 0.8218
+	unseen	ROC-AUC = 0.9458	PR-AUC = 0.3978	Top-1 Acc = 0.1569	Top-5 Acc = 0.4835
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4552	Top-1 Acc = 0.3236	Top-5 Acc = 0.6304
+Epoch = 77
+	Training	Accuracy = 0.9518	Cost = 0.659526	Loss = 0.573001
+	seen	ROC-AUC = 0.9821	PR-AUC = 0.5495	Top-1 Acc = 0.5472	Top-5 Acc = 0.8092
+	unseen	ROC-AUC = 0.9445	PR-AUC = 0.3933	Top-1 Acc = 0.1344	Top-5 Acc = 0.4714
+	Mean	ROC-AUC = 0.9608	PR-AUC = 0.4612	Top-1 Acc = 0.3136	Top-5 Acc = 0.6181
+Epoch = 78
+	Training	Accuracy = 0.9486	Cost = 0.648291	Loss = 0.561119
+	seen	ROC-AUC = 0.9814	PR-AUC = 0.5299	Top-1 Acc = 0.5419	Top-5 Acc = 0.8197
+	unseen	ROC-AUC = 0.9456	PR-AUC = 0.3945	Top-1 Acc = 0.1360	Top-5 Acc = 0.4698
+	Mean	ROC-AUC = 0.9611	PR-AUC = 0.4533	Top-1 Acc = 0.3122	Top-5 Acc = 0.6218
+Epoch = 79
+	Training	Accuracy = 0.9604	Cost = 0.620248	Loss = 0.532374
+	seen	ROC-AUC = 0.9802	PR-AUC = 0.5450	Top-1 Acc = 0.5220	Top-5 Acc = 0.8103
+	unseen	ROC-AUC = 0.9439	PR-AUC = 0.3927	Top-1 Acc = 0.1376	Top-5 Acc = 0.4513
+	Mean	ROC-AUC = 0.9596	PR-AUC = 0.4588	Top-1 Acc = 0.3045	Top-5 Acc = 0.6072
+Epoch = 80
+	Training	Accuracy = 0.9591	Cost = 0.612057	Loss = 0.523501
+	seen	ROC-AUC = 0.9801	PR-AUC = 0.5383	Top-1 Acc = 0.5346	Top-5 Acc = 0.8082
+	unseen	ROC-AUC = 0.9456	PR-AUC = 0.3957	Top-1 Acc = 0.1521	Top-5 Acc = 0.4795
+	Mean	ROC-AUC = 0.9606	PR-AUC = 0.4576	Top-1 Acc = 0.3182	Top-5 Acc = 0.6222
+Epoch = 81
+	Training	Accuracy = 0.9586	Cost = 0.613406	Loss = 0.524185
+	seen	ROC-AUC = 0.9819	PR-AUC = 0.5644	Top-1 Acc = 0.5503	Top-5 Acc = 0.8281
+	unseen	ROC-AUC = 0.9449	PR-AUC = 0.3986	Top-1 Acc = 0.1279	Top-5 Acc = 0.4835
+	Mean	ROC-AUC = 0.9610	PR-AUC = 0.4706	Top-1 Acc = 0.3113	Top-5 Acc = 0.6331
+Epoch = 82
+	Training	Accuracy = 0.9619	Cost = 0.567095	Loss = 0.477227
+	seen	ROC-AUC = 0.9811	PR-AUC = 0.5718	Top-1 Acc = 0.5472	Top-5 Acc = 0.8229
+	unseen	ROC-AUC = 0.9443	PR-AUC = 0.3838	Top-1 Acc = 0.1271	Top-5 Acc = 0.4626
+	Mean	ROC-AUC = 0.9603	PR-AUC = 0.4654	Top-1 Acc = 0.3095	Top-5 Acc = 0.6190
+Epoch = 83
+	Training	Accuracy = 0.9604	Cost = 0.598553	Loss = 0.508045
+	seen	ROC-AUC = 0.9817	PR-AUC = 0.5698	Top-1 Acc = 0.5398	Top-5 Acc = 0.8145
+	unseen	ROC-AUC = 0.9419	PR-AUC = 0.3848	Top-1 Acc = 0.1512	Top-5 Acc = 0.4771
+	Mean	ROC-AUC = 0.9592	PR-AUC = 0.4651	Top-1 Acc = 0.3200	Top-5 Acc = 0.6236
+Epoch = 84
+	Training	Accuracy = 0.9674	Cost = 0.551883	Loss = 0.460746
+	seen	ROC-AUC = 0.9816	PR-AUC = 0.5545	Top-1 Acc = 0.5325	Top-5 Acc = 0.8197
+	unseen	ROC-AUC = 0.9457	PR-AUC = 0.3902	Top-1 Acc = 0.1344	Top-5 Acc = 0.4787
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4616	Top-1 Acc = 0.3072	Top-5 Acc = 0.6268
+Epoch = 85
+	Training	Accuracy = 0.9716	Cost = 0.545799	Loss = 0.453995
+	seen	ROC-AUC = 0.9816	PR-AUC = 0.5356	Top-1 Acc = 0.5388	Top-5 Acc = 0.8071
+	unseen	ROC-AUC = 0.9424	PR-AUC = 0.3889	Top-1 Acc = 0.1207	Top-5 Acc = 0.4586
+	Mean	ROC-AUC = 0.9594	PR-AUC = 0.4526	Top-1 Acc = 0.3022	Top-5 Acc = 0.6099
+Epoch = 86
+	Training	Accuracy = 0.9724	Cost = 0.514355	Loss = 0.421902
+	seen	ROC-AUC = 0.9802	PR-AUC = 0.5390	Top-1 Acc = 0.5335	Top-5 Acc = 0.8239
+	unseen	ROC-AUC = 0.9447	PR-AUC = 0.3873	Top-1 Acc = 0.1488	Top-5 Acc = 0.4843
+	Mean	ROC-AUC = 0.9601	PR-AUC = 0.4532	Top-1 Acc = 0.3159	Top-5 Acc = 0.6318
+Epoch = 87
+	Training	Accuracy = 0.9724	Cost = 0.535666	Loss = 0.442561
+	seen	ROC-AUC = 0.9794	PR-AUC = 0.5255	Top-1 Acc = 0.5577	Top-5 Acc = 0.8208
+	unseen	ROC-AUC = 0.9438	PR-AUC = 0.3943	Top-1 Acc = 0.1392	Top-5 Acc = 0.4674
+	Mean	ROC-AUC = 0.9593	PR-AUC = 0.4513	Top-1 Acc = 0.3209	Top-5 Acc = 0.6208
+Epoch = 88
+	Training	Accuracy = 0.9726	Cost = 0.517006	Loss = 0.423292
+	seen	ROC-AUC = 0.9821	PR-AUC = 0.5199	Top-1 Acc = 0.5503	Top-5 Acc = 0.8218
+	unseen	ROC-AUC = 0.9442	PR-AUC = 0.3991	Top-1 Acc = 0.1480	Top-5 Acc = 0.4803
+	Mean	ROC-AUC = 0.9607	PR-AUC = 0.4516	Top-1 Acc = 0.3227	Top-5 Acc = 0.6286
+Epoch = 89
+	Training	Accuracy = 0.9716	Cost = 0.500082	Loss = 0.405735
+	seen	ROC-AUC = 0.9815	PR-AUC = 0.5531	Top-1 Acc = 0.5377	Top-5 Acc = 0.8302
+	unseen	ROC-AUC = 0.9466	PR-AUC = 0.3976	Top-1 Acc = 0.1360	Top-5 Acc = 0.4714
+	Mean	ROC-AUC = 0.9617	PR-AUC = 0.4651	Top-1 Acc = 0.3104	Top-5 Acc = 0.6272
+Epoch = 90
+	Training	Accuracy = 0.9734	Cost = 0.494873	Loss = 0.399900
+	seen	ROC-AUC = 0.9804	PR-AUC = 0.5543	Top-1 Acc = 0.5398	Top-5 Acc = 0.8218
+	unseen	ROC-AUC = 0.9429	PR-AUC = 0.3964	Top-1 Acc = 0.1335	Top-5 Acc = 0.4602
+	Mean	ROC-AUC = 0.9592	PR-AUC = 0.4650	Top-1 Acc = 0.3100	Top-5 Acc = 0.6172
+Epoch = 91
+	Training	Accuracy = 0.9797	Cost = 0.480855	Loss = 0.385238
+	seen	ROC-AUC = 0.9814	PR-AUC = 0.5323	Top-1 Acc = 0.5472	Top-5 Acc = 0.8270
+	unseen	ROC-AUC = 0.9453	PR-AUC = 0.3988	Top-1 Acc = 0.1368	Top-5 Acc = 0.4537
+	Mean	ROC-AUC = 0.9610	PR-AUC = 0.4567	Top-1 Acc = 0.3150	Top-5 Acc = 0.6158
+Epoch = 92
+	Training	Accuracy = 0.9784	Cost = 0.453461	Loss = 0.357235
+	seen	ROC-AUC = 0.9808	PR-AUC = 0.5375	Top-1 Acc = 0.5419	Top-5 Acc = 0.8113
+	unseen	ROC-AUC = 0.9438	PR-AUC = 0.4078	Top-1 Acc = 0.1311	Top-5 Acc = 0.4891
+	Mean	ROC-AUC = 0.9598	PR-AUC = 0.4641	Top-1 Acc = 0.3095	Top-5 Acc = 0.6290
+Epoch = 93
+	Training	Accuracy = 0.9776	Cost = 0.456448	Loss = 0.359608
+	seen	ROC-AUC = 0.9798	PR-AUC = 0.5382	Top-1 Acc = 0.5566	Top-5 Acc = 0.8155
+	unseen	ROC-AUC = 0.9436	PR-AUC = 0.3907	Top-1 Acc = 0.1392	Top-5 Acc = 0.4618
+	Mean	ROC-AUC = 0.9593	PR-AUC = 0.4547	Top-1 Acc = 0.3204	Top-5 Acc = 0.6154
+Epoch = 94
+	Training	Accuracy = 0.9791	Cost = 0.445333	Loss = 0.347885
+	seen	ROC-AUC = 0.9815	PR-AUC = 0.5268	Top-1 Acc = 0.5545	Top-5 Acc = 0.8302
+	unseen	ROC-AUC = 0.9459	PR-AUC = 0.3968	Top-1 Acc = 0.1352	Top-5 Acc = 0.4626
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4533	Top-1 Acc = 0.3173	Top-5 Acc = 0.6222
+Epoch = 95
+	Training	Accuracy = 0.9810	Cost = 0.437450	Loss = 0.339380
+	seen	ROC-AUC = 0.9800	PR-AUC = 0.5359	Top-1 Acc = 0.5325	Top-5 Acc = 0.8166
+	unseen	ROC-AUC = 0.9392	PR-AUC = 0.3856	Top-1 Acc = 0.1311	Top-5 Acc = 0.4553
+	Mean	ROC-AUC = 0.9569	PR-AUC = 0.4509	Top-1 Acc = 0.3054	Top-5 Acc = 0.6122
+Epoch = 96
+	Training	Accuracy = 0.9804	Cost = 0.419910	Loss = 0.321163
+	seen	ROC-AUC = 0.9819	PR-AUC = 0.5520	Top-1 Acc = 0.5430	Top-5 Acc = 0.8229
+	unseen	ROC-AUC = 0.9444	PR-AUC = 0.3952	Top-1 Acc = 0.1456	Top-5 Acc = 0.4867
+	Mean	ROC-AUC = 0.9607	PR-AUC = 0.4633	Top-1 Acc = 0.3182	Top-5 Acc = 0.6327
+Epoch = 97
+	Training	Accuracy = 0.9841	Cost = 0.419305	Loss = 0.319980
+	seen	ROC-AUC = 0.9829	PR-AUC = 0.5450	Top-1 Acc = 0.5524	Top-5 Acc = 0.8354
+	unseen	ROC-AUC = 0.9420	PR-AUC = 0.3887	Top-1 Acc = 0.1287	Top-5 Acc = 0.4562
+	Mean	ROC-AUC = 0.9598	PR-AUC = 0.4566	Top-1 Acc = 0.3127	Top-5 Acc = 0.6208
+Epoch = 98
+	Training	Accuracy = 0.9820	Cost = 0.412676	Loss = 0.312794
+	seen	ROC-AUC = 0.9814	PR-AUC = 0.5115	Top-1 Acc = 0.5419	Top-5 Acc = 0.8229
+	unseen	ROC-AUC = 0.9443	PR-AUC = 0.3985	Top-1 Acc = 0.1368	Top-5 Acc = 0.4594
+	Mean	ROC-AUC = 0.9604	PR-AUC = 0.4476	Top-1 Acc = 0.3127	Top-5 Acc = 0.6172
+Epoch = 99
+	Training	Accuracy = 0.9838	Cost = 0.402458	Loss = 0.301986
+	seen	ROC-AUC = 0.9813	PR-AUC = 0.5220	Top-1 Acc = 0.5472	Top-5 Acc = 0.8333
+	unseen	ROC-AUC = 0.9460	PR-AUC = 0.3921	Top-1 Acc = 0.1384	Top-5 Acc = 0.4690
+	Mean	ROC-AUC = 0.9613	PR-AUC = 0.4485	Top-1 Acc = 0.3159	Top-5 Acc = 0.6272
+Epoch = 100
+	Training	Accuracy = 0.9833	Cost = 0.399606	Loss = 0.298584
+	seen	ROC-AUC = 0.9804	PR-AUC = 0.5412	Top-1 Acc = 0.5419	Top-5 Acc = 0.8281
+	unseen	ROC-AUC = 0.9452	PR-AUC = 0.3992	Top-1 Acc = 0.1303	Top-5 Acc = 0.4634
+	Mean	ROC-AUC = 0.9605	PR-AUC = 0.4608	Top-1 Acc = 0.3091	Top-5 Acc = 0.6218
