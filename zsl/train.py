@@ -69,7 +69,7 @@ def train(V_train, Y_train, T_train, S_train,
         Y_unseen = 2. * Y_unseen - 1.
 
     # mlp_t_layers, mlp_v_layers = [T_train.shape[1], 300, 50], [V_train.shape[1], 200, 50]
-    mlp_t_layers, mlp_v_layers = [T_train.shape[1] + hid_dim, 300, 50], [V_train.shape[1], 200, 50]
+    mlp_t_layers, mlp_v_layers = [T_train.shape[1] + hid_dim, 50], [V_train.shape[1], 200, 50]
     model = FC(mlp_t_layers, mlp_v_layers, word_dim=S_train.shape[2], hid_dim=hid_dim)
     symbols = model.define_functions(obj=obj)
 
@@ -217,7 +217,7 @@ def test1():
     print 'Test %.3f seconds' % (end_time - start_time)
 
 
-def test2(resource):
+def test2(resource, step=30):
     dataset = 'bird-2010'
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
@@ -237,7 +237,7 @@ def test2(resource):
     if 's' not in resource:
         hid_dim = 0
     V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen, V_unseen, Y_unseen, T_unseen, S_unseen\
-        = load_data.prepare_data(matroot, split_file, unseen_file,
+        = load_data.prepare_data(matroot, split_file, unseen_file, step=step,
                                  wiki_npy=wiki_npy1, boa_npy=boa_npy1, summary_npy=summary_npy1)
     print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
@@ -248,6 +248,6 @@ def test2(resource):
 
 
 if __name__ == '__main__':
-    test2('w')
+    test2('s', step=10)
 
 
