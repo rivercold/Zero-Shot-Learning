@@ -69,7 +69,10 @@ def train(V_train, Y_train, T_train, S_train,
         Y_unseen = 2. * Y_unseen - 1.
 
     # mlp_t_layers, mlp_v_layers = [T_train.shape[1], 300, 50], [V_train.shape[1], 200, 50]
-    mlp_t_layers, mlp_v_layers = [T_train.shape[1] + hid_dim, 50], [V_train.shape[1], 200, 50]
+    if 'w' in resource:
+        mlp_t_layers, mlp_v_layers = [T_train.shape[1] + hid_dim, 300, 50], [V_train.shape[1], 200, 50]
+    else:
+        mlp_t_layers, mlp_v_layers = [T_train.shape[1] + hid_dim, 50], [V_train.shape[1], 200, 50]
     model = FC(mlp_t_layers, mlp_v_layers, word_dim=S_train.shape[2], hid_dim=hid_dim)
     symbols = model.define_functions(obj=obj)
 
@@ -217,8 +220,7 @@ def test1():
     print 'Test %.3f seconds' % (end_time - start_time)
 
 
-def test2(resource, step=30):
-    dataset = 'bird-2010'
+def test2(resource, dataset='bird-2010', step=30):
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
     unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
@@ -248,6 +250,6 @@ def test2(resource, step=30):
 
 
 if __name__ == '__main__':
-    test2('s', step=10)
+    test2('was', dataset='bird-2010', step=10)
 
 
