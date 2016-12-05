@@ -38,7 +38,7 @@ class FC(object):
         self.W_i, self.b_i = self.init_para(self.word_dim, self.hid_dim)
         self.U_i, _ = self.init_para(self.hid_dim, self.hid_dim)
         self.W_f, self.b_f = self.init_para(self.word_dim, self.hid_dim)
-        self.U_f, _ = self.init_para(self.word_dim, self.hid_dim)
+        self.U_f, _ = self.init_para(self.hid_dim, self.hid_dim)
         self.W_o, self.b_o = self.init_para(self.word_dim, self.hid_dim)
         self.U_o, _ = self.init_para(self.hid_dim, self.hid_dim)
         self.W_c, self.b_c = self.init_para(self.word_dim, self.hid_dim)
