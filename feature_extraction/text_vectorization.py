@@ -45,11 +45,18 @@ def get_tfidf(raw_file, wiki_npy, voc_file, min_df=3):
     tfidf = transformer.fit_transform(X)
     tfidf = tfidf.toarray()
     voc = vectorizer.get_feature_names()
-    print voc.shape
+    print len(voc)
 
     numpy.save(wiki_npy, tfidf)
     writer = open(voc_file, 'w')
     for word in voc:
-        writer.write(word + '\n')
+        writer.write(word.encode('utf-8') + '\n')
     writer.close()
 
+
+def test1():
+    get_tfidf('../wiki/api_extracted/full_filtered.txt',
+              '../features/wiki/wiki.npy', '../features/wiki/vocabulary.txt')
+
+if __name__ == '__main__':
+    test1()

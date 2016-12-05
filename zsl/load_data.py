@@ -130,8 +130,8 @@ def prepare_data(matroot, split_file, unseen_file, wiki_npy=None, boa_npy=None, 
 
 
 def prepare_wiki_data(npy_file):
-    wiki = pickle.load(open(npy_file, 'rb'))
-    return numpy.asarray(wiki.todense(), dtype=theano.config.floatX)
+    wiki = numpy.load(npy_file)
+    return numpy.asarray(wiki, dtype=theano.config.floatX)
 
 
 def prepare_attribute_data(npy_file):
