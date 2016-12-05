@@ -246,6 +246,6 @@ def test2(resource):
 
 
 if __name__ == '__main__':
-    test2()
+    test2('was')
 
 
