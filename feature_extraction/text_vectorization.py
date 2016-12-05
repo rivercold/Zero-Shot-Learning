@@ -1,6 +1,7 @@
 __author__ = 'yuhongliang324'
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+import numpy
 
 
 def load_stopwords():
@@ -30,7 +31,7 @@ def preprocess_text(line):
     return line
 
 
-def get_tfidf(raw_file, voc_file, min_df=3):
+def get_tfidf(raw_file, wiki_npy, voc_file, min_df=3):
     reader = open(raw_file)
     lines = reader.readlines()
     reader.close()
@@ -42,4 +43,13 @@ def get_tfidf(raw_file, voc_file, min_df=3):
     X = X.toarray()
     transformer = TfidfTransformer()
     tfidf = transformer.fit_transform(X)
+    tfidf = tfidf.toarray()
     voc = vectorizer.get_feature_names()
+    print voc.shape
+
+    numpy.save(wiki_npy, tfidf)
+    writer = open(voc_file, 'w')
+    for word in voc:
+        writer.write(word + '\n')
+    writer.close()
+
