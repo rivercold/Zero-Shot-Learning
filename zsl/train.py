@@ -60,7 +60,7 @@ def validate(test_model, writer, Y_test, batch_size=100, seen='seen'):
 def train(V_train, Y_train, T_train, S_train,
           V_seen, Y_seen, T_seen, S_seen,
           V_unseen, Y_unseen, T_unseen, S_unseen,
-          obj='BCE', batch_size=200, max_epoch=100, store=False):
+          obj='BCE', hid_dim=0, batch_size=200, max_epoch=100, store=False):
 
     if not obj == 'BCE':  # Change to {-1, 1} coding
         Y_train = 2. * Y_train - 1.
@@ -68,8 +68,8 @@ def train(V_train, Y_train, T_train, S_train,
         Y_unseen = 2. * Y_unseen - 1.
 
     # mlp_t_layers, mlp_v_layers = [T_train.shape[1], 300, 50], [V_train.shape[1], 200, 50]
-    mlp_t_layers, mlp_v_layers = [T_train.shape[1], 300, 50], [V_train.shape[1], 200, 50]
-    model = FC(mlp_t_layers, mlp_v_layers)
+    mlp_t_layers, mlp_v_layers = [T_train.shape[1] + hid_dim, 300, 50], [V_train.shape[1] + hid_dim, 200, 50]
+    model = FC(mlp_t_layers, mlp_v_layers, word_dim=S_train.shape[2], hid_dim=hid_dim)
     symbols = model.define_functions(obj=obj)
 
     model_fn = model.name + '_' + obj\
@@ -225,7 +225,7 @@ def test2():
 
     V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen, V_unseen, Y_unseen, T_unseen, S_unseen\
         = load_data.prepare_data(matroot, split_file, unseen_file, summary_npy=summary_npy)
-    print V_train.shape, Y_train.shape, T_train.shape
+    print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
           V_unseen, Y_unseen, T_unseen, S_unseen, obj='Eucl')

@@ -110,8 +110,13 @@ class FC(object):
             self.theta += [W, b]
 
     def init_para(self, d1, d2):
+        if d1 + d2 == 0:
+            low, high = 0, 0
+        else:
+            high = numpy.sqrt(6. / float(d1 + d2))
+            low = - high
         W_values = numpy.asarray(self.rng.uniform(
-            low=-numpy.sqrt(6. / float(d1 + d2)), high=numpy.sqrt(6. / float(d1 + d2)), size=(d1, d2)),
+            low=low, high=high, size=(d1, d2)),
             dtype=theano.config.floatX)
         W = theano.shared(value=W_values, borrow=True)
         b_values = numpy.zeros((d2,), dtype=theano.config.floatX)
