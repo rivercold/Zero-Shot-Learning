@@ -1,7 +1,8 @@
 import urllib, json
 import re
+import nltk
 
-def extract_text():
+def fetch_text():
     with open('full.txt', 'w') as f_full:
         with open('url.txt', 'r') as f:
             for line in f:
@@ -19,6 +20,7 @@ def extract_text():
                 extract = full_data["query"]["pages"][key]["extract"]
 
                 f_full.write(extract.replace('\n', ' ').encode('utf-8') + '\n')
+
 
 def extract_section():
     regex = ur' ={2,4} ([\w ]+) ={2,4} '
@@ -47,7 +49,7 @@ def filter_text():
     regex_title = r' ={2,4} ([\w ]+) ={2,4} '
 
     filtered_titles = set()
-    with open('filtered_titles.txt', 'r') as f:
+    with open('filter_titles.txt', 'r') as f:
         for line in f:
             filtered_titles.add(line.rstrip())
 
@@ -65,8 +67,6 @@ def filter_text():
 
                 new_contents = ' '.join(cur_contents)
                 f_writer.write(new_contents + '\n')
-                
-                
 
     # print all_sections
     with open('all_sections.txt', 'w') as f_full:
@@ -75,9 +75,24 @@ def filter_text():
             f_full.write('%d %s' % (all_sections[w], w) + '\n')
 
 
+def tokenize():
+    first50_vocab = set()
+
+    with open('full_filtered.txt', 'r') as f:
+        for line in f:
+            tokens = nltk.word_tokenize(line.rstrip().lower().decode('utf-8'))[:50]
+            first50_vocab = first50_vocab.union(tokens)
+
+    with open('first50_vocab.txt', 'w') as f:
+        for v in first50_vocab:
+            f.write(v.encode('utf-8') + '\n')
+
+
 if __name__ == '__main__':
-    # extract_text()
+    # fetch_text()
 
     # extract_section()
 
-    filter_text()
+    # filter_text()
+
+    tokenize()
