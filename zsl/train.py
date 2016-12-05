@@ -221,10 +221,13 @@ def test2():
     matroot = '../features/' + dataset + '/resnet'
     split_file = '../features/' + dataset + '/new_split/train_test_split.txt'
     unseen_file = '../features/' + dataset + '/new_split/unseen_classes.txt'
+    wiki_npy = '../features/wiki/wiki.npy'
+    boa_npy = '../features/Bag of attributes/data.npy'
     summary_npy = '../features/summary/tensor.npy'
 
     V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen, V_unseen, Y_unseen, T_unseen, S_unseen\
-        = load_data.prepare_data(matroot, split_file, unseen_file, summary_npy=summary_npy)
+        = load_data.prepare_data(matroot, split_file, unseen_file,
+                                 wiki_npy=wiki_npy, boa_npy=boa_npy, summary_npy=summary_npy)
     print V_train.shape, Y_train.shape, T_train.shape, S_train.shape
     start_time = timeit.default_timer()
     train(V_train, Y_train, T_train, S_train, V_seen, Y_seen, T_seen, S_seen,
