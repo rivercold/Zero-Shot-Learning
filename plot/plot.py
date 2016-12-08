@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
-log_file = '../log/fc_BCE_tmlp_6366-300-50_vmlp_1000-200-50_bs_200_1109-00-52-51.log'
+log_file = '../log/fc_Hinge_tmlp_4456-300-50_vmlp_1000-200-50_bird-2011_was.log'
 
 font = {
         'size'   : 14}
@@ -30,7 +30,7 @@ with open(log_file, 'r') as f:
 
 x = xrange(1, 1 + len(seen[0]))
 
-metrics = ['ROC-AUC', 'PR-AUC', 'Top-1 Acc', 'Top-5 Acc']
+metrics = ['ROC-AUC', 'PR-AUC', 'Top-1 Accurracy', 'Top-5 Accurracy']
 
 for i, metric in enumerate(metrics):
     fig = plt.figure(i, figsize=(10, 5))
